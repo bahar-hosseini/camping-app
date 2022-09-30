@@ -5,7 +5,7 @@ import axios from "axios";
 function App() {
   useEffect(() => {
     axios.get("/list").then((res) => {
-      console.log(res);
+      console.log(res.data);
     });
   }, []);
 
