@@ -2,13 +2,9 @@ import "./App.css";
 // import { useEffect, useState } from "react";
 // import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
-import { Home } from "./components/Home";
-// import { Package } from "./components/Package";
-// import { PackageList } from "./components/PackageList";
-// import { NewPackage } from "./components/NewPackage";
-// import {PackageLayout} from "./PackageLayout"
-import {NotFound} from "./components/NotFound"
-import { UserDash } from "./components/UserDash";
+import { Home } from "./pages/Home";
+import {NotFound} from "./pages/NotFound"
+import { UserDash } from "./pages/UserDash";
 import {PackageRoutes} from "./PackageRoutes"
 
 function App() {
