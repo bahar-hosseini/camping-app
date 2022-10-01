@@ -2,7 +2,7 @@
 
 const packages = [
   {
-    image: "image",
+    image: "../assets/home_square.png",
     id: 1,
     user_id: 2,
     price: 50,
@@ -17,7 +17,7 @@ const packages = [
     availability: true,
   },
   {
-    image: "image",
+    image: "../assets/home_square.png",
     id: 2,
     user_id: 2,
     price: 60,
@@ -32,7 +32,7 @@ const packages = [
     availability: true,
   },
   {
-    image: "image",
+    image: "../assets/home_square.png",
     id: 3,
     user_id: 3,
     price: 70,
@@ -47,7 +47,7 @@ const packages = [
     availability: true,
   },
   {
-    image: "image",
+    image: "../assets/home_square.png",
     id: 4,
     user_id: 3,
     price: 80,

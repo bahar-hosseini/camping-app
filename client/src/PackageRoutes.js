@@ -1,4 +1,4 @@
-import { Package } from "./components/Package";
+import { Package } from "./pages/Package";
 import { PackageList } from "./components/PackageList";
 import { NewPackage } from "./components/NewPackage";
 import { PackageLayout } from "./PackageLayout";
