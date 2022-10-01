@@ -17,8 +17,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.get('/list', (req,res) => {
-  // return res.json({list:['tshit', 'egg', 'dog']})
-  return res.json(packages)
+   return res.json({list:['tshit', 'egg', 'dog']})
+  //return res.json(packages)
 
 })
 
