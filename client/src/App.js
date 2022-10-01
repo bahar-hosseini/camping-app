@@ -1,24 +1,24 @@
 import "./App.css";
-//import { useEffect, useState } from "react";
-//import axios from "axios";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 import { Home } from "./components/Home";
-import { Package } from "./components/Package";
-import { PackageList } from "./components/PackageList";
-import { NewPackage } from "./components/NewPackage";
-import {PackageLayout} from "./PackageLayout"
+// import { Package } from "./components/Package";
+// import { PackageList } from "./components/PackageList";
+// import { NewPackage } from "./components/NewPackage";
+// import {PackageLayout} from "./PackageLayout"
 import {NotFound} from "./components/NotFound"
 import { UserDash } from "./components/UserDash";
 import {PackageRoutes} from "./PackageRoutes"
 
 function App() {
-  //const [packages, setPackages] = useState([]);
+  // const [packages, setPackages] = useState([]);
 
-  // const [list, setList] = useState([]);
+  //const [list, setList] = useState([]);
   // useEffect(() => {
   //   axios.get("/list").then((res) => {
   //     console.log(res.data);
-  //     setList(res.data.list);
+  //     setPackages(res.data.list);
   //   });
   // }, []);
 
@@ -41,18 +41,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/package/*" element={<PackageRoutes />} />
-          
-        
         <Route path="/userDash" element={<UserDash />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
       {/* <div className="App">
-          {list.length ? (
+          {packages.length ? (
             <div>
               <h1>List</h1>
               <ul>
-                {list.map((item) => (
+                {packages.map((item) => (
                   <li>{item}</li>
                 ))}
               </ul>
