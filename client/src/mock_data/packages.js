@@ -12,6 +12,7 @@ const packages = [
     lantern_description: "This is my lantern",
     cooking_description: "This is my cooking",
     location: 50,
+    availability: true,
   },
   {
     image: "image",
@@ -26,6 +27,7 @@ const packages = [
     lantern_description: "This is my lantern",
     cooking_description: "This is my cooking",
     location: 100,
+    availability: true,
   },
   {
     image: "image",
@@ -40,6 +42,7 @@ const packages = [
     lantern_description: "This is my lantern",
     cooking_description: "This is my cooking",
     location: 150,
+    availability: true,
   },
   {
     image: "image",
@@ -54,6 +57,7 @@ const packages = [
     lantern_description: "This is my lantern",
     cooking_description: "This is my cooking",
     location: 200,
+    availability: true,
   },
 ];
 
