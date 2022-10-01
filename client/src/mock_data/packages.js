@@ -1,3 +1,5 @@
+// import homeImg from "../assets/home_square.png";
+
 const packages = [
   {
     image: "image",

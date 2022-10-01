@@ -1,4 +1,5 @@
 import React from "react";
+import homeImg from "../assets/home_square.png"
 // import classnames as 'classnames';
 
 export default function PackageListItem(props) {
@@ -18,7 +19,7 @@ export default function PackageListItem(props) {
         
       
       {/* <div classNames='card'> */}
-      <img src={props.image} alt="img" />
+      <img src={homeImg} alt="img" width="100px" />
       <h2>category {props.category}</h2>
       <h4>location {props.location}</h4>
       <h4>availability {props.availability}</h4>
