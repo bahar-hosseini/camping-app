@@ -1,3 +1,7 @@
+import React from "react";
+
+import { PackageList } from "../components/PackageList";
+
 export function Home() {
-  return <h1>This is my Home</h1>;
+  return <PackageList />;
 }

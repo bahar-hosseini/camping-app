@@ -1,6 +1,5 @@
 const packages = [
   {
-    key: 1,
     image: "image",
     id: 1,
     user_id: 2,
@@ -15,7 +14,6 @@ const packages = [
     location: 50,
   },
   {
-    key: 2,
     image: "image",
     id: 2,
     user_id: 2,
@@ -30,7 +28,6 @@ const packages = [
     location: 100,
   },
   {
-    key: 3,
     image: "image",
     id: 3,
     user_id: 3,
@@ -45,7 +42,6 @@ const packages = [
     location: 150,
   },
   {
-    key: 4,
     image: "image",
     id: 4,
     user_id: 3,
@@ -61,4 +57,4 @@ const packages = [
   },
 ];
 
-module.exports = {packages}
+module.exports = { packages };
