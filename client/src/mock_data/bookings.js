@@ -25,3 +25,5 @@ const bookings = [
     user_id: 1,
   },
 ];
+
+module.exports = { bookings};
