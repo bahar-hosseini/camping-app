@@ -3,8 +3,8 @@ import "./App.css";
 // import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 import { Home } from "./pages/Home";
-import {NotFound} from "./pages/NotFound"
-import { UserDash } from "./pages/UserDash";
+import {NotFound} from "./pages/NotFound";
+import { Bookings } from "./pages/Bookings";
 import {PackageRoutes} from "./PackageRoutes"
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
             <Link to="/package">Package</Link>
           </li>
           <li>
-            <Link to="/userDash">UserDash</Link>
+            <Link to="/bookings">Bookings</Link>
           </li>
         </ul>
       </nav>
@@ -37,7 +37,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/package/*" element={<PackageRoutes />} />
-        <Route path="/userDash" element={<UserDash />} />
+        <Route path="/bookings" element={<Bookings />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
