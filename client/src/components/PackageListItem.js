@@ -1,5 +1,6 @@
 import React from "react";
-import homeImg from "../assets/home_square.png"
+// import homeImg from "../assets/home_square.png"
+import { Link } from "react-router-dom";
 // import classnames as 'classnames';
 
 export default function PackageListItem(props) {
@@ -12,24 +13,22 @@ export default function PackageListItem(props) {
   // price={packageItem.price}
   // category={packageItem.category}
   // location={packageItem.location}
-  console.log(props, "test here");
+  // console.log(props, "test here");
   return (
-    <a href="userDash" >
-      {/* ^ link to each indv. id product  */}
-    <div>
-       
-        
-      
-      {/* <div classNames='card'> */}
-      <img src={homeImg} alt="img" width="100px" />
-      <h2>category {props.category}</h2>
-      <h4>location {props.location}</h4>
-      <h4>availability {props.availability}</h4>
-      <h4>price: {props.price}</h4>
-    </div>
-
-    </a>
-   
+    <Link to={"/package/" + props.id}>
+      <div>
+        {/* <div classNames='card'> */}
+        <img
+          src={require(`../assets/${props.image}.png`)}
+          alt="img"
+          width="100px"
+        />
+        <h2>category {props.category}</h2>
+        <h4>location {props.location}</h4>
+        <h4>availability {props.availability}</h4>
+        <h4>price: {props.price}</h4>
+      </div>
+    </Link>
   );
 }
 
