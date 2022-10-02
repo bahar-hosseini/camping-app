@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom";
 import { packages } from "../mock_data/packages";
 import packageImg from "../assets/product_page.png";
+import { ReactCalendar } from "../components/Calendar";
+import 'react-calendar/dist/Calendar.css';
+
+
 
 export function Package() {
   const { id } = useParams();
@@ -35,6 +39,10 @@ export function Package() {
           <button>BOOK</button>
         </ul>
       </div>
+
+      {/* <ReactCalendar /> */}
+      {/* availability calendar left here (stretch) */}
+      
     </>
   );
 }
