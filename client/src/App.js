@@ -1,11 +1,12 @@
 import "./App.css";
 // import { useEffect, useState } from "react";
 // import axios from "axios";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import {NotFound} from "./pages/NotFound";
 import { Bookings } from "./pages/Bookings";
 import {PackageRoutes} from "./PackageRoutes"
+import { Nav } from "./components/Nav";
 
 function App() {
   // const [packages, setPackages] = useState([]);
@@ -20,19 +21,8 @@ function App() {
 
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/package">Package</Link>
-          </li>
-          <li>
-            <Link to="/bookings">Bookings</Link>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
+        
 
       <Routes>
         <Route path="/" element={<Home />} />
