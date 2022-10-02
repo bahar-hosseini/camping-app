@@ -4,7 +4,6 @@ import { packages } from "../mock_data/packages";
 import PackageListItem from "./PackageListItem";
 
 export function PackageList() {
-  console.log(packages);
 
         const packageGallery = packages.map((packageItem) => {
           return (

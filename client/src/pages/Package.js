@@ -5,13 +5,6 @@ import packageImg from "../assets/product_page.png";
 export function Package() {
   const { id } = useParams();
   const currentPackage = packages.filter((pack) => pack.id === Number(id));
-  console.log(currentPackage);
-
-  /*
-  input: an array of objects
-
-  output: an object where the object.id is the param
-  */
 
   return (
     <>

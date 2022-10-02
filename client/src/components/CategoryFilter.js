@@ -1,6 +1,6 @@
 import { Link, Outlet, useSearchParams } from "react-router-dom";
 import { useState } from "react";
-export function PackageLayout() {
+export function CategoryFilter() {
   const [searchParams, setSearchParams] = useSearchParams({n:1})
 
   const number = searchParams.get("n")

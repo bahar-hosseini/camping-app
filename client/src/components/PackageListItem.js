@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 // import classnames as 'classnames';
 
 export default function PackageListItem(props) {
-  console.log("IMAGE LINK");
-  console.log(props.image);
   // key={packageItem.id}
   // image={packageItem.image}
   // id={packageItem.id}
