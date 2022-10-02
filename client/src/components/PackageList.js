@@ -2,25 +2,29 @@
 
 import { packages } from "../mock_data/packages";
 import PackageListItem from "./PackageListItem";
+import "./styles/PackageList.scss";
 
 export function PackageList() {
+  const packageGallery = packages.map((packageItem) => {
+    return (
+      <PackageListItem
+        key={packageItem.id}
+        image={packageItem.image}
+        id={packageItem.id}
+        userID={packageItem.user_id}
+        price={packageItem.price}
+        category={packageItem.category}
+        location={packageItem.location}
+        availability={packageItem.availability}
+      />
+    );
+  });
 
-        const packageGallery = packages.map((packageItem) => {
-          return (
-            <PackageListItem
-              key={packageItem.id}
-              image={packageItem.image}
-              id={packageItem.id}
-              userID={packageItem.user_id}
-              price={packageItem.price}
-              category={packageItem.category}
-              location={packageItem.location}
-              availability={packageItem.availability}
-            />
-          );
-        });
-
-  return <ul>{packageGallery}</ul>;
+  return (
+    <div className="gallery-container">
+      <div className="package-gallery">{packageGallery}</div>
+    </div>
+  );
 }
 
 // <>
