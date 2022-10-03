@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   text-decoration: none;
-
+  &:hover{
+    box-shadow: 20px 20px 10px grey;
+    }
   border-radius: 23px;
   padding: 5px;
   filter: drop-shadow(0px 4px 15px #00000030);
