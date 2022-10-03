@@ -2,6 +2,7 @@
  * Internal Modules
  **/
 import { bookings } from '../mock_data/bookings'
+import './styles/BookingBox.scss'
 
 export function BookingBox(props) {
   //  Handle button function: when we click on that button we are adding a new booking for that user (for now user 1)
@@ -13,17 +14,18 @@ export function BookingBox(props) {
     bookingObj['package_id'] = props.packageID
     bookings.push(bookingObj)
     console.log(bookings)
-    alert("Package's added ")
+    alert(`Package ${props.packageID} added `)
   }
 
   return (
-    <div>
-      <ul>
-        {/* pass price down as a prop */}
-        <li>Price:{props.price}</li>
-        <li>Booking tool stuff (start date end date party size)</li>
-        <button onClick={handleBooking}>BOOK</button>
-      </ul>
+    <div className='booking-box-container'>
+      <div className='booking-info'>
+        <h4>Price:{props.price}</h4>
+        <h4>Booking tool stuff (start date end date party size)</h4>
+      </div>
+      <button className='btn-booking' onClick={handleBooking}>
+        BOOK
+      </button>
     </div>
   )
 }
