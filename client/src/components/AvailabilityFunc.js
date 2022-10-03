@@ -43,92 +43,49 @@ const multipleDateRangeOverlaps = function (arry) {
 };
 
 const mDROwithUserRange = function (packageArry, userRange) {
-  const mergedArrys = packageArry.concat(userRange)
+  const mergedArrys = packageArry.concat(userRange);
   var i, j;
   if (mergedArrys.length % 2 !== 0)
     throw new TypeError("Arguments length must be a multiple of 2");
 
   for (i = 0; i < mergedArrys.length - 2; i += 2) {
     for (j = i + 2; j < mergedArrys.length; j += 2) {
-      if (dateRangeOverlaps(mergedArrys[i], mergedArrys[i + 1], mergedArrys[j], mergedArrys[j + 1]))
+      if (
+        dateRangeOverlaps(
+          mergedArrys[i],
+          mergedArrys[i + 1],
+          mergedArrys[j],
+          mergedArrys[j + 1]
+        )
+      )
         return true;
     }
   }
   return false;
 };
 
-// console.log(allDates(bookingForSpecificPackage(4)));
-// console.log(multipleDateRangeOverlaps(allDates(bookingForSpecificPackage(4))));
-
-//overlap
-// console.log(
-//   multipleDateRangeOverlaps(
-//     "2022-10-07T04:00:00.000Z",
-//     "2022-10-08T04:00:00.000Z",
-//     "2022-10-09T04:00:00.000Z",
-//     "2022-10-10T04:00:00.000Z",
-//     "2022-10-10T04:00:00.000Z",
-//     "2022-10-12T04:00:00.000Z"
-//   )
-// );
-
-// const testData = [
-//   "2022-10-07T04:00:00.000Z",
-//   "2022-10-08T04:00:00.000Z",
-//   "2022-10-09T04:00:00.000Z",
-//   "2022-10-10T04:00:00.000Z",
-// ];
-// console.log(multipleDateRangeOverlaps(testData))
-//does not overlap
-// console.log(
-//   multipleDateRangeOverlaps(
-//     "2022-10-07T04:00:00.000Z",
-//     "2022-10-08T04:00:00.000Z",
-//     "2022-10-09T04:00:00.000Z",
-//     "2022-10-10T04:00:00.000Z"
-//   )
-// );
-
-// 1. add SD and ED to booking **DONE
-// 2. filter all bookings for one package  **DONE
-// 3. get all SD and ED for that one package ( array) **DONE
-// 4. get user's requested SD and ED (1 SD and ED )
-// 5.use the function to check overlap
-// 6.tada!!
-//home page filter box (start - end) -> output packages without overlap
-//Booking -> if no overlap, add booking
-
-
-
 const userReqRange = ["2022-10-07T04:00:00.000Z", "2022-10-09T04:00:00.000Z"];
 
 const packageArry = allPackages.packages;
 
-
-//returns an array of available packages for user's date range. Loop through these id's for filtered output 
+//homepage filter
+//returns an array of available packages for user's date range. Loop through these id's for filtered output
 const avilableIDArry = function (userRange) {
-  let resultArry = []
+  let resultArry = [];
   for (let objs of packageArry) {
     const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id));
-    if (!mDROwithUserRange(userRange, packageBookingsArry)){
-      resultArry.push(objs.id)
+    if (!mDROwithUserRange(userRange, packageBookingsArry)) {
+      resultArry.push(objs.id);
     }
-
   }
-  return resultArry
+  return resultArry;
 };
 
-// console.log(avilableIDArry(userReqRange))
-
-
-
-const bookingConflictChecker = function(userRange, packageID) {
+//Create new booking: this is the check prior to adding the new booking
+//returns false if no overlap, returns true if there is overlap
+const bookingConflictChecker = function (userRange, packageID) {
   const packageBookingsArry = allDates(bookingForSpecificPackage(packageID));
-  
-  return mDROwithUserRange(userRange, packageBookingsArry)
-    
-  
-}
-console.log(bookingConflictChecker(userReqRange, 4))
-//
-//
+  return mDROwithUserRange(userRange, packageBookingsArry);
+};
+
+console.log(bookingConflictChecker(userReqRange, 4));
