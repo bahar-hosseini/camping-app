@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 // import { Routes, Route } from "react-router-dom";
 
 export function CategoryLinksBar() {
-  // const [searchParams, setSearchParams] = useSearchParams({ n: 1 });
 
-  // const number = searchParams.get("n");
   return (
     <>
       <ul>
@@ -24,18 +22,8 @@ export function CategoryLinksBar() {
         </li>
       </ul>
 
-      {/* todo: */}
-      {/* <Link to={`/package/${number}`}>Package {number}</Link>
-      <br />
-      <Link to="/package/new">New Package</Link>
-      <br /> */}
 
-      {/* <Outlet />
-       <input
-        type="number"
-         value={number}
-         onChange={e => setSearchParams({n: e.target.value})}
-       /> */}
+
     </>
   );
 }
