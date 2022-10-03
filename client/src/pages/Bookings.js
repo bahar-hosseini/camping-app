@@ -23,7 +23,7 @@ export function Bookings() {
 
   const formattedBookings = userBookings.map((booking) => {
     const currentPackage = getPackageForBooking(booking.package_id)[0]
-    console.log('AHHHH', currentPackage)
+    //console.log('AHHHH', currentPackage)
     return (
       <div>
         <img src={bookingImg} alt='img' width='200px' />

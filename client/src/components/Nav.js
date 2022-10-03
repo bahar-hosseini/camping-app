@@ -1,5 +1,6 @@
 import {  Link } from "react-router-dom";
 import React from "react";
+import { NavDropdownMenu } from "./NavDropdownMenu";
 
 export function Nav() {
   return (
@@ -17,6 +18,7 @@ export function Nav() {
           </li>
         </ul>
       </nav>
+    <NavDropdownMenu />
     </>
   );
 }
