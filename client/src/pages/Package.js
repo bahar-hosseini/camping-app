@@ -1,14 +1,15 @@
-import { useParams } from "react-router-dom";
-import { packages } from "../mock_data/packages";
-import packageImg from "../assets/product_page.png";
-import { ReactCalendar } from "../components/Calendar";
-import { BookingBox } from "../components/BookingBox";
-import { PackageInfoCard } from "../components/PackageInfoCard";
-import "react-calendar/dist/Calendar.css";
+import './styles/Package.scss'
+import { useParams } from 'react-router-dom'
+import { packages } from '../mock_data/packages'
+import packageImg from '../assets/product_page.png'
+import { ReactCalendar } from '../components/Calendar'
+import { BookingBox } from '../components/BookingBox'
+import { PackageInfoCard } from '../components/PackageInfoCard'
+import 'react-calendar/dist/Calendar.css'
 
 export function Package() {
-  const { id } = useParams();
-  const currentPackage = packages.filter((pack) => pack.id === Number(id));
+  const { id } = useParams()
+  const currentPackage = packages.filter((pack) => pack.id === Number(id))
 
   // <PackageListItem
   //       key={packageItem.id}
@@ -26,7 +27,7 @@ export function Package() {
       <h1>This package type is: {id}</h1>
 
       <div>
-        <img src={packageImg} alt="img" width="100px" />
+        <img src={packageImg} alt='img' width='100px' />
         {/* this should be a component */}
         <PackageInfoCard
           tent={currentPackage[0].tent_description}
@@ -42,9 +43,12 @@ export function Package() {
         <br />
         {currentPackage[0].description}
       </div>
-      <BookingBox />
+      <BookingBox
+        price={currentPackage[0].price}
+        packageID={currentPackage[0].id}
+      />
       {/* <ReactCalendar /> */}
       {/* availability calendar left here (stretch) */}
     </>
-  );
+  )
 }

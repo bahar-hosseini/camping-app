@@ -10,25 +10,25 @@ export function PackageInfoCard(props) {
       <tbody>
         <tr>
           <td>
-            <img src={TentIcon} alt="tent" width="50px"></img>
+            <img src={TentIcon} alt="tent" width="40px"></img>
           </td>
           <td>{props.tent}</td>
         </tr>
         <tr>
           <td>
-            <img src={BagIcon} alt="sleeping_bag" width="50px"></img>
+            <img src={BagIcon} alt="sleeping_bag" width="40px"></img>
           </td>
           <td width="300px">{props.bags}</td>
         </tr>
         <tr>
           <td>
-            <img src={LanternIcon} alt="lantern" width="50px"></img>
+            <img src={LanternIcon} alt="lantern" width="40px"></img>
           </td>
           <td>{props.lantern}</td>
         </tr>
         <tr>
           <td>
-            <img src={CookingIcon} alt="cooking" width="50px"></img>
+            <img src={CookingIcon} alt="cooking" width="40px"></img>
           </td>
           <td>{props.cooking}</td>
         </tr>
