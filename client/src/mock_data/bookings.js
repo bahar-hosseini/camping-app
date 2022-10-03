@@ -38,7 +38,7 @@ const bookings = [
     id: 6,
     package_id: 4,
     user_id: 1,
-    start_date: "2022-10-010T04:00:00.000Z" ,
+    start_date: "2022-10-100T04:00:00.000Z" ,
     end_date: "2022-10-13T04:00:00.000Z",
   },
   {
