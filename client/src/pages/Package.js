@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { packages } from "../mock_data/packages";
 import packageImg from "../assets/product_page.png";
 import { ReactCalendar } from "../components/Calendar";
+import { BookingBox } from "../components/BookingBox";
 import { PackageInfoCard } from "../components/PackageInfoCard";
 import "react-calendar/dist/Calendar.css";
 
@@ -33,12 +34,6 @@ export function Package() {
           lantern={currentPackage[0].lantern_description}
           cooking={currentPackage[0].cooking_description}
         />
-        {/* <ul>
-          <li>{currentPackage[0].tent_description}</li>
-          <li>{currentPackage[0].bags_description}</li>
-          <li>{currentPackage[0].lantern_description}</li>
-          <li>{currentPackage[0].cooking_description}</li>
-        </ul> */}
       </div>
       <div>
         THIS CATEGORY IS: {currentPackage[0].category}
@@ -47,15 +42,7 @@ export function Package() {
         <br />
         {currentPackage[0].description}
       </div>
-      {/* make booking widget component */}
-      <div>
-        <ul>
-          <li>Price: ${currentPackage[0].price}</li>
-          <li>Booking tool stuff (start date end date party size)</li>
-          <button>BOOK</button>
-        </ul>
-      </div>
-
+      <BookingBox />
       {/* <ReactCalendar /> */}
       {/* availability calendar left here (stretch) */}
     </>
