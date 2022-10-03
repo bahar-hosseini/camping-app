@@ -10,7 +10,7 @@ export function Home() {
     <DatePickerBar />
     <CategoryLinksBar /> 
       
-      <PackageList />;
+      <PackageList />
     </>
   );
 }
