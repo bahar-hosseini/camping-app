@@ -1,9 +1,12 @@
 import React from 'react'
 
-// Internal Modules
+/**
+ * Internal Modules
+ **/
 import BookingListItem from './BookingListItem'
 import { packages } from '../mock_data/packages'
 import { bookings } from '../mock_data/bookings'
+import './styles/BookingList.scss'
 
 const BookingList = () => {
   // For now to test we consider a user with constat user id:1
@@ -35,7 +38,7 @@ const BookingList = () => {
     )
   })
 
-  return <div>{formattedBookings}</div>
+  return <div className='booking-container'>{formattedBookings}</div>
 }
 
 export default BookingList
