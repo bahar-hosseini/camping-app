@@ -7,7 +7,7 @@ export default function Button(props) {
   //   "button--confirm": props.confirm,
   //   "button--danger": props.danger,
   // });
-
+  //possible props: title, color, disabled
   return (
     <button
       // className={buttonClass}

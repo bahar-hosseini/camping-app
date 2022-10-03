@@ -29,14 +29,12 @@ export function ReactCalendar() {
 
 //https://date-fns.org/v2.29.3/docs/closestTo
 //date-fns
-//these are some stuff we might need to calculate dates 
+//these are some stuff we might need to calculate dates
 //add  / Add the specified years, months, weeks, days, hours, minutes and seconds to the given date.
 //closestIndexTo   /  Return an index of the closest date from the array comparing to the given date.
 //closestTo   /Return a date from the array closest to the given date.
 //formatDistanceToNowStrict Return the distance between the given dates in words, using strict units. This is like formatDistance, but does not use helpers like 'almost', 'over', 'less than' and the like.
 //formatDistanceStrict ** Return the distance between the given dates in words, using strict units. This is like formatDistance, but does not use helpers like 'almost', 'over', 'less than' and the like.
-
-
 
 //sorts an array of dates
 // dates.sort(compareAsc)

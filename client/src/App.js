@@ -7,7 +7,7 @@ import {NotFound} from "./pages/NotFound";
 import { Bookings } from "./pages/Bookings";
 import {PackageRoutes} from "./PackageRoutes"
 import { Nav } from "./components/Nav";
-
+import CategoryFilterItem from "./components/CategoryFilterItem";
 function App() {
   // const [packages, setPackages] = useState([]);
 
@@ -29,6 +29,10 @@ function App() {
         <Route path="/package/*" element={<PackageRoutes />} />
         <Route path="/bookings" element={<Bookings />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/category/1" element={<CategoryFilterItem category="1"/>} />
+        <Route path="/category/2" element={<CategoryFilterItem category="2"/>} />
+        <Route path="/category/3" element={<CategoryFilterItem category="3"/>} />
+        <Route path="/category/4" element={<CategoryFilterItem category="4"/>} />
       </Routes>
 
       {/* <div className="App">
