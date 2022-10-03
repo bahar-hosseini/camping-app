@@ -20,7 +20,7 @@ function App() {
   // }, []);
 
   return (
-    <>
+    <div className="App">
       <Nav />
         
 
@@ -49,7 +49,7 @@ function App() {
             <h1>Loading....</h1>
           )}
         </div> */}
-    </>
+    </div>
   );
 }
 

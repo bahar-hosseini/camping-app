@@ -1,3 +1,4 @@
+import "./styles/Package.scss";
 import { useParams } from "react-router-dom";
 import { packages } from "../mock_data/packages";
 import packageImg from "../assets/product_page.png";
@@ -22,29 +23,38 @@ export function Package() {
   //     />
 
   return (
-    <>
-      <h1>This package type is: {id}</h1>
+    <div className="Package">
+      {/* <h1>This package type is: {id}</h1> */}
 
-      <div>
-        <img src={packageImg} alt="img" width="100px" />
-        {/* this should be a component */}
-        <PackageInfoCard
-          tent={currentPackage[0].tent_description}
-          bags={currentPackage[0].bags_description}
-          lantern={currentPackage[0].lantern_description}
-          cooking={currentPackage[0].cooking_description}
-        />
+      <div className="package-top">
+        <div>
+          <img src={packageImg} alt="img" className="package-img" />
+        </div>
+        <div className="card">
+          <PackageInfoCard
+            tent={currentPackage[0].tent_description}
+            bags={currentPackage[0].bags_description}
+            lantern={currentPackage[0].lantern_description}
+            cooking={currentPackage[0].cooking_description}
+          />
+        </div>
       </div>
-      <div>
-        THIS CATEGORY IS: {currentPackage[0].category}
-        <br />
-        THIS OWNER IS: {currentPackage[0].user_id}
-        <br />
-        {currentPackage[0].description}
+
+      <div className="package-bottom">
+        <div>
+          <h2>
+            {currentPackage[0].category} Person Package
+            <br />
+            Gear owned by user {currentPackage[0].user_id}
+          </h2>
+          {currentPackage[0].description}
+        </div>
+        <div>
+          <BookingBox />
+        </div>
+        {/* <ReactCalendar /> */}
+        {/* availability calendar left here (stretch) */}
       </div>
-      <BookingBox />
-      {/* <ReactCalendar /> */}
-      {/* availability calendar left here (stretch) */}
-    </>
+    </div>
   );
 }
