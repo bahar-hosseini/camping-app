@@ -1,5 +1,5 @@
 import "./App.scss";
-// import { useEffect, useState } from "react";
+ import { useEffect, useState } from "react";
 // import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
@@ -8,7 +8,11 @@ import { Bookings } from "./pages/Bookings";
 import { PackageRoutes } from "./PackageRoutes";
 import { Nav } from "./components/Nav";
 import CategoryFilterItem from "./components/CategoryFilterItem";
+import DateRangeFilterItem from "./components/DateRangeFilterItem"
 function App() {
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [endDate, setEndDate] = useState(new Date());
+  
   // const [packages, setPackages] = useState([]);
 
   //const [list, setList] = useState([]);
@@ -45,6 +49,10 @@ function App() {
             path="/category/4"
             element={<CategoryFilterItem category="4" />}
           />
+          {/* <Route
+            path="/rangeSearch"
+            element={<DateRangeFilterItem start_date={startDate} end_date={endDate} />}
+          /> */}
         </Routes>
       </div>
 
