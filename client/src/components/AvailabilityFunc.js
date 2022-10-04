@@ -1,6 +1,8 @@
-//all data in mockdata/bookings (arry of obj)
+// import { packages } from "../mock_data/packages";
 const allBookings = require("../mock_data/bookings");
 const allPackages = require("../mock_data/packages");
+
+
 //filters all bookings and returns bookings with a specific bookings_id
 const bookingForSpecificPackage = function (packageID) {
   const listOfBookings = allBookings.bookings.filter(
@@ -64,15 +66,15 @@ const mDROwithUserRange = function (packageArry, userRange) {
   return false;
 };
 
-// const userReqRange = ["2022-10-07T04:00:00.000Z", "2022-10-09T04:00:00.000Z"];
-
+ const userReqRange = ["2022-10-15T04:00:00.000Z", "2022-10-30T04:00:00.000Z"];
+// console.log(allPackages)
 const packageArry = allPackages.packages;
 
 //homepage filter
 //returns an array of available packages for user's date range. Loop through these id's for filtered output
- const avilableIDArry = function (userRange) {
+ const avilableIDArry = function (userRange, Data) {
   let resultArry = [];
-  for (let objs of packageArry) {
+  for (let objs of Data) {
     const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id));
     if (!mDROwithUserRange(userRange, packageBookingsArry)) {
       resultArry.push(objs.id);
@@ -80,7 +82,7 @@ const packageArry = allPackages.packages;
   }
   return resultArry;
 };
-// console.log(avilableIDArry(userReqRange))
+console.log(avilableIDArry(userReqRange))
 
 //Create new booking: this is the check prior to adding the new booking
 //returns false if no overlap, returns true if there is overlap
@@ -90,4 +92,4 @@ const bookingConflictChecker = function (userRange, packageID) {
 };
 
 // console.log(bookingConflictChecker(userReqRange, 4));
-export {avilableIDArry, bookingConflictChecker}
+module.exports = {packageArry, mDROwithUserRange, bookingForSpecificPackage, allDates, multipleDateRangeOverlaps, avilableIDArry, bookingConflictChecker}

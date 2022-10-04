@@ -1,26 +1,33 @@
-import React from "react";
-import { packages } from "../mock_data/packages";
+// import React from "react";
+import {packages} from "../mock_data/packages";
 // import classnames as 'classnames';
 //import { CategoryFilter } from "./CategoryFilter";
 import PackageListItem from "./PackageListItem";
-import { CategoryLinksBar } from "./CategoryLinksBar";
-import { DatePickerBar } from "./DatePickerBar";
-import avilableIDArry from "./AvailabilityFunc";
+// import { CategoryLinksBar } from "./CategoryLinksBar";
+// import { DatePickerBar } from "./DatePickerBar";
+//import {packageArry, mDROwithUserRange, bookingForSpecificPackage, allDates, multipleDateRangeOverlaps, avilableIDArry, bookingConflictChecker} from "./AvailabilityFunc";
+// import { searchContext } from "../providers/SearchProvider";
+// import useContext from "../providers/SearchProvider"
 
 export default function DateRangeFilterItem(props) {
   // console.log(props)
-  console.log(props.startDate)
+  console.log(packages)
+  // const { startDate, endDate, setStartDate, setEndDate } = useContext(searchContext);
 
-  const searchRange = (start, end) => {
-    let outputArry = []
-    outputArry.push(start)
-    outputArry.push(end)
-    // console.log(outputArry)
-    return outputArry
-    
-   };
-  // console.log(searchRange(props.startDate, props.endDate))
+  const searchRangeFunc = (start, end) => {
+    let outputArry = [];
+    outputArry.push(start);
+    outputArry.push(end);
+    return outputArry;
+  };
 
+//console.log(props.avilableIDArry)
+
+  const searchRange = searchRangeFunc(props.startDate, props.endDate);
+  //console.log(searchRange)
+  //console.log(packages)
+  const matchingIDs = props.avilableIDArry(searchRange, packages);
+  console.log(matchingIDs);
 
 
   const currentPackage = packages.filter(
@@ -44,35 +51,12 @@ export default function DateRangeFilterItem(props) {
 
   return (
     <>
-      <DatePickerBar />
-      <CategoryLinksBar />
       <div className="gallery-container">
         <div className="package-gallery">{packageGallery}</div>
       </div>
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from "react";
 // import { packages } from "../mock_data/packages";

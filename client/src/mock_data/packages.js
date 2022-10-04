@@ -1,6 +1,6 @@
 // import homeImg from "../assets/home_square.png";
 
-const packages = [
+export const packages = [
   {
     image: "home_square",
     id: 1,
@@ -299,4 +299,4 @@ const packages = [
   },
 ];
 
-module.exports = { packages };
+// module.exports = { packages };

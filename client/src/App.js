@@ -14,7 +14,7 @@ import DateRangeFilterItem from "./components/DateRangeFilterItem";
 
 function App() {
   
-  // const { startDate, endDate } = useContext(searchContext);
+ 
 
   // const [packages, setPackages] = useState([]);
 

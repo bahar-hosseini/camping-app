@@ -6,8 +6,12 @@ import { ReactCalendar } from "../components/Calendar";
 import { BookingBox } from "../components/BookingBox";
 import { PackageInfoCard } from "../components/PackageInfoCard";
 import "react-calendar/dist/Calendar.css";
+import { useContext } from "react";
+// import SearchProvider from "../providers/SearchProvider";
+import { searchContext } from "../providers/SearchProvider";
 
 export function Package() {
+  const { startDate, endDate, setStartDate, setEndDate  } = useContext(searchContext);
   const { id } = useParams();
   const currentPackage = packages.filter((pack) => pack.id === Number(id));
 
@@ -47,6 +51,10 @@ export function Package() {
           {currentPackage[0].description}
         </div>
       <BookingBox
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
         price={currentPackage[0].price}
         packageID={currentPackage[0].id}
       />
