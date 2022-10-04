@@ -1,17 +1,24 @@
-import React from "react";
-import { packages } from "../mock_data/packages";
+import { useState, useEffect } from 'react'
+// import { packages } from "../mock_data/packages";
 // import classnames as 'classnames';
 //import { CategoryFilter } from "./CategoryFilter";
 import PackageListItem from "./PackageListItem";
-// import { CategoryLinksBar } from "./CategoryLinksBar";
-// import { DatePickerBar } from "./DatePickerBar";
+ import { CategoryLinksBar } from "./CategoryLinksBar";
+ import { DatePickerBar } from "./DatePickerBar";
+import axios from 'axios'
 
 export default function CategoryFilterItem(props) {
-  const currentPackage = packages.filter(
-    (pack) => pack.category == props.category
-  );
+  const [categories, setCategories] = useState([])
+  useEffect(() => {
+    axios.get(`/api/categories/${props.category}`).then((res) => setCategories(res.data.data.rows))
+  }, [])
 
-  const packageGallery = currentPackage.map((packageItem) => {
+
+  // const currentPackage = packages.filter(
+  //   (pack) => pack.category == props.category
+  // );
+
+  const packageGallery = categories.map((packageItem) => {
     return (
       <PackageListItem
         key={packageItem.id}
@@ -28,6 +35,8 @@ export default function CategoryFilterItem(props) {
 
   return (
     <>
+    <DatePickerBar />
+      <CategoryLinksBar />
       <div className="gallery-container">
         <div className="package-gallery">{packageGallery}</div>
       </div>
@@ -35,25 +44,4 @@ export default function CategoryFilterItem(props) {
   );
 }
 
-// export function PackageList() {
-//   const packageGallery = packages.map((packageItem) => {
-//     return (
-//       <PackageListItem
-//         key={packageItem.id}
-//         image={packageItem.image}
-//         id={packageItem.id}
-//         userID={packageItem.user_id}
-//         price={packageItem.price}
-//         category={packageItem.category}
-//         location={packageItem.location}
-//         availability={packageItem.availability}
-//       />
-//     );
-//   });
 
-//   return (
-//     <div className="gallery-container">
-//       <div className="package-gallery">{packageGallery}</div>
-//     </div>
-//   );
-// }

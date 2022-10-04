@@ -22,7 +22,7 @@ app.use(
  **/
 const packagesRoute = require('./routes/packages-api')
 const packageRoute = require('./routes/package-api')
-
+const categoriesRoute = require('./routes/categoriesRoute-api')
 // TEST
 // app.get('/list', (req, res) => {
 //   return res.json({ list: ['tshit', 'egg', 'dog'] })
@@ -34,5 +34,7 @@ app.use('/users', usersRouter)
 app.use('/api/packages', packagesRoute)
 app.use('/api/package', packageRoute)
 app.use('/api/bookings', bookingsRoute)
+
+app.use('/api/categories', categoriesRoute)
 
 module.exports = app
