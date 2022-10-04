@@ -37,7 +37,7 @@ function App() {
             <Route path="/package/*" element={<PackageRoutes />} />
             <Route path="/bookings" element={<Bookings />} />
             <Route path="*" element={<NotFound />} />
-            <Route
+            {/* <Route
               path="/category/1"
               element={<CategoryFilterItem category="1" />}
             />
@@ -52,7 +52,7 @@ function App() {
             <Route
               path="/category/4"
               element={<CategoryFilterItem category="4" />}
-            />
+            /> */}
             <Route path="/rangeSearch" element={<DateRangeFilterItem />} />
           </Routes>
         </div>

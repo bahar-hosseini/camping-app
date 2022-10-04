@@ -66,15 +66,15 @@ const mDROwithUserRange = function (packageArry, userRange) {
   return false;
 };
 
- const userReqRange = ["2022-10-15T04:00:00.000Z", "2022-10-30T04:00:00.000Z"];
+ const userReqRange = ["2022-10-01T04:00:00.000Z", "2022-10-15T04:00:00.000Z"];
 // console.log(allPackages)
 const packageArry = allPackages.packages;
 
 //homepage filter
 //returns an array of available packages for user's date range. Loop through these id's for filtered output
- const avilableIDArry = function (userRange, Data) {
+ const avilableIDArry = function (userRange) {
   let resultArry = [];
-  for (let objs of Data) {
+  for (let objs of packageArry) {
     const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id));
     if (!mDROwithUserRange(userRange, packageBookingsArry)) {
       resultArry.push(objs.id);

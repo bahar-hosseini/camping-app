@@ -8,11 +8,15 @@ import { useContext } from "react";
 import { searchContext } from "../providers/SearchProvider";
 import DateRangeFilterItem from "../components/DateRangeFilterItem";
 
+import CategoryFilterItem from "../components/CategoryFilterItem";
+
+
 
 export function Home() {
-  const { startDate, endDate, avilableIDArry } = useContext(searchContext);
-  //  console.log(startDate)
-  //  console.log(endDate)
+  const { startDate, endDate, category, filerByCategory, } = useContext(searchContext);
+
+  // const [category, setCategory] = useState(0);
+
 
   const sdedSame = function (sd, ed) {
     if (sd.getTime() === ed.getTime()) {
@@ -20,12 +24,17 @@ export function Home() {
     }
     return false;
   };
-  // console.log(sdedSame(startDate, endDate ))
+ 
+
+
   return (
     <>
       <DatePickerBar />
-      <CategoryLinksBar />
-      <PackageList />
+      <CategoryLinksBar onChange={() => alert('test')}/>
+      {category === 0 && <PackageList />}
+      {category !== 0 && <CategoryFilterItem category={category} />}
+      
+      
       {/* <DateRangeFilterItem 
       startDate={startDate}
       endDate={endDate}
