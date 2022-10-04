@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DatePicker from "react-date-picker";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
-export function DatePickerBar() {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
 
+// import SearchProvider from "../providers/SearchProvider";
+import { searchContext } from "../providers/SearchProvider";
+
+export function DatePickerBar() {
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [endDate, setEndDate] = useState(new Date());
+ 
+  const { startDate, endDate, setStartDate, setEndDate } = useContext(searchContext);
+  // console.log(startDate)
+  // console.log(endDate)
   // convertTime formats the new Date()
   const convertTime = (time) => {
     return new Date(time).toLocaleDateString("en-us", {

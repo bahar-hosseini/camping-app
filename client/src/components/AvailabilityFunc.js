@@ -64,7 +64,7 @@ const mDROwithUserRange = function (packageArry, userRange) {
   return false;
 };
 
-const userReqRange = ["2022-10-07T04:00:00.000Z", "2022-10-09T04:00:00.000Z"];
+// const userReqRange = ["2022-10-07T04:00:00.000Z", "2022-10-09T04:00:00.000Z"];
 
 const packageArry = allPackages.packages;
 
