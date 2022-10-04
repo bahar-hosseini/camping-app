@@ -33,5 +33,6 @@ app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/api/packages', packagesRoute)
 app.use('/api/package', packageRoute)
+app.use('/api/bookings', bookingsRoute)
 
 module.exports = app
