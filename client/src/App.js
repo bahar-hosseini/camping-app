@@ -16,15 +16,7 @@ function App() {
   
  
 
-  // const [packages, setPackages] = useState([]);
 
-  //const [list, setList] = useState([]);
-  // useEffect(() => {
-  //   axios.get("/list").then((res) => {
-  //     console.log(res.data);
-  //     setPackages(res.data.list);
-  //   });
-  // }, []);
 
   return (
     <div className="App">

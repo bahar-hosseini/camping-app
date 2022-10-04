@@ -1,18 +1,17 @@
-import { useState, useEffect } from 'react'
-// import { packages } from "../mock_data/packages";
-// import classnames as 'classnames';
-//import { CategoryFilter } from "./CategoryFilter";
+import { useState, useEffect } from "react";
+
 import PackageListItem from "./PackageListItem";
- import { CategoryLinksBar } from "./CategoryLinksBar";
- import { DatePickerBar } from "./DatePickerBar";
-import axios from 'axios'
+import { CategoryLinksBar } from "./CategoryLinksBar";
+import { DatePickerBar } from "./DatePickerBar";
+import axios from "axios";
 
 export default function CategoryFilterItem(props) {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get(`/api/categories/${props.category}`).then((res) => setCategories(res.data.data.rows))
-  }, [])
-
+    axios
+      .get(`/api/categories/${props.category}`)
+      .then((res) => setCategories(res.data.data.rows));
+  }, []);
 
   // const currentPackage = packages.filter(
   //   (pack) => pack.category == props.category
@@ -35,7 +34,7 @@ export default function CategoryFilterItem(props) {
 
   return (
     <>
-    <DatePickerBar />
+      <DatePickerBar />
       <CategoryLinksBar />
       <div className="gallery-container">
         <div className="package-gallery">{packageGallery}</div>
@@ -43,5 +42,3 @@ export default function CategoryFilterItem(props) {
     </>
   );
 }
-
-
