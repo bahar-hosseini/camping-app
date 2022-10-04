@@ -6,6 +6,7 @@ import './styles/BookingBox.scss'
 import DatePicker from "react-date-picker";
 import { searchContext } from "../providers/SearchProvider";
 import useContext from "../providers/SearchProvider"
+import "./styles/DatePicker.scss";
 
 
 export function BookingBox(props) {
