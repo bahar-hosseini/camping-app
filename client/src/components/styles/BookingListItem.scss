@@ -11,6 +11,7 @@
   background-color: white;
   padding-bottom: 15px;
   margin: 2%;
+  
 }
 
 .booking-img {
@@ -29,8 +30,21 @@ img{
 .booking-btn-price{
   display: flex;
   justify-content: space-between;
+  .btn-cancel{
 
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.7em 2em 0.7em 2em;
+    color: 	#000000;
+    background: linear-gradient(0deg, rgba(249,198,245,2) 0%, rgb(208, 137, 202) 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #b25aab;
+    border-radius: 20em;
+    cursor: pointer;
+  }
 }
+
+
 
 h2 {
   margin-bottom: 10px;

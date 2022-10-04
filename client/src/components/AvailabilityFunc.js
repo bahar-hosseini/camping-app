@@ -64,13 +64,13 @@ const mDROwithUserRange = function (packageArry, userRange) {
   return false;
 };
 
-const userReqRange = ["2022-10-07T04:00:00.000Z", "2022-10-09T04:00:00.000Z"];
+// const userReqRange = ["2022-10-07T04:00:00.000Z", "2022-10-09T04:00:00.000Z"];
 
 const packageArry = allPackages.packages;
 
 //homepage filter
 //returns an array of available packages for user's date range. Loop through these id's for filtered output
-const avilableIDArry = function (userRange) {
+ const avilableIDArry = function (userRange) {
   let resultArry = [];
   for (let objs of packageArry) {
     const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id));
@@ -80,6 +80,7 @@ const avilableIDArry = function (userRange) {
   }
   return resultArry;
 };
+// console.log(avilableIDArry(userReqRange))
 
 //Create new booking: this is the check prior to adding the new booking
 //returns false if no overlap, returns true if there is overlap
@@ -88,4 +89,5 @@ const bookingConflictChecker = function (userRange, packageID) {
   return mDROwithUserRange(userRange, packageBookingsArry);
 };
 
-console.log(bookingConflictChecker(userReqRange, 4));
+// console.log(bookingConflictChecker(userReqRange, 4));
+export {avilableIDArry, bookingConflictChecker}
