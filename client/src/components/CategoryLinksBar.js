@@ -4,6 +4,7 @@ import "./styles/CategoryLinksBar.scss";
 // import { useState } from "react";
 // import CategoryFilterItem from "./CategoryFilterItem"
 // import { Routes, Route } from "react-router-dom";
+import { useContext } from "react";
 
 export function CategoryLinksBar() {
   return (

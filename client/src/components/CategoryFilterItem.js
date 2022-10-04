@@ -3,8 +3,8 @@ import { packages } from "../mock_data/packages";
 // import classnames as 'classnames';
 //import { CategoryFilter } from "./CategoryFilter";
 import PackageListItem from "./PackageListItem";
-import { CategoryLinksBar } from "./CategoryLinksBar";
-import { DatePickerBar } from "./DatePickerBar";
+// import { CategoryLinksBar } from "./CategoryLinksBar";
+// import { DatePickerBar } from "./DatePickerBar";
 
 export default function CategoryFilterItem(props) {
   const currentPackage = packages.filter(
@@ -28,8 +28,6 @@ export default function CategoryFilterItem(props) {
 
   return (
     <>
-      <DatePickerBar />
-      <CategoryLinksBar />
       <div className="gallery-container">
         <div className="package-gallery">{packageGallery}</div>
       </div>
