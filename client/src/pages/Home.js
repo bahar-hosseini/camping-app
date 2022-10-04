@@ -1,16 +1,11 @@
-import React from "react";
-import { CategoryLinksBar } from "../components/CategoryLinksBar";
-import { PackageList } from "../components/PackageList";
-import { DatePickerBar } from "../components/DatePickerBar";
+import React from 'react'
+import { CategoryLinksBar } from '../components/CategoryLinksBar'
+import { PackageList } from '../components/PackageList'
+import { DatePickerBar } from '../components/DatePickerBar'
 // import CategoryFilterItem from "../components/CategoryFilterItem";
-import { useContext } from "react";
+import { useContext } from 'react'
 // import SearchProvider from "../providers/SearchProvider";
 import { searchContext } from "../providers/SearchProvider";
-import DateRangeFilterItem from "../components/DateRangeFilterItem";
-
-import CategoryFilterItem from "../components/CategoryFilterItem";
-
-
 
 export function Home() {
   const { startDate, endDate, category, filerByCategory, } = useContext(searchContext);
@@ -24,15 +19,13 @@ export function Home() {
     }
     return false;
   };
- 
-
 
   return (
     <>
       <DatePickerBar />
       <CategoryLinksBar onChange={() => alert('test')}/>
       {category === 0 && <PackageList />}
-      {category !== 0 && <CategoryFilterItem category={category} />}
+      {/* {category !== 0 && <CategoryFilterItem category={category} />} */}
       
       
       {/* <DateRangeFilterItem 
@@ -42,5 +35,5 @@ export function Home() {
       {/* {sdedSame(startDate, endDate) && <PackageList />} */}
       {/* {sdedSame(startDate, endDate) && <DateRangeFilterItem  />} */}
     </>
-  );
+  )
 }

@@ -1,22 +1,45 @@
 import { Link } from "react-router-dom";
+import PersonIcon from "../assets/person.svg";
+import "./styles/CategoryLinksBar.scss";
 // import { useState } from "react";
 // import CategoryFilterItem from "./CategoryFilterItem"
 // import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 
-import { searchContext } from "../providers/SearchProvider";
-export function CategoryLinksBar(props) {
-  const { startDate, endDate, category, filerByCategory, setCategory } =
-    useContext(searchContext);
-
+export function CategoryLinksBar() {
   return (
-    <>
-      <div>
-        <button onclick={(event) => props.onChange(event.target.value)} value={1} >Package for 1</button>
-        <button onclick={(event) => props.onChange(event.target.value)} value={2} >Package for 2</button>
-        <button onclick={(event) => props.onChange(event.target.value)} value={3} >Package for 4</button>
-        <button onclick={(event) => props.onChange(event.target.value)} value={4} >Package for 3</button>
+    <div className="category-links-container">
+      <div className="CategoryLinksBar">
+        <div className="category-group">
+          <Link to="/category/1">
+            <img src={PersonIcon} alt="one-person-package" height="40px" />
+          </Link>
+        </div>
+
+        <div className="category-group">
+          <Link to="/category/2">
+            <img src={PersonIcon} alt="two-person-package" height="40px" />
+            <img src={PersonIcon} alt="two-person-package" height="40px" />
+          </Link>
+        </div>
+
+        <div className="category-group">
+          <Link to="/category/3">
+            <img src={PersonIcon} alt="three-person-package" height="40px" />
+            <img src={PersonIcon} alt="three-person-package" height="40px" />
+            <img src={PersonIcon} alt="three-person-package" height="40px" />
+          </Link>
+        </div>
+
+        <div className="category-group">
+          <Link to="/category/4">
+            <img src={PersonIcon} alt="four-person-package" height="40px" />
+            <img src={PersonIcon} alt="four-person-package" height="40px" />
+            <img src={PersonIcon} alt="four-person-package" height="40px" />
+            <img src={PersonIcon} alt="four-person-package" height="40px" />
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

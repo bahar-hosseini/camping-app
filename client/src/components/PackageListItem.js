@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 // import homeImg from "../assets/home_square.png"
-import { Link } from "react-router-dom";
-import "./styles/PackageListItem.scss";
+import { Link } from 'react-router-dom'
+import './styles/PackageListItem.scss'
 // import classnames as 'classnames';
 
 export default function PackageListItem(props) {
@@ -14,22 +14,27 @@ export default function PackageListItem(props) {
   // location={packageItem.location}
   // console.log(props, "test here");
   return (
-    <Link to={"/package/" + props.id} className="home-package-item">
+    <Link to={'/package/' + props.id} className='home-package-item'>
       <div>
         {/* <div classNames='card'> */}
         <img
-          className="home-img"
+          className='home-img'
           src={require(`../assets/${props.image}.png`)}
-          alt="img"
-          width="300px"
+          alt='img'
+          width='300px'
         />
-        <h2>Package Category {props.category}</h2>
-        <h4>{props.location}km away</h4>
-        <h4>Availability Range {props.availability}</h4>
-        <h4>${props.price}/day</h4>
+        <h2 className='package-card-title'>
+          Package Category {props.category}
+        </h2>
+        <h4 className='package-card-text'>
+          {props.location}km away
+          <br />
+          Availability Range {props.availability}
+          <br />${props.price}/day
+        </h4>
       </div>
     </Link>
-  );
+  )
 }
 
 // <li
