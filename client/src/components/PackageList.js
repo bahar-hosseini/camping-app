@@ -1,10 +1,21 @@
 //var packages = require('./db/mockData/packages.js')
+import { useState, useEffect } from 'react'
+// import { packages } from '../mock_data/packages'
+import axios from 'axios'
 
-import { packages } from "../mock_data/packages";
-import PackageListItem from "./PackageListItem";
-import "./styles/PackageList.scss";
+/**
+ *Internal modules
+ **/
+
+import PackageListItem from './PackageListItem'
+import './styles/PackageList.scss'
 
 export function PackageList() {
+  const [packages, setPackages] = useState([])
+  useEffect(() => {
+    axios.get('/api/packages').then((res) => setPackages(res.data.data.rows))
+  }, [])
+
   const packageGallery = packages.map((packageItem) => {
     return (
       <PackageListItem
@@ -17,14 +28,14 @@ export function PackageList() {
         location={packageItem.location}
         availability={packageItem.availability}
       />
-    );
-  });
+    )
+  })
 
   return (
-    <div className="gallery-container">
-      <div className="package-gallery">{packageGallery}</div>
+    <div className='gallery-container'>
+      <div className='package-gallery'>{packageGallery}</div>
     </div>
-  );
+  )
 }
 
 // <>
