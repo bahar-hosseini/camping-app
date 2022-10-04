@@ -2,6 +2,9 @@ import React from 'react';
 import { bookings } from '../mock_data/bookings'
 import './styles/BookingBox.scss'
 import DatePicker from "react-date-picker";
+import { searchContext } from "../providers/SearchProvider";
+import useContext from "../providers/SearchProvider"
+import "./styles/DatePicker.scss";
 // import { searchContext } from "../providers/SearchProvider";
 // import useContext from "../providers/SearchProvider"
 
