@@ -1,24 +1,25 @@
-import {  Link } from "react-router-dom";
+import "./styles/Nav.scss";
+import { Link } from "react-router-dom";
 import React from "react";
 import { NavDropdownMenu } from "./NavDropdownMenu";
+import TentLogo from "../assets/tent_icon.svg";
 
 export function Nav() {
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/package">Package</Link>
-          </li>
-          <li>
-            <Link to="/bookings">Bookings</Link>
-          </li>
-        </ul>
-      </nav>
-    <NavDropdownMenu />
-    </>
+    <div className="Nav">
+      <div className="nav-innards">
+        <div className="nav-left">
+          <Link to="/">
+            <img src={TentLogo} alt="lantern" width="70px"></img>
+          </Link>
+        </div>
+        <div className="nav-right">
+          <Link to="/package">Package </Link>
+          <Link to="/bookings">Bookings</Link>
+        </div>
+      </div>
+
+      {/* <NavDropdownMenu /> */}
+    </div>
   );
 }

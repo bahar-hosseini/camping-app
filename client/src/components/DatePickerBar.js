@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import DatePicker from "react-date-picker";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 export function DatePickerBar() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  // console.log(startDate)
+
   // convertTime formats the new Date()
   const convertTime = (time) => {
     return new Date(time).toLocaleDateString("en-us", {
@@ -14,6 +15,7 @@ export function DatePickerBar() {
       day: "numeric",
     });
   };
+
   return (
     <div>
       <div>
@@ -33,11 +35,13 @@ export function DatePickerBar() {
           </li>
           <li>My start date is: {convertTime(startDate)}</li>
           <li>My end date is: {convertTime(endDate)}</li>
+          <li>This is my Date search range: </li>
           <li>
             <span>Party Size: </span>
             <input type="number" min="1" max="4" id="categorySearch"></input>
-
-            <Button onClick={() => console.log("Searching!!!!")}>🔎</Button>
+            <Link to="/rangeSearch">
+              <Button onClick={() => console.log("Searching!!!!")}>🔎</Button>
+            </Link>
           </li>
         </ul>
       </div>
