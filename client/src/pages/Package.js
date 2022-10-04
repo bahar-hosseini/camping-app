@@ -55,7 +55,20 @@ export function Package() {
           </h2>
           {packageItem.description}
         </div>
+        
+      {/* <BookingBox
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+        price={currentPackage[0].price}
+        packageID={currentPackage[0].id}
+      /> */}
+      {/* <ReactCalendar /> */}
+      {/* availability calendar left here (stretch) */}
+
         <BookingBox price={packageItem.price} packageID={packageItem.id} />
+
         {/* <ReactCalendar /> */}
         {/* availability calendar left here (stretch) */}
       </div>
