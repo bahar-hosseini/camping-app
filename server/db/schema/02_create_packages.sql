@@ -1,7 +1,7 @@
 -- schema/02_create_urls.sql
-DROP TABLE IF EXISTS urls CASCADE;
+DROP TABLE IF EXISTS packages CASCADE;
 -- CREATE URLS
-CREATE TABLE urls (
+CREATE TABLE packages (
   id SERIAL PRIMARY KEY NOT NULL,
   image character varying(255) NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
