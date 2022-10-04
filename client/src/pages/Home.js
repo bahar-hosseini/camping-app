@@ -23,7 +23,7 @@ export function Home() {
   return (
     <>
       <DatePickerBar />
-      <CategoryLinksBar onChange={() => alert('test')}/>
+      <CategoryLinksBar />
       {category === 0 && <PackageList />}
       {/* {category !== 0 && <CategoryFilterItem category={category} />} */}
       
