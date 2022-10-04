@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useRef } from "react";
 import "./styles/Nav.scss";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export function NavDropdownMenu() {
   /* <Link to="/package">Package </Link>
@@ -9,6 +10,8 @@ export function NavDropdownMenu() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
+
   const MenuItems = [
     {
       title: "Packages",
