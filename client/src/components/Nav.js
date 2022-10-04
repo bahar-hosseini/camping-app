@@ -10,9 +10,9 @@ import { useState } from "react";
 export function Nav() {
   const [dropdown, setDropdown] = useState(false);
 
-  const toggleDropdown= () => {
+  const toggleDropdown = () => {
     dropdown ? setDropdown(false) : setDropdown(true);
-  }
+  };
 
   return (
     <div className="Nav">
@@ -23,7 +23,7 @@ export function Nav() {
           </Link>
         </div>
         <div className="nav-right">
-          <div onClick={toggleDropdown}>
+          <div onClick={toggleDropdown} className="profile-badge">
             <img src={MenuBars} alt="tent" width="40px" />
             <img src={ProfileCircle} alt="tent" width="40px" />
           </div>

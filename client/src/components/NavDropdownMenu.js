@@ -22,7 +22,6 @@ export function NavDropdownMenu() {
     },
   ];
   return (
-    <div>
       <ul
         onClick={handleClick}
         className={click ? 'dropdown-menu clicked'  : "nav-drop-down"}
@@ -41,7 +40,6 @@ export function NavDropdownMenu() {
           );
         })}
       </ul>
-    </div>
   );
 }
 
