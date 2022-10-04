@@ -21,6 +21,7 @@ app.use(
  * internal modules
  **/
 const packagesRoute = require('./routes/packages-api')
+const packageRoute = require('./routes/package-api')
 
 // TEST
 // app.get('/list', (req, res) => {
@@ -31,5 +32,6 @@ const packagesRoute = require('./routes/packages-api')
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/api/packages', packagesRoute)
+app.use('/api/package', packageRoute)
 
 module.exports = app

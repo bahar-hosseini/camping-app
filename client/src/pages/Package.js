@@ -1,15 +1,17 @@
-import "./styles/Package.scss";
-import { useParams } from "react-router-dom";
-import { packages } from "../mock_data/packages";
-import packageImg from "../assets/product_page.png";
-import { ReactCalendar } from "../components/Calendar";
-import { BookingBox } from "../components/BookingBox";
-import { PackageInfoCard } from "../components/PackageInfoCard";
-import "react-calendar/dist/Calendar.css";
+import './styles/Package.scss'
+import { useParams } from 'react-router-dom'
+// import { packages } from '../mock_data/packages'
+import packageImg from '../assets/product_page.png'
+import { ReactCalendar } from '../components/Calendar'
+import { BookingBox } from '../components/BookingBox'
+import { PackageInfoCard } from '../components/PackageInfoCard'
+import 'react-calendar/dist/Calendar.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 export function Package() {
-  const { id } = useParams();
-  const currentPackage = packages.filter((pack) => pack.id === Number(id));
+  const { id } = useParams()
+  // const currentPackage = packages.filter((pack) => pack.id === Number(id))
 
   // <PackageListItem
   //       key={packageItem.id}
@@ -22,37 +24,41 @@ export function Package() {
   //       availability={packageItem.availability}
   //     />
 
+  const [packageItem, setPackageItem] = useState({})
+  useEffect(() => {
+    axios.get(`/api/package/${id}`).then((res) => {
+      setPackageItem(res.data.data.rows[0])
+    })
+  }, [])
+
   return (
-    <div className="Package">
-      <div className="package-top">
+    <div className='Package'>
+      <div className='package-top'>
         <div>
-          <img src={packageImg} alt="img" className="package-img" />
+          <img src={packageImg} alt='img' className='package-img' />
         </div>
-        <div className="card">
+        <div className='card'>
           <PackageInfoCard
-            tent={currentPackage[0].tent_description}
-            bags={currentPackage[0].bags_description}
-            lantern={currentPackage[0].lantern_description}
-            cooking={currentPackage[0].cooking_description}
+            tent={packageItem.tent_description}
+            bags={packageItem.bags_description}
+            lantern={packageItem.lantern_description}
+            cooking={packageItem.cooking_description}
           />
         </div>
       </div>
-      <div className="package-bottom">
+      <div className='package-bottom'>
         <div>
           <h2>
-            {currentPackage[0].category} Person Package
+            {packageItem.category} Person Package
             <br />
-            Gear owned by user {currentPackage[0].user_id}
+            Gear owned by user {packageItem.user_id}
           </h2>
-          {currentPackage[0].description}
+          {packageItem.description}
         </div>
-      <BookingBox
-        price={currentPackage[0].price}
-        packageID={currentPackage[0].id}
-      />
-      {/* <ReactCalendar /> */}
-      {/* availability calendar left here (stretch) */}
+        <BookingBox price={packageItem.price} packageID={packageItem.id} />
+        {/* <ReactCalendar /> */}
+        {/* availability calendar left here (stretch) */}
       </div>
     </div>
-  );
+  )
 }
