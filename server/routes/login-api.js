@@ -4,7 +4,7 @@ const session = require('express-session')
 
 express().use(
   session({
-    secret: 'lighthouselab',
+    secret: SECRET,
     resave: false,
     saveUninitialized: true,
   })
