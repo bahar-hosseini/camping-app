@@ -4,32 +4,49 @@
   align-items: center;
   border-radius: 23px;
   background-color: #fff;
-  filter: drop-shadow(0px 4px 15px #00000030);
-  padding: 5% 3%;
-  h4{
-    font-size: 0.8rem;
-    padding: 2%;
-  }
-  .booking-info{
-    margin-bottom: 5%;
-  }
-  .btn-booking{
+  filter: drop-shadow(0px 4px 7px #00000020);
+  margin-top: 1.5rem;
+  // h4{
+  //   font-size: 0.8rem;
+  //   padding: 2%;
+  // }
+  // .booking-info{
+  //   margin-bottom: 5%;
+  // }
+//   .btn-booking{
 
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 0.7em 2em 0.7em 2em;
-  color: 	#000000;
-  background: linear-gradient(0deg, rgba(249,198,245,2) 0%, rgb(208, 137, 202) 100%);
-  border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #b25aab;
-  border-radius: 20em;
-  cursor: pointer;
+//   font-family: inherit;
+//   font-weight: 500;
+//   font-size: 16px;
+//   padding: 0.7em 2em 0.7em 2em;
+//   color: 	#000000;
+//   background: linear-gradient(0deg, rgba(249,198,245,2) 0%, rgb(208, 137, 202) 100%);
+//   border: none;
+//   box-shadow: 0 0.7em 1.5em -0.5em #b25aab;
+//   border-radius: 20em;
+//   cursor: pointer;
+// }
 }
 
-  &:hover{
-    box-shadow: 20px 20px 10px grey;
-    }
+.booking-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.25rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.book-button {
+  margin-top: -4.5rem;
+  padding-top: 0.5rem;
+}
+
+.package-price-box {
+  margin: 0px;
+  align-self: flex-start;
+  margin-bottom: 0.75rem;
 }
 
 

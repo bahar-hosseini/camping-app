@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { CategoryLinksBar } from "../components/CategoryLinksBar";
 import { PackageList } from "../components/PackageList";
@@ -5,6 +6,16 @@ import { DatePickerBar } from "../components/DatePickerBar";
 
 import { useContext } from "react";
 
+=======
+import React from "react";
+import './styles/Home.scss'
+import { CategoryLinksBar } from "../components/CategoryLinksBar";
+import { PackageList } from "../components/PackageList";
+import { DatePickerBar } from "../components/DatePickerBar";
+// import CategoryFilterItem from "../components/CategoryFilterItem";
+import { useContext } from "react";
+// import SearchProvider from "../providers/SearchProvider";
+>>>>>>> main
 import { searchContext } from "../providers/SearchProvider";
 import { HomePackages } from "../components/HomePackages";
 
@@ -66,7 +77,16 @@ export function Home() {
   // console.log(avilableArry([startDate,endDate], packages, bookings))
 
 
+<<<<<<< HEAD
 
+=======
+  const sdedSame = function (sd, ed) {
+    if (sd.getTime() === ed.getTime()) {
+      return true;
+    }
+    return false;
+  };
+>>>>>>> main
 
   return (
     <>
@@ -75,6 +95,15 @@ export function Home() {
       <div className='package-gallery'>{packageGallery}</div>
       {/* {category === 0 && <PackageList />}
       {category !== 0 && <CategoryFilterItem category={category} />} */}
+      {/* {category === 0 && <PackageList />} */}
+      {/* {category !== 0 && <CategoryFilterItem category={category} />} */}
+
+      {/* <DateRangeFilterItem 
+      startDate={startDate}
+      endDate={endDate}
+      /> */}
+      {/* {sdedSame(startDate, endDate) && <PackageList />} */}
+      {/* {sdedSame(startDate, endDate) && <DateRangeFilterItem  />} */}
     </>
   );
 }
