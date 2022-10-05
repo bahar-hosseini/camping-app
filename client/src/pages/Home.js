@@ -12,8 +12,6 @@ import './styles/Home.scss'
 import { searchContext } from "../providers/SearchProvider";
 import { HomePackages } from "../components/HomePackages";
 
-import { searchContext } from '../providers/SearchProvider'
-import { HomePackages } from '../components/HomePackages'
 
 import axios from 'axios'
 import { avilableArry } from '../components/AvailabilityFunc'
@@ -52,8 +50,6 @@ export function Home() {
     setFilteredPackages(rangeFiltered);
   }, [packages, category, startDate, endDate]);
 
-    setFilteredPackages(rangeFiltered)
-  }, [packages, category, startDate, endDate])
 
   const packageGallery = filteredPackages.map((packageItem) => {
     return (
