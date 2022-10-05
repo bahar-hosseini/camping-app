@@ -39,6 +39,7 @@ export function Home() {
       }
       return avilableArry([startDate, endDate], packages, bookings)
     }
+
     const categoryFiltered = categoryFilter(packages)
     const rangeFiltered = rangeFilter(categoryFiltered)
 
@@ -49,7 +50,7 @@ export function Home() {
     return (
       <PackageListItem
         key={packageItem.id}
-        image={packageItem.image}
+        home_img={packageItem.home_img}
         id={packageItem.id}
         userID={packageItem.user_id}
         price={packageItem.price}
@@ -73,7 +74,9 @@ export function Home() {
     <>
       <DatePickerBar />
       <CategoryLinksBar />
-      <div className='package-gallery'>{packageGallery}</div>
+      <div className='gallery-container'>
+        <div className='package-gallery'>{packageGallery}</div>
+      </div>
       {/* {category === 0 && <PackageList />}
       {category !== 0 && <CategoryFilterItem category={category} />} */}
       {/* {category === 0 && <PackageList />} */}

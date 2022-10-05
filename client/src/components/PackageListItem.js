@@ -19,7 +19,7 @@ export default function PackageListItem(props) {
         {/* <div classNames='card'> */}
         <img
           className='home-img'
-          src={require(`../assets/${props.image}.png`)}
+          src={require(`../assets/home_imgs/${props.home_img}.png`)}
           alt='img'
           width='300px'
         />
