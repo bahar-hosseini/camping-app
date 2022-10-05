@@ -1,9 +1,10 @@
-import BookingList from '../components/BookingList'
+import BookingList from "../components/BookingList";
+import "../components/styles/BookingList.scss";
 
 export function Bookings() {
   return (
-    <div>
+    <div className="BookingList">
       <BookingList />
     </div>
-  )
+  );
 }
