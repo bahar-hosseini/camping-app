@@ -1,7 +1,7 @@
-// import { packages } from "../mock_data/packages";
-const allBookings = require("../mock_data/bookings");
-const allPackages = require("../mock_data/packages");
-
+import { packages } from "../mock_data/packages";
+// const allBookings = require("../mock_data/bookings");
+// const allPackages = require("../mock_data/packages");
+console.log(packages)
 
 //filters all bookings and returns bookings with a specific bookings_id
 const bookingForSpecificPackage = function (packageID) {
@@ -77,7 +77,7 @@ const packageArry = allPackages.packages;
   for (let objs of packageArry) {
     const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id));
     if (!mDROwithUserRange(userRange, packageBookingsArry)) {
-      resultArry.push(objs.id);
+      resultArry.push(objs);
     }
   }
   return resultArry;

@@ -23,10 +23,8 @@ export function Home() {
 
   return (
     <>
-      {/* <div className="top-area"> */}
-        <DatePickerBar />
-      {/* </div> */}
-      <CategoryLinksBar onChange={() => alert("test")} />
+      <DatePickerBar />
+      <CategoryLinksBar />
       {category === 0 && <PackageList />}
       {/* {category !== 0 && <CategoryFilterItem category={category} />} */}
 
