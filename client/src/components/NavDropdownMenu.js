@@ -1,49 +1,53 @@
-import { Link } from "react-router-dom";
-import React, { useRef } from "react";
-import "./styles/Nav.scss";
-import { useState } from "react";
-import { useEffect } from "react";
+import { Link } from 'react-router-dom'
+import React, { useRef } from 'react'
+import './styles/Nav.scss'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 export function NavDropdownMenu() {
   /* <Link to="/package">Package </Link>
      <Link to="/bookings">Bookings</Link> */
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState(false)
 
-  const handleClick = () => setClick(!click);
-
+  const handleClick = () => setClick(!click)
 
   const MenuItems = [
     {
-      title: "Packages",
-      path: "/package",
-      cName: "dropdown-link",
+      title: 'Packages',
+      path: '/package',
+      cName: 'dropdown-link',
     },
     {
-      title: "My Bookings",
-      path: "/bookings",
-      cName: "dropdown-link",
+      title: 'My Bookings',
+      path: '/bookings',
+      cName: 'dropdown-link',
     },
-  ];
+    {
+      title: 'Login',
+      path: '/login',
+      cName: 'dropdown-link',
+    },
+  ]
   return (
-      <ul
-        onClick={handleClick}
-        className={click ? 'dropdown-menu clicked'  : "nav-drop-down"}
-      >
-        {MenuItems.map((item, index) => {
-          return (
-            <li key={index}>
-              <Link
-                className={item.cName}
-                to={item.path}
-                // onClick={() => setClick(false)}
-              >
-                {item.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-  );
+    <ul
+      onClick={handleClick}
+      className={click ? 'dropdown-menu clicked' : 'nav-drop-down'}
+    >
+      {MenuItems.map((item, index) => {
+        return (
+          <li key={index}>
+            <Link
+              className={item.cName}
+              to={item.path}
+              // onClick={() => setClick(false)}
+            >
+              {item.title}
+            </Link>
+          </li>
+        )
+      })}
+    </ul>
+  )
 }
 
 // {/* <select name="NavDropdownLoggedOut" id="NavDropdownLoggedOut">

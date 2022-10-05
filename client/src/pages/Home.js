@@ -12,35 +12,36 @@ import './styles/Home.scss'
 import { searchContext } from "../providers/SearchProvider";
 import { HomePackages } from "../components/HomePackages";
 
-import axios from "axios";
-import { avilableArry } from "../components/AvailabilityFunc";
-import { bookings } from "../mock_data/bookings";
-import PackageListItem from "../components/PackageListItem";
+import { searchContext } from '../providers/SearchProvider'
+import { HomePackages } from '../components/HomePackages'
+
+import axios from 'axios'
+import { avilableArry } from '../components/AvailabilityFunc'
+import { bookings } from '../mock_data/bookings'
+import PackageListItem from '../components/PackageListItem'
 
 export function Home() {
-  const [filteredPackages, setFilteredPackages] = useState([]);
+  const [filteredPackages, setFilteredPackages] = useState([])
   const { startDate, endDate, category, setCategory, packages } =
-    useContext(searchContext);
+    useContext(searchContext)
 
   // const [search_query, setSearchQuery] = useState("");
   // const [filterByCategory, setFilterByCategory] = useState(0);
   // const [filterByRange, setFilterByRange] = useState([]);
   // const [filterByLocation, setFilterByLocation] = useState([]);
 
-  
-
   useEffect(() => {
     const categoryFilter = function (data) {
       if (category !== 0) {
-        const cF = packages.filter((pack) => pack.category === category);
-        return cF;
+        const cF = packages.filter((pack) => pack.category === category)
+        return cF
       }
-      return data;
-    };
-  
+      return data
+    }
+
     const rangeFilter = function (data) {
       if (startDate.getTime() === endDate.getTime()) {
-        return data;
+        return data
       }
       return avilableArry([startDate, endDate], packages, bookings);
     };
@@ -51,6 +52,8 @@ export function Home() {
     setFilteredPackages(rangeFiltered);
   }, [packages, category, startDate, endDate]);
 
+    setFilteredPackages(rangeFiltered)
+  }, [packages, category, startDate, endDate])
 
   const packageGallery = filteredPackages.map((packageItem) => {
     return (
@@ -64,9 +67,8 @@ export function Home() {
         location={packageItem.location}
         availability={packageItem.availability}
       />
-    );
-  });
-
+    )
+  })
 
   // console.log(avilableArry([startDate,endDate], packages, bookings))
 
@@ -74,7 +76,7 @@ export function Home() {
 
   const sdedSame = function (sd, ed) {
     if (sd.getTime() === ed.getTime()) {
-      return true;
+      return true
     }
     return false;
   };
@@ -96,5 +98,5 @@ export function Home() {
       {/* {sdedSame(startDate, endDate) && <PackageList />} */}
       {/* {sdedSame(startDate, endDate) && <DateRangeFilterItem  />} */}
     </>
-  );
+  )
 }
