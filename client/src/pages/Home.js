@@ -1,21 +1,14 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { CategoryLinksBar } from "../components/CategoryLinksBar";
 import { PackageList } from "../components/PackageList";
 import { DatePickerBar } from "../components/DatePickerBar";
-
 import { useContext } from "react";
-
-=======
 import React from "react";
 import './styles/Home.scss'
-import { CategoryLinksBar } from "../components/CategoryLinksBar";
-import { PackageList } from "../components/PackageList";
-import { DatePickerBar } from "../components/DatePickerBar";
+
 // import CategoryFilterItem from "../components/CategoryFilterItem";
-import { useContext } from "react";
+
 // import SearchProvider from "../providers/SearchProvider";
->>>>>>> main
 import { searchContext } from "../providers/SearchProvider";
 import { HomePackages } from "../components/HomePackages";
 
@@ -51,6 +44,7 @@ export function Home() {
       }
       return avilableArry([startDate, endDate], packages, bookings);
     };
+
     const categoryFiltered = categoryFilter(packages);
     const rangeFiltered = rangeFilter(categoryFiltered);
 
@@ -77,16 +71,13 @@ export function Home() {
   // console.log(avilableArry([startDate,endDate], packages, bookings))
 
 
-<<<<<<< HEAD
 
-=======
   const sdedSame = function (sd, ed) {
     if (sd.getTime() === ed.getTime()) {
       return true;
     }
     return false;
   };
->>>>>>> main
 
   return (
     <>

@@ -11,7 +11,7 @@ export default function CategoryFilterItem(props) {
     axios
       .get(`/api/categories/${props.category}`)
       .then((res) => setCategories(res.data.data.rows));
-  }, []);
+  }, [props.category]);
 
   // const currentPackage = packages.filter(
   //   (pack) => pack.category == props.category

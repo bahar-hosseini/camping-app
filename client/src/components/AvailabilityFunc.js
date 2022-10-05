@@ -76,6 +76,7 @@ const mDROwithUserRange = function (packageArry, userRange) {
   let resultArry = [];
   for (let objs of packageData) {
     const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id, bookingData));
+    //console.log(bookingForSpecificPackage(objs.id, bookingData))
     if (!mDROwithUserRange(userRange, packageBookingsArry)) {
       resultArry.push(objs);
     }
@@ -83,7 +84,7 @@ const mDROwithUserRange = function (packageArry, userRange) {
   return resultArry;
 };
 //console.log(allBookings)
-//console.log(avilableArry(userReqRange, allPackages.packages , allBookings.bookings ))
+console.log(avilableArry(userReqRange, allPackages.packages , allBookings.bookings ))
 
 //Create new booking: this is the check prior to adding the new booking
 //returns false if no overlap, returns true if there is overlap
