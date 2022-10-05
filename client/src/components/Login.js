@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import axios from 'axios'
 import AuthContext from '../providers/AuthProvider'
 
+import './styles/Login.scss'
+
 const Login = () => {
   const { setAuth } = useContext(AuthContext)
   const userRef = useRef()
@@ -32,7 +34,7 @@ const Login = () => {
           withCredentials: true,
         }
       )
-      console.log(JSON.stringify(response?.data))
+      // console.log(JSON.stringify(response?.data))
       //console.log(JSON.stringify(response));
       setAuth({ email, password })
       setEmail('')
@@ -54,42 +56,50 @@ const Login = () => {
 
   // console.log(state)
   return (
-    <div>
-      <h1>Login</h1>
-      <p
+    <div id='container'>
+      <div className='form-container'>
+        <h1>Login</h1>
+        {/* <p
         ref={errRef}
         className={errMsg ? 'errmsg' : 'offscreen'}
         aria-live='assertive'
       >
         {errMsg}
-      </p>
-      <form onSubmit={handleSubmit}>
+      </p> */}
         <div>
-          <label for='inputEmail1'>Email address</label>
-          <input
-            ref={userRef}
-            onChange={(e) => setEmail(e.target.value)}
-            type='email'
-            id='inputEmail1'
-            placeholder='Enter email'
-            name='email'
-            value={email}
-          />
+          <form className='form' onSubmit={handleSubmit}>
+            <div>
+              {/* <label for='inputEmail1'>Email address</label> */}
+              <input
+                className='input-email'
+                ref={userRef}
+                onChange={(e) => setEmail(e.target.value)}
+                type='email'
+                id='inputEmail1'
+                placeholder='Enter email'
+                name='email'
+                value={email}
+              />
+            </div>
+            <div>
+              {/* <label for='inputPassword'>Password</label> */}
+              <input
+                className='input-password'
+                ref={userRef}
+                type='password'
+                id='inputPassword'
+                placeholder='Password'
+                name='password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button className='btn-form' type='submit'>
+              Submit
+            </button>
+          </form>
         </div>
-        <div>
-          <label for='inputPassword'>Password</label>
-          <input
-            ref={userRef}
-            type='password'
-            id='inputPassword'
-            placeholder='Password'
-            name='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type='submit'>Submit</button>
-      </form>
+      </div>
     </div>
   )
 }
