@@ -17,6 +17,10 @@ export default function CategoryFilterItem(props) {
   //   (pack) => pack.category == props.category
   // );
 
+
+
+
+
   const packageGallery = categories.map((packageItem) => {
     return (
       <PackageListItem
