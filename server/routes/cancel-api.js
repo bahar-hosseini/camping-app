@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const getCategories = require('../db/queries/getCategories')
+const cancelBooking = require('../db/queries/cancel.js')
 
-router.post('/delete', (req, res) => {
-  getCategories.getPackageForCategory(category).then((data) => {
+router.post('/', (req, res) => {
+  const test = req.body.id
+  console.log(test)
+  cancelBooking(test).then((data) => {
     res.json({ data })
   })
 })
