@@ -7,9 +7,12 @@ import { PackageInfoCard } from '../components/PackageInfoCard'
 import 'react-calendar/dist/Calendar.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { searchContext } from "../providers/SearchProvider";
+import useContext from "../providers/SearchProvider";
 
 export function Package() {
   const { id } = useParams()
+  const { startDate, endDate, diff } = useContext(searchContext);
   // const currentPackage = packages.filter((pack) => pack.id === Number(id))
 
   // <PackageListItem
@@ -69,7 +72,7 @@ export function Package() {
       {/* <ReactCalendar /> */}
       {/* availability calendar left here (stretch) */}
 
-        <BookingBox price={packageItem.price} packageID={packageItem.id} />
+        <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate} diff={diff} />
 
         {/* <ReactCalendar /> */}
         {/* availability calendar left here (stretch) */}

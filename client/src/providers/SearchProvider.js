@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 // import DatePicker from "react-date-picker";
 // Create a Context
+import {differenceInDays} from "date-fns"
 import CategoryFilterItem from '../components/CategoryFilterItem'
 import axios from 'axios'
 export const searchContext = createContext();
@@ -18,6 +19,8 @@ export default function SearchProvider(props) {
   }, [])
 
 
+  const diff = differenceInDays(endDate, startDate)
+//todo: set diff as a state 
   // This list can get long with a lot of functions.  Reducer may be a better choice
   // const providerData = { counter, increment, decrement, clear };
   const providerData = {
@@ -27,7 +30,8 @@ export default function SearchProvider(props) {
     setEndDate,
     setCategories,
     category,
-    packages
+    packages,
+    diff
   
   };
   // We can now use this as a component to wrap anything
