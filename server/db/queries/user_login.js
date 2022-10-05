@@ -9,7 +9,6 @@ const getUser = (email) => {
       [email]
     )
     .then((data) => {
-      console.log('________>', data.rows)
       return data.rows[0]
     })
 }

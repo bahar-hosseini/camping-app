@@ -3,14 +3,14 @@ const router = express.Router()
 const session = require('express-session')
 
 express().use(
-  session({ secret: 'lighthouselab', resave: false, saveUninitialized: true })
+  session({
+    secret: 'lighthouselab',
+    resave: false,
+    saveUninitialized: true,
+  })
 )
 
 const queryUser = require('../db/queries/user_login')
-
-router.get('/', (req, res) => {
-  res.render('signin')
-})
 
 //Post Login
 router.post('/', (req, res) => {
@@ -21,10 +21,12 @@ router.post('/', (req, res) => {
     //for now Just works with our db data!!
     .then((response) => {
       req.session['user_id'] = response.id
+      // req.session.save()
+      res.redirect('/api/bookings')
       console.log(req.session['user_id'])
       // if (response.is_admin) {
       //   req.session['authorized'] = true
-      //   // res.redirect('/home')
+      // res.redirect('/home')
       // } else {
       //   req.session['authorized'] = false
       //   // res.redirect('/home')

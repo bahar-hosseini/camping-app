@@ -34,8 +34,8 @@ const Login = () => {
           withCredentials: true,
         }
       )
-      // console.log(JSON.stringify(response?.data))
-      //console.log(JSON.stringify(response));
+      console.log(JSON.stringify(response?.data))
+      console.log(JSON.stringify(response))
       setAuth({ email, password })
       setEmail('')
       setPassword('')
@@ -94,8 +94,13 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className='btn-form' type='submit'>
-              Submit
+
+            <button
+              onClick={(e) => (window.location.href = '/bookings')}
+              className='btn-form'
+              type='submit'
+            >
+              Login
             </button>
           </form>
         </div>
