@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import React, { useState } from 'react'
-import bookingImg from '../assets/booking_page.png'
-=======
-import React, { useState } from "react";
-import bookingImg from "../assets/booking_imgs/booking_02.png";
->>>>>>> main
+import bookingImg from '../assets/booking_imgs/booking_02.png'
 
 /**
  * Internal Modules

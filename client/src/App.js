@@ -14,15 +14,6 @@ import DateRangeFilterItem from './components/DateRangeFilterItem'
 import Login from './components/Login'
 
 function App() {
-<<<<<<< HEAD
-  // const [packages, setPackages] = useState([]);
-=======
-  
- 
-
->>>>>>> main
-
-
   return (
     <div className='App'>
       <SearchProvider>
