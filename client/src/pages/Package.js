@@ -53,7 +53,7 @@ export function Package() {
             <br />
             Gear owned by user {packageItem.user_id}
           </h2>
-          {packageItem.description}
+          <p className='description-box'>{packageItem.description}</p>
         </div>
         
       {/* <BookingBox
