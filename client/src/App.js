@@ -14,15 +14,14 @@ import DateRangeFilterItem from './components/DateRangeFilterItem'
 import Login from './components/Login'
 
 function App() {
+<<<<<<< HEAD
   // const [packages, setPackages] = useState([]);
+=======
+  
+ 
 
-  //const [list, setList] = useState([]);
-  // useEffect(() => {
-  //   axios.get("/list").then((res) => {
-  //     console.log(res.data);
-  //     setPackages(res.data.list);
-  //   });
-  // }, []);
+>>>>>>> main
+
 
   return (
     <div className='App'>

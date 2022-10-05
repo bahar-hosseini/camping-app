@@ -5,3 +5,6 @@
 4. run `npm install pg`
 5. in the server directory run `npm run db:reset`
 6. start the server with `node ./bin/www`
+
+## other
+- all images were sourced from pexels.com
