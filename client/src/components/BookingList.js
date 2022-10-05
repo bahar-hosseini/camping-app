@@ -1,30 +1,30 @@
-import React from 'react'
+import React from "react";
 
 /**
  * Internal Modules
  **/
-import BookingListItem from './BookingListItem'
-import { packages } from '../mock_data/packages'
-import { bookings } from '../mock_data/bookings'
-import './styles/BookingList.scss'
+import BookingListItem from "./BookingListItem";
+import { packages } from "../mock_data/packages";
+import { bookings } from "../mock_data/bookings";
+import "./styles/BookingList.scss";
 
 const BookingList = () => {
   // For now to test we consider a user with constat user id:1
-  const currentUserId = 1
+  const currentUserId = 1;
 
   //Helper Function to filter packages that their package id is equal to booking Package_id
   const getPackageForBooking = (packageID) => {
-    return packages.filter((pack) => pack.id === packageID)
-  }
+    return packages.filter((pack) => pack.id === packageID);
+  };
 
   //Filter to find Bookings that the user_id of that booking is equal to the currentUserId (for ral data cookie session)
   const userBookings = bookings.filter((booking) => {
-    return booking.user_id === currentUserId
-  })
+    return booking.user_id === currentUserId;
+  });
 
   // For Each finded booking we'll display individual BookingListItem
   const formattedBookings = userBookings.map((booking) => {
-    const currentPackage = getPackageForBooking(booking.package_id)[0]
+    const currentPackage = getPackageForBooking(booking.package_id)[0];
     return (
       <BookingListItem
         key={currentPackage.id}
@@ -35,10 +35,14 @@ const BookingList = () => {
         category={currentPackage.category}
         description={currentPackage.description}
       />
-    )
-  })
+    );
+  });
 
-  return <div className='booking-container'>{formattedBookings}</div>
-}
+  return (
+    <>
+      <div className="booking-container"><h2>My bookings</h2>{formattedBookings}</div>
+    </>
+  );
+};
 
-export default BookingList
+export default BookingList;
