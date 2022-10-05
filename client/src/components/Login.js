@@ -34,9 +34,9 @@ const Login = () => {
       )
       console.log(JSON.stringify(response?.data))
       //console.log(JSON.stringify(response));
-      // setAuth({ email, password })
-      // setEmail('')
-      // setPassword('')
+      setAuth({ email, password })
+      setEmail('')
+      setPassword('')
       // setSuccess(true);
     } catch (err) {
       if (!err?.response) {
