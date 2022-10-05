@@ -27,7 +27,7 @@ export function Home() {
   useEffect(() => {
     const categoryFilter = function (data) {
       if (category !== 0) {
-        const cF = packages.filter((pack) => pack.category === category);
+        const cF = data.filter((pack) => pack.category === category);
         return cF;
       }
       return data;

@@ -7,16 +7,32 @@ import axios from 'axios'
 export const searchContext = createContext();
 // Create a Component wrapper from Context.Provider
 
+//todo:change name to data provider
 export default function SearchProvider(props) {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [category, setCategories] = useState(0)
   // const [dateRange, setDateRange] = useState(startDate, endDate )
   const [packages, setPackages] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     axios.get('/api/packages').then((res) => setPackages(res.data.data.rows))
+
   }, [])
+
+  // useEffect(() => {
+  //   axios.get(`/api/categories/${category}/${dateRange}`)
+  //     .then((res) => setCategories(res.data.data.rows));
+  // }, [category]);
+  
+  useEffect(() => {
+    setLoading(true)
+    axios.get('/api/packages/filter',{params:{startDate, endDate, category}}).then((res) =>{setPackages(res.data.data.rows); setLoading(false) } )
+      //should req an object back 
+      
+  }, [startDate, endDate, category])
+
 
 
   const diff = differenceInDays(endDate, startDate)
