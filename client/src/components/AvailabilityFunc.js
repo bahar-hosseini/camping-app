@@ -84,7 +84,7 @@ const mDROwithUserRange = function (packageArry, userRange) {
   return resultArry;
 };
 //console.log(allBookings)
-console.log(avilableArry(userReqRange, allPackages.packages , allBookings.bookings ))
+//console.log(avilableArry(userReqRange, allPackages.packages , allBookings.bookings ))
 
 //Create new booking: this is the check prior to adding the new booking
 //returns false if no overlap, returns true if there is overlap

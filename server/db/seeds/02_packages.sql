@@ -1,5 +1,8 @@
 INSERT INTO packages (image, user_id, price, category, description, tent_description, bags_description, lantern_description,
     cooking_description, location )
+     home_img: "home_01",
+  package_img: "package_01",
+  booking_img: 
 VALUES
 ('home_square',1,50,1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries','This is my tent','This is my sleeping bag(s)','This is my lantern','This is my cooking',295),
 ('home_square',2,60,2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries','This is my tent','This is my sleeping bag(s)','This is my lantern','This is my cooking',27),
