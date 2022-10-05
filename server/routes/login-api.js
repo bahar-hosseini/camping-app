@@ -4,7 +4,7 @@ const session = require('express-session')
 
 express().use(
   session({
-    secret: SECRET,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
   })
