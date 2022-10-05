@@ -6,9 +6,8 @@ import { DatePickerBar } from '../components/DatePickerBar'
 // import CategoryFilterItem from "../components/CategoryFilterItem";
 import { useContext } from 'react'
 // import SearchProvider from "../providers/SearchProvider";
-import { searchContext } from "../providers/SearchProvider";
-import { HomePackages } from "../components/HomePackages";
-
+import { searchContext } from '../providers/SearchProvider'
+import { HomePackages } from '../components/HomePackages'
 
 import axios from 'axios'
 import { avilableArry } from '../components/AvailabilityFunc'
@@ -43,6 +42,8 @@ export function Home() {
     const categoryFiltered = categoryFilter(packages)
     const rangeFiltered = rangeFilter(categoryFiltered)
 
+    setFilteredPackages(rangeFiltered)
+  }, [packages, category, startDate, endDate])
 
   const packageGallery = filteredPackages.map((packageItem) => {
     return (
