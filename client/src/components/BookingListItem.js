@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bookingImg from "../assets/booking_page.png";
+import bookingImg from "../assets/booking_imgs/booking_02.png";
 
 /**
  * Internal Modules
