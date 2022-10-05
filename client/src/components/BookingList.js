@@ -34,7 +34,14 @@ const BookingList = () => {
     )
   })
 
-  return <div className='booking-container'>{formattedBookings}</div>
+  return (
+    <>
+      <div className='booking-container'>
+        <h2>My bookings</h2>
+        {formattedBookings}
+      </div>
+    </>
+  )
 }
 
 export default BookingList
