@@ -76,6 +76,7 @@ const mDROwithUserRange = function (packageArry, userRange) {
   let resultArry = [];
   for (let objs of packageData) {
     const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id, bookingData));
+    //console.log(bookingForSpecificPackage(objs.id, bookingData))
     if (!mDROwithUserRange(userRange, packageBookingsArry)) {
       resultArry.push(objs);
     }

@@ -29,7 +29,7 @@ export function DatePickerBar() {
       </div>
       <div className="end-date">
         <h5>Until</h5>
-        <DatePicker onChange={setEndDate} value={endDate} />
+        <DatePicker onChange={setEndDate} value={endDate} minDate={startDate}/>
       </div>
     </div>
   );
