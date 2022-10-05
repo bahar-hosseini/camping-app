@@ -20,7 +20,7 @@ export function PackageList() {
     return (
       <PackageListItem
         key={packageItem.id}
-        image={packageItem.home_img}
+        home_img={packageItem.home_img}
         id={packageItem.id}
         userID={packageItem.user_id}
         price={packageItem.price}

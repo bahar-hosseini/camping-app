@@ -29,16 +29,18 @@ export function Package() {
     axios.get(`/api/package/${id}`).then((res) => {
       setPackageItem(res.data.data.rows[0])
     })
-  }, [])
-
+  }, [id])
+  
   return (
     <div className='Package'>
       <div className='package-top'>
         <div>
-          <img src={packageImg} alt='img' className='package-img' />
+          {/* <img src={packageImg} alt='img' className='package-img' /> */}
+          {packageItem.package_img && <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' />}
         </div>
         <div className='card'>
           <PackageInfoCard
+            package_img={packageItem.package_img}
             tent={packageItem.tent_description}
             bags={packageItem.bags_description}
             lantern={packageItem.lantern_description}
