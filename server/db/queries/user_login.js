@@ -1,6 +1,6 @@
-const db = require('../connection')
+const db = require('../../configs/db.config')
 
-// Query the information for a single product based on its ID
+// Query the information for a single user based on its ID
 const getUser = (email) => {
   return db
     .query(
@@ -9,6 +9,7 @@ const getUser = (email) => {
       [email]
     )
     .then((data) => {
+      console.log('________>', data.rows)
       return data.rows[0]
     })
 }

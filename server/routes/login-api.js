@@ -21,13 +21,14 @@ router.post('/', (req, res) => {
     //for now Just works with our db data!!
     .then((response) => {
       req.session['user_id'] = response.id
-      if (response.is_admin) {
-        req.session['authorized'] = true
-        // res.redirect('/home')
-      } else {
-        req.session['authorized'] = false
-        // res.redirect('/home')
-      }
+      console.log(req.session['user_id'])
+      // if (response.is_admin) {
+      //   req.session['authorized'] = true
+      //   // res.redirect('/home')
+      // } else {
+      //   req.session['authorized'] = false
+      //   // res.redirect('/home')
+      // }
     })
     .catch((err) => {
       res.status(500).json({ error: err.message })
