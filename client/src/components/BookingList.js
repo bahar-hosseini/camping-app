@@ -44,7 +44,7 @@ const BookingList = () => {
     return (
       <BookingListItem
         key={index}
-        image={booking.image}
+        booking_img={booking.booking_img}
         id={booking.id}
         userID={booking.user_id}
         price={booking.price}

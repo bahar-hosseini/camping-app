@@ -1,7 +1,6 @@
 import './styles/Package.scss'
 import { useParams } from 'react-router-dom'
 // import { packages } from '../mock_data/packages'
-import packageImg from '../assets/product_page.png'
 import { ReactCalendar } from '../components/Calendar'
 import { BookingBox } from '../components/BookingBox'
 import { PackageInfoCard } from '../components/PackageInfoCard'
@@ -36,7 +35,8 @@ export function Package() {
       <div className='package-top'>
         <div>
           {/* <img src={packageImg} alt='img' className='package-img' /> */}
-          {packageItem.package_img && <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' />}
+          {/* {packageItem.package_img && <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' />} */}
+          {packageItem.package_img ? <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' /> : <div width="2556px" height="1648px"/>}
         </div>
         <div className='card'>
           <PackageInfoCard

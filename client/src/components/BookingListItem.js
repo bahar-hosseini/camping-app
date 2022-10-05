@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import bookingImg from '../assets/booking_imgs/booking_02.png'
+// import bookingImg from '../assets/booking_imgs/booking_02.png'
 
 /**
  * Internal Modules
@@ -15,7 +15,7 @@ const BookingListItem = (props) => {
 
   return (
     <div className='booking-item-box'>
-      <img src={bookingImg} alt='img' className='booking-img' height='175px' />
+      <img src={require(`../assets/booking_imgs/${props.booking_img}.png`)} alt='img' className='booking-img' height='175px' />
 
       <div className='booking-content'>
         <div className='top-section'>
