@@ -20,24 +20,22 @@ const BookingList = () => {
 
   //Function to handle cancel button to remove item from booking dashboard
   const handleCancelBooking = async (id) => {
-    let findIndx = bookings.findIndex((x) => x['id'] === id)
+    // let findIndx = bookings.findIndex((x) => x['id'] === id)
     // setState(false)
     // bookings.splice(findIndx, 1)
     setBookings(bookings.filter((x) => x['id'] !== id))
 
-    console.log('#####', bookings[0]['id'])
-    const test = bookings[0]['id']
+    // console.log('#####', bookings[0]['id'])
+    const cancelItemID = bookings[0]['id']
     try {
       const response = await axios
-        .post(`/api/cancel`, JSON.stringify({ id: test }), {
+        .post(`/api/cancel`, JSON.stringify({ id: cancelItemID }), {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         })
         .then((res) => console.log('this is res', res))
     } catch (err) {
       console.log(err)
-      // axios.post('/api/cancel').then(()=>{
-      // })
     }
   }
   const formattedBookings = bookings.map((booking, index) => {
