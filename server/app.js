@@ -26,6 +26,7 @@ const loginApiRoute = require('./routes/login-api')
 const logoutRoutes = require('./routes/logout')
 const bookingsRoute = require('./routes/bookings-api')
 const categoriesRoute = require('./routes/categoriesRoute-api')
+const cancelApiRoutes = require('./routes/cancel-api')
 
 // TEST
 // app.get('/list', (req, res) => {
@@ -39,7 +40,8 @@ app.use('/api/packages', packagesRoute)
 app.use('/api/package', packageRoute)
 app.use('/api/bookings', bookingsRoute)
 app.use('/api/login', loginApiRoute)
-// app.use('/logout', logoutRoutes)
+app.use('/logout', logoutRoutes)
+app.use('/api/cancel', cancelApiRoutes)
 
 app.use('/api/categories', categoriesRoute)
 
