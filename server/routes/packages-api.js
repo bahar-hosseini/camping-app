@@ -6,8 +6,11 @@ const {getPackages, filterPackages} = require('../db/queries/packages')
 
 
 router.get('/filter', function (req, res) {
+  
   const filterParams = req.query
-  filterPackages(filterParams).then((data) => {
+  filterPackages(filterParams)
+  // .then(() => console.log('test@@@@@@@'))
+  .then((data) => {
     res.json({ data })
   })
 })
