@@ -26,7 +26,7 @@ app.use(
  **/
 // const packagesRoute = require('./routes/packages-api')
 const packagesRouter = require('./routes/packages-api')
-const packageRoute = require('./routes/package-api')
+// const packageRoute = require('./routes/package-api')
 const loginApiRoute = require('./routes/login-api')
 const logoutRoutes = require('./routes/logout')
 const bookingsRoute = require('./routes/bookings-api')
@@ -42,7 +42,7 @@ const cancelApiRoutes = require('./routes/cancel-api')
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/api/packages', packagesRouter)
-app.use('/api/package', packageRoute)
+// app.use('/api/package', packageRoute)
 //todo: make packages a single route
 app.use('/api/bookings', bookingsRoute)
 app.use('/api/login', loginApiRoute)

@@ -14,6 +14,7 @@ export default function SearchProvider(props) {
   const [category, setCategories] = useState(0)
   // const [dateRange, setDateRange] = useState(startDate, endDate )
   const [packages, setPackages] = useState([])
+  
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
