@@ -8,6 +8,7 @@ import {
 import React from 'react'
 import { bookings } from '../mock_data/bookings'
 import './styles/BookingBox.scss'
+import axios from 'axios'
 
 import { DatePickerBar } from './DatePickerBar'
 import Button from './Button'
@@ -28,15 +29,27 @@ export function BookingBox(props) {
   // let diffDays =  formatDistanceStrict(new Date(endDate), new Date(startDate))
 
   // we can check the result in bookings page.
-  const handleBooking = () => {
-    const currentUser = 1
-    const bookingObj = {}
-    bookingObj['user_id'] = currentUser
-    bookingObj['package_id'] = props.packageID
-    bookings.push(bookingObj)
-    //console.log(bookings);
-    alert(`Package ${props.packageID} added `)
+  const handleBooking = async (e) => {
+    //   // const currentUser = 1
+    //   // const bookingObj = {}
+    //   // bookingObj['user_id'] = currentUser
+    //   // bookingObj['package_id'] = props.packageID
+    //   // bookings.push(bookingObj)
+    //   // //console.log(bookings);
+    //   // alert(`Package ${props.packageID} added `)
+
+    e.preventDefault()
+    console.log('%%%%%%%%%%%%%', props)
+    // try {
+    await axios.post(`/api/bookings/${props.packageID}`).then((res) => {
+      console.log('******************', res)
+    })
+    //   }
+    //   catch(err){
+    // console.log(err)
+    //   }
   }
+
   return (
     <div className='booking-box-container'>
       <div className='booking-info'>
