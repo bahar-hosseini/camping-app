@@ -18,27 +18,31 @@ export default function SearchProvider(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // const abortCont = new AbortController();
-
-    axios.get("/api/packages")
-    // .then(()=> setDateRange(startDate, endDate))
-    .then((res) => setPackages(res.data.data.rows));
-  }, []);
-
-    
-
-  useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/packages/filter", { params: { category, endDate } })
+      .get("/api/packages/filter", { params: { category } })
       // .then((res) => console.log(res.data.data))
       .then((res) => {
+        console.log(res.data.data,'running@@@@@@')
         setPackages(res.data.data);
         setLoading(false);
       });
       // return ()=>console.log('cleanup')
-      return ()=>setLoading(false);
-  }, [category, endDate]);
+      return ()=>setPackages([]);
+  }, [category]);
+
+
+  useEffect(() => {
+    // const abortCont = new AbortController();
+    setLoading(true);
+    axios.get("/api/packages")
+    // .then(()=> setDateRange(startDate, endDate))
+    .then((res) => { setPackages(res.data.data.rows)});
+    return ()=>setPackages([]); 
+  }, []);
+
+    
+
 
   const diff = differenceInDays(endDate, startDate);
   //todo: set diff as a state

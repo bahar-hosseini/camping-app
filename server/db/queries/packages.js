@@ -23,17 +23,17 @@ const filterPackages = (params) => {
   tomorrow.setDate(today.getDate() + 1);
   // console.log("tomorrow => ", tomorrow);
 
-  let query = `SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id `;
-  // let query = `SELECT * FROM packages `;
+  // let query = `SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id `;
+  let query = `SELECT * FROM packages `;
   // let query = `SELECT * FROM bookings `;
 
-  if (params.endDate > tomorrow & params.category > 0) {
-    query += ` WHERE packages.category = ${params.category} AND bookings.end_date = ${params.endDate} ;`;
-  }
+  // if (params.endDate > tomorrow & params.category > 0) {
+  //   query += ` WHERE packages.category = ${params.category} AND bookings.end_date = ${params.endDate} ;`;
+  // }
 
-  if (params.endDate > tomorrow) {
-    query += ` WHERE bookings.end_date = ${params.endDate} ;`;
-  }
+  // if (params.endDate > tomorrow) {
+  //   query += ` WHERE bookings.end_date = ${params.endDate} ;`;
+  // }
 
   if (params.category > 0) {
     query += ` WHERE packages.category = ${params.category} ;`;

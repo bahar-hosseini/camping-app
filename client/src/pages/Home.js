@@ -67,7 +67,7 @@ export function Home() {
     <>
       <DatePickerBar />
       <CategoryLinksBar />
-      <div className="gallery-container">
+      <div className="gallery-container">{packages.length}
         <div className="package-gallery">{packageGallery}</div>
       </div>
       {/* {category === 0 && <PackageList />}

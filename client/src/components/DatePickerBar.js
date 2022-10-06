@@ -31,11 +31,11 @@ export function DatePickerBar() {
       
       <div className="start-date">
         <h5>From</h5>
-        <DatePicker onChange={setStartDate} value={startDate} minDate={today} />
+        <DatePicker onChange={e => setStartDate(e.target.value)} value={startDate} minDate={today} />
       </div>
       <div className="end-date">
         <h5>Until</h5>
-        <DatePicker onChange={setEndDate} value={endDate} minDate={tomorrow}/>
+        <DatePicker onChange={e => setEndDate(e.target.value)} value={endDate} minDate={tomorrow}/>
       </div>
     </div>
   );
