@@ -8,54 +8,38 @@ import { searchContext } from "../providers/SearchProvider";
 export function DatePickerBar() {
   const { startDate, endDate, setStartDate, setEndDate } =
     useContext(searchContext);
-  // console.log(startDate);
-  // console.log(endDate);
 
-  // convertTime formats the new Date()
-
-  // const convertTime = (time) => {
-  //   return new Date(time).toLocaleDateString("en-us", {
-  //     year: "numeric",
-  //     month: "long",
-  //     day: "numeric",
-  //   });
-  // };
   const today = new Date()
   const tomorrow = new Date(today)
   tomorrow.setDate(tomorrow.getDate() + 1)
 
 
 
+  
   return (
     <div className="search-box">
-      
-      <div className="start-date">
-        <h5>From</h5>
-        <DatePicker onChange={e => setStartDate(e.target.value)} value={startDate} minDate={today} />
-      </div>
-      <div className="end-date">
-        <h5>Until</h5>
-        <DatePicker onChange={e => setEndDate(e.target.value)} value={endDate} minDate={tomorrow}/>
-      </div>
+    <div className="start-date">
+      <h5>From</h5>
+      <DatePicker onChange={setStartDate} value={startDate} />
     </div>
-  );
+    <div className="end-date">
+      <h5>Until</h5>
+      <DatePicker onChange={setEndDate} value={endDate} minDate={startDate}/>
+    </div>
+  </div>
+);
 }
-
-// {/* <div>
-//   <ul>
-//     <li>
-//       <span>Where</span>
-//       <input type="text" id="locationSearch" placeholder="City"></input>
-//     </li>
-//     <li>My start date is: {convertTime(startDate)}</li>
-//     <li>My end date is: {convertTime(endDate)}</li>
-//     <li>This is my Date search range: </li>
-//     <li>
-//       <span>Party Size: </span>
-//       <input type="number" min="1" max="4" id="categorySearch"></input>
-//       <Link to="/rangeSearch">
-//         <Button onClick={() => console.log("Searching!!!!")}>🔎</Button>
-//       </Link>
-//     </li>
-//   </ul>
-// </div>  */}
+//   return (
+//     <div className="search-box">
+      
+//       <div className="start-date">
+//         <h5>From</h5>
+//         <DatePicker onChange={e => setStartDate(e.target.value)} value={startDate} minDate={today} />
+//       </div>
+//       <div className="end-date">
+//         <h5>Until</h5>
+//         <DatePicker onChange={e => setEndDate(e.target.value)} value={endDate} minDate={tomorrow}/>
+//       </div>
+//     </div>
+//   );
+// }
