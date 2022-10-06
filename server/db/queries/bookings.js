@@ -20,6 +20,23 @@ const getBookings = (userId) => {
       return data
     })
 }
+const addBookings = (userId, packageItem, startDate, endDate) => {
+  return db
+    .query(
+      `INSERT INTO bookings(
+        user_id,
+        package_id,
+        start_date,
+        end_date
+        )
+      VALUES( $1 ,$2, $3, $4)
+      RETURNING *;
+      `,
+      [userId, packageItem, startDate, endDate]
+    )
+    .then((data) => {
+      return data
+    })
+}
 
-
-module.exports = { getBookings }
+module.exports = { getBookings, addBookings }
