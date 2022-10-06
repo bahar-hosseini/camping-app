@@ -5,7 +5,7 @@ const getBookings = (userId) => {
     .query(
       `SELECT bookings.id AS booking_id,
               bookings.package_id,
-              bookings.user_id,
+              bookings.user_id AS renter_id,
               bookings.start_date,
               bookings.end_date,
               packages.*
@@ -16,6 +16,7 @@ const getBookings = (userId) => {
       [userId]
     )
     .then((data) => {
+      // this .then is not neccesary I'm just scared to delete it
       return data
     })
 }

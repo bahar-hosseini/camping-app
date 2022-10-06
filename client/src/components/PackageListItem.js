@@ -1,7 +1,7 @@
 import React from 'react'
-// import homeImg from "../assets/home_square.png"
 import { Link } from 'react-router-dom'
 import './styles/PackageListItem.scss'
+import { formatDateTitles } from '../helpers/formatDateTitles'
 // import classnames as 'classnames';
 
 export default function PackageListItem(props) {
@@ -24,13 +24,11 @@ export default function PackageListItem(props) {
           width='300px'
         />
         <h2 className='package-card-title'>
-          Package Category {props.category}
+          {formatDateTitles(props.category)} Person Package
         </h2>
         <h4 className='package-card-text'>
-          {props.location}km away
-          <br />
-          Availability Range {props.availability}
-          <br />${props.price}/day
+          <span className='distance-packagelist'>{props.location}km away</span>
+          <br />${props.price} per day
         </h4>
       </div>
     </Link>
