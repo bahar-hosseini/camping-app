@@ -5,6 +5,8 @@
   background-color: white;
   margin-bottom: 2rem;
   padding: 5px;
+  padding-bottom: -5px;
+  max-height: 175px;
 }
 
 .booking-img {
@@ -43,6 +45,7 @@
     margin: 0px;
     align-self:flex-end;
     padding-bottom: 0.25rem;
+    font-size: 20px;
   }
 }
 

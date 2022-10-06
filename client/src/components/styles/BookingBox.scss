@@ -1,4 +1,4 @@
-.booking-box-container{
+.booking-box-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,26 +13,26 @@
   // .booking-info{
   //   margin-bottom: 5%;
   // }
-//   .btn-booking{
+  //   .btn-booking{
 
-//   font-family: inherit;
-//   font-weight: 500;
-//   font-size: 16px;
-//   padding: 0.7em 2em 0.7em 2em;
-//   color: 	#000000;
-//   background: linear-gradient(0deg, rgba(249,198,245,2) 0%, rgb(208, 137, 202) 100%);
-//   border: none;
-//   box-shadow: 0 0.7em 1.5em -0.5em #b25aab;
-//   border-radius: 20em;
-//   cursor: pointer;
-// }
+  //   font-family: inherit;
+  //   font-weight: 500;
+  //   font-size: 16px;
+  //   padding: 0.7em 2em 0.7em 2em;
+  //   color: 	#000000;
+  //   background: linear-gradient(0deg, rgba(249,198,245,2) 0%, rgb(208, 137, 202) 100%);
+  //   border: none;
+  //   box-shadow: 0 0.7em 1.5em -0.5em #b25aab;
+  //   border-radius: 20em;
+  //   cursor: pointer;
+  // }
 }
 
 .booking-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2.25rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -46,9 +46,5 @@
 .package-price-box {
   margin: 0px;
   align-self: flex-start;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
-
-
-
-

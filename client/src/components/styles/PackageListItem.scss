@@ -4,7 +4,7 @@
   padding: 5px;
   filter: drop-shadow(0px 4px 15px #00000030);
   background-color: white;
-  padding-bottom: 20px;
+  padding-bottom: 1rem;
 }
 
 .home-img {
@@ -13,14 +13,20 @@
 
 .package-card-title {
   margin: 0px;
-  margin-bottom: 10px;
-  margin-top: 2.5px;
-  padding-left: 5px;
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+  padding-left: 6px;
   color: black;
 }
 .package-card-text {
   margin: 0px;
   font-size: 18px;
-  padding-left: 5px;
+  margin-top: -0.1rem;
+  padding-left: 7px;
   color: black;
+}
+
+.distance-packagelist {
+  font-size: 16px;
+  font-weight: normal;
 }
