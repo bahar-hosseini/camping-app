@@ -8,19 +8,32 @@ const getPackages = () => {
 };
 
 const filterPackages = (params) => {
-  const currentTime = new Date();
+  const today = new Date();
+  let tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 7);
+  // console.log("tomorrow => ", tomorrow);
 
-  // const query = `SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id`;
+  // let query = `SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id `;
   let query = `SELECT * FROM packages `;
-//if(params.category === 0 & startDate =) {
 
-// }
+  // if (params.endDate > tomorrow & params.category > 0) {
+  //   query += ` WHERE packages.category = ${params.category} AND `;
+  // }
 
+  // if (params.endDate > tomorrow) {
+  //   query += ` WHERE bookings.end_date = ${params.endDate} `;
+  // }
+
+  //-------
+  //a = param
+  // (params.startDate <= start_date && start_date <= params.endDate) return true; // b starts in a
+  // (params.startDate <= end_date && end_date  <= params.endDate) return true; // b ends in a
+  // (start_date < params.startDate && params.endDate < end_date ) return true; // a in b
+  //-----
 
   if (params.category > 0) {
-    query += ` WHERE packages.category = ${params.category} `
-    // query += ` WHERE category = 1 `
-  } 
+    query += ` WHERE packages.category = ${params.category} ;`;
+  }
 
   // let start = ` WHERE bookings.start_date > ${params.startDate} `;
 
@@ -32,27 +45,17 @@ const filterPackages = (params) => {
   //   end = "";
   // }
 
-
-  
-  // console.log( params.category,"@@@@@@@@@@@@@@@@")
-  // console.log(typeof category,"@@@@@@@@@@@@@@@@")
-  // const query = `SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id $1 $2 $3;`;
-  // const args = [start, end, category];
- 
-  
-  //SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id WHERE category = ${params.category}
-  // console.log(category,"@@@@@@")
-  
-  // [startFilter(), endFilter(params.endDate), categoryFilter(params.category)]
-  return db
-    .query(query)
-    // .then((data) => {
-    //   console.log(data.rows)
-    // })
-    .then((data) => {
-      return data.rows;
-    })
-    .catch((err) => console.log(err));
+  return (
+    db
+      .query(query)
+      // .then((data) => {
+      //   console.log(data.rows)
+      // })
+      .then((data) => {
+        return data.rows;
+      })
+      .catch((err) => console.log(err))
+  );
 };
 
 module.exports = { getPackages, filterPackages };

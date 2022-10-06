@@ -20,10 +20,12 @@ export default function SearchProvider(props) {
   useEffect(() => {
     // const abortCont = new AbortController();
 
-    axios.get("/api/packages").then((res) => setPackages(res.data.data.rows));
+    axios.get("/api/packages")
+    // .then(()=> setDateRange(startDate, endDate))
+    .then((res) => setPackages(res.data.data.rows));
   }, []);
 
-  // startDate, endDate,
+    
 
   useEffect(() => {
     setLoading(true);
