@@ -46,7 +46,7 @@ app.use('/api/packages', packagesRouter)
 //todo: make packages a single route
 app.use('/api/bookings', bookingsRoute)
 app.use('/api/login', loginApiRoute)
-app.use('/logout', logoutRoutes)
+app.use('/api/logout', logoutRoutes)
 app.use('/api/cancel', cancelApiRoutes)
 app.use('/api/categories', categoriesRoute)
 

@@ -36,14 +36,27 @@ export default function SearchProvider(props) {
       .get("/api/packages/filter", { params: { category, endDate, startDate } })
       // .then((res) => console.log(res.data.data))
       .then((res) => {
-        //console.log(res.data.data,'running@@@@@@')
-        setPackages(res.data.data);
-      });
+        console.log(res.data.data, 'running@@@@@@')
+        setPackages(res.data.data)
+        setLoading(false)
+      })
     // return ()=>console.log('cleanup')
-    return () => setPackages([]);
-  }, [category, endDate, startDate]);
+    return () => setPackages([])
+  }, [category])
 
-  const diff = differenceInDays(endDate, startDate);
+  useEffect(() => {
+    // const abortCont = new AbortController();
+    setLoading(true)
+    axios
+      .get('/api/packages')
+      // .then(()=> setDateRange(startDate, endDate))
+      .then((res) => {
+        setPackages(res.data.data.rows)
+      })
+    return () => setPackages([])
+  }, [])
+
+  const diff = differenceInDays(endDate, startDate)
   //todo: set diff as a state
   // This list can get long with a lot of functions.  Reducer may be a better choice
   // const providerData = { counter, increment, decrement, clear };
@@ -56,12 +69,14 @@ export default function SearchProvider(props) {
     category,
     packages,
     diff,
-  };
+    isLogin,
+    setIsLogin,
+  }
   // We can now use this as a component to wrap anything
   // that needs our state
   return (
     <searchContext.Provider value={providerData}>
       {props.children}
     </searchContext.Provider>
-  );
+  )
 }

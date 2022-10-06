@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import "./styles/Home.scss";
-import { CategoryLinksBar } from "../components/CategoryLinksBar";
-import { PackageList } from "../components/PackageList";
-import { DatePickerBar } from "../components/DatePickerBar";
+import { useEffect, useState } from 'react'
+import './styles/Home.scss'
+import { CategoryLinksBar } from '../components/CategoryLinksBar'
+import { PackageList } from '../components/PackageList'
+import { DatePickerBar } from '../components/DatePickerBar'
 // import CategoryFilterItem from "../components/CategoryFilterItem";
-import { useContext } from "react";
+import { useContext } from 'react'
 // import SearchProvider from "../providers/SearchProvider";
-import { searchContext } from "../providers/SearchProvider";
-import { HomePackages } from "../components/HomePackages";
+import { searchContext } from '../providers/SearchProvider'
+import { HomePackages } from '../components/HomePackages'
 
-import axios from "axios";
-import { avilableArry } from "../components/AvailabilityFunc";
-import { bookings } from "../mock_data/bookings";
-import PackageListItem from "../components/PackageListItem";
+import axios from 'axios'
+import { avilableArry } from '../components/AvailabilityFunc'
+import { bookings } from '../mock_data/bookings'
+import PackageListItem from '../components/PackageListItem'
 
 export function Home() {
   const { startDate, endDate, setPackages, category, setCategory, packages } =
@@ -66,8 +66,8 @@ export function Home() {
         location={packageItem.location}
         availability={packageItem.availability}
       />
-    );
-  });
+    )
+  })
 
   // console.log(avilableArry([startDate,endDate], packages, bookings))
 
@@ -75,8 +75,8 @@ export function Home() {
     <>
       <DatePickerBar />
       <CategoryLinksBar />
-      <div className="gallery-container">
-        <div className="package-gallery">{packageGallery}</div>
+      <div className='gallery-container'>
+        <div className='package-gallery'>{packageGallery}</div>
       </div>
       {/* {category === 0 && <PackageList />}
       {category !== 0 && <CategoryFilterItem category={category} />} */}
@@ -90,5 +90,5 @@ export function Home() {
       {/* {sdedSame(startDate, endDate) && <PackageList />} */}
       {/* {sdedSame(startDate, endDate) && <DateRangeFilterItem  />} */}
     </>
-  );
+  )
 }

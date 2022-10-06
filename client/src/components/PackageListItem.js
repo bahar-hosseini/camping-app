@@ -13,6 +13,7 @@ export default function PackageListItem(props) {
   // category={packageItem.category}
   // location={packageItem.location}
   // console.log(props, "test here");
+
   return (
     <Link to={'/package/' + props.id} className='home-package-item'>
       <div>
@@ -34,4 +35,3 @@ export default function PackageListItem(props) {
     </Link>
   )
 }
-

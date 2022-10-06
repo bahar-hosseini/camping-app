@@ -11,4 +11,20 @@ router.get('/', function (req, res) {
   })
 })
 
+// Add Item to the booking table
+router.post('/:id', function (req, res) {
+  const userId = req.session['user_id']
+  // const userId = 1
+  // const packageItem = 1
+  const packageItem = req.params.id
+  const startDate = '2022-01-18'
+  const endDate = '2022-02-18'
+
+  console.log('$$$$$$$$$$', userId)
+  console.log('@@@@@@ Package Item@@@@@', packageItem)
+  bookings.addBookings(userId, packageItem, startDate, endDate).then((data) => {
+    res.json({ data })
+  })
+})
+
 module.exports = router
