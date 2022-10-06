@@ -8,7 +8,7 @@ import './styles/Login.scss'
 import { Link } from 'react-router-dom'
 
 export const Login = () => {
-  const { setAuth } = useContext(AuthContext)
+  // const { setAuth } = useContext(AuthContext)
   const userRef = useRef()
   const errRef = useRef()
 

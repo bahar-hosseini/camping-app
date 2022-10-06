@@ -7,6 +7,7 @@ import axios from 'axios'
 export const searchContext = createContext()
 // Create a Component wrapper from Context.Provider
 
+//todo:change name to data provider
 export default function SearchProvider(props) {
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
@@ -14,9 +15,32 @@ export default function SearchProvider(props) {
   // const [dateRange, setDateRange] = useState(startDate, endDate )
   const [packages, setPackages] = useState([])
   const [isLogin, setIsLogin] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    axios.get('/api/packages').then((res) => setPackages(res.data.data.rows))
+    setLoading(true)
+    axios
+      .get('/api/packages/filter', { params: { category } })
+      // .then((res) => console.log(res.data.data))
+      .then((res) => {
+        console.log(res.data.data, 'running@@@@@@')
+        setPackages(res.data.data)
+        setLoading(false)
+      })
+    // return ()=>console.log('cleanup')
+    return () => setPackages([])
+  }, [category])
+
+  useEffect(() => {
+    // const abortCont = new AbortController();
+    setLoading(true)
+    axios
+      .get('/api/packages')
+      // .then(()=> setDateRange(startDate, endDate))
+      .then((res) => {
+        setPackages(res.data.data.rows)
+      })
+    return () => setPackages([])
   }, [])
 
   const diff = differenceInDays(endDate, startDate)

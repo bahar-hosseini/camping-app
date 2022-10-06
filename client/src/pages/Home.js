@@ -24,29 +24,29 @@ export function Home() {
   // const [filterByRange, setFilterByRange] = useState([]);
   // const [filterByLocation, setFilterByLocation] = useState([]);
 
-  useEffect(() => {
-    const categoryFilter = function (data) {
-      if (category !== 0) {
-        const cF = packages.filter((pack) => pack.category === category)
-        return cF
-      }
-      return data
-    }
+  // useEffect(() => {
+  //   const categoryFilter = function (data) {
+  //     if (category !== 0) {
+  //       const cF = data.filter((pack) => pack.category === category);
+  //       return cF;
+  //     }
+  //     return data;
+  //   };
 
-    const rangeFilter = function (data) {
-      if (startDate.getTime() === endDate.getTime()) {
-        return data
-      }
-      return avilableArry([startDate, endDate], packages, bookings)
-    }
+  //   const rangeFilter = function (data) {
+  //     if (startDate.getTime() === endDate.getTime()) {
+  //       return data;
+  //     }
+  //     return avilableArry([startDate, endDate], packages, bookings);
+  //   };
 
-    const categoryFiltered = categoryFilter(packages)
-    const rangeFiltered = rangeFilter(categoryFiltered)
+  //   const categoryFiltered = categoryFilter(packages);
+  //   const rangeFiltered = rangeFilter(categoryFiltered);
 
-    setFilteredPackages(rangeFiltered)
-  }, [packages, category, startDate, endDate])
+  //   setFilteredPackages(rangeFiltered);
+  // }, [packages, category, startDate, endDate]);
 
-  const packageGallery = filteredPackages.map((packageItem) => {
+  const packageGallery = packages.map((packageItem) => {
     return (
       <PackageListItem
         key={packageItem.id}
@@ -62,13 +62,6 @@ export function Home() {
   })
 
   // console.log(avilableArry([startDate,endDate], packages, bookings))
-
-  const sdedSame = function (sd, ed) {
-    if (sd.getTime() === ed.getTime()) {
-      return true
-    }
-    return false
-  }
 
   return (
     <>

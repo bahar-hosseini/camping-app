@@ -4,17 +4,17 @@ import axios from 'axios'
 
 const Logout = () => {
   const { isLogin, setIsLogin } = useContext(searchContext)
-  console.log('EEEEEEEE', isLogin)
+  // console.log('EEEEEEEE', isLogin)
 
   const handlelogOut = () => {
     axios
       .get('/api/logout')
       .then((res) => {
-        console.log('LOOOOGOUUUUUT', res)
+        // console.log('LOOOOGOUUUUUT', res)
       })
       .then(() => {
         setIsLogin(() => false)
-        console.log('EEEEEEEE', isLogin)
+        // console.log('EEEEEEEE', isLogin)
       })
   }
 
