@@ -5,15 +5,17 @@ import Button from './Button'
 import { searchContext } from '../providers/SearchProvider'
 
 import './styles/Login.scss'
+import { Link } from 'react-router-dom'
 
 export const Login = () => {
+  const { setAuth } = useContext(AuthContext)
   const userRef = useRef()
   const errRef = useRef()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errMsg, setErrMsg] = useState('')
-  // const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false)
   const { isLogin, setIsLogin } = useContext(searchContext)
 
   console.log('########', isLogin)
@@ -29,18 +31,20 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await axios
-      .post(`/api/login`, { email, password })
-      .then(() => setIsLogin(true))
-      .then(() => console.log('???????', isLogin))
+    // try {
+    const response = await axios
+      .post(`/api/login`, JSON.stringify({ email, password }), {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      })
+      .then(() => {
+        setIsLogin(true)
+        setEmail('')
+        setPassword('')
+        setSuccess(true)
+      })
 
-    // console.log(JSON.stringify(response?.data))
-    // console.log(JSON.stringify(response))
-    // setAuth({ email, password })
-    // setEmail('')
-    // setPassword('')
-    // setSuccess(true);
-    // .catch(err) {
+    // } catch (err) {
     //   if (!err?.response) {
     //     setErrMsg('No Server Response')
     //   } else if (err.response?.status === 400) {
@@ -58,6 +62,7 @@ export const Login = () => {
   return (
     <div className='form-container'>
       <h1>Login</h1>
+
       {/* <p
         ref={errRef}
         className={errMsg ? 'errmsg' : 'offscreen'}
@@ -65,6 +70,7 @@ export const Login = () => {
       >
         {errMsg}
       </p> */}
+
       <form className='form' onSubmit={handleSubmit}>
         <div>
           {/* <label for='inputEmail1'>Email address</label> */}
@@ -94,6 +100,9 @@ export const Login = () => {
         </div>
         <div className='button-section'>
           <Button
+            // onClick={(e) =>
+            // success ? alert(`you're loged in`) : alert(errMsg)
+            // }
             // onClick={(e) => (window.location.href = '/bookings')}
             className='btn-form'
             type='submit'
@@ -103,6 +112,7 @@ export const Login = () => {
         </div>
         {/* <button>Login</button> */}
       </form>
+      <div>{isLogin && <Link to={'/'}>Home page</Link>}</div>
     </div>
   )
 }
