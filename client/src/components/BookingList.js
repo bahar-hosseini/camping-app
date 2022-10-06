@@ -16,6 +16,7 @@ const BookingList = () => {
       // console.log(res.data.data.rows);
       setBookings(res.data.data.rows)
     })
+    // return () => console.log('ccccccleeeeeaan up')
   }, [])
 
   //Function to handle cancel button to remove item from booking dashboard
