@@ -20,16 +20,16 @@ export default function SearchProvider(props) {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/packages/filter", { params: { category } })
+      .get("/api/packages/filter", { params: { category,endDate, startDate } })
       // .then((res) => console.log(res.data.data))
       .then((res) => {
-        console.log(res.data.data,'running@@@@@@')
+        //console.log(res.data.data,'running@@@@@@')
         setPackages(res.data.data);
         setLoading(false);
       });
       // return ()=>console.log('cleanup')
       return ()=>setPackages([]);
-  }, [category]);
+  }, [category, endDate, startDate]);
 
 
   useEffect(() => {
