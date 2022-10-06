@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { searchContext } from "../providers/SearchProvider";
 import useContext from "../providers/SearchProvider";
+// import NotFound from "./NotFound.js"
 
 export function Package() {
   const { id } = useParams()
@@ -33,13 +34,13 @@ export function Package() {
       setPackageItem(res.data.data.rows[0])
     })
   }, [id])
+
+  console.log(packageItem);
   
   return (
     <div className='Package'>
-      <div className='package-top'>
+    {!packageItem ? <h1>Package Not Found</h1> : <><div className='package-top'>
         <div>
-          {/* <img src={packageImg} alt='img' className='package-img' /> */}
-          {/* {packageItem.package_img && <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' />} */}
           {packageItem.package_img ? <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' /> : <div width="2556px" height="1648px"/>}
         </div>
         <div className='card'>
@@ -61,23 +62,9 @@ export function Package() {
           </h2>
           <p className='description-box'>{packageItem.description}</p>
         </div>
-        
-      {/* <BookingBox
-        startDate={startDate}
-        endDate={endDate}
-        setStartDate={setStartDate}
-        setEndDate={setEndDate}
-        price={currentPackage[0].price}
-        packageID={currentPackage[0].id}
-      /> */}
-      {/* <ReactCalendar /> */}
-      {/* availability calendar left here (stretch) */}
-
         <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate} diff={diff} />
-
-        {/* <ReactCalendar /> */}
-        {/* availability calendar left here (stretch) */}
-      </div>
+      </div></>}
+      
     </div>
   )
 }
