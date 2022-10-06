@@ -72,7 +72,7 @@ export function Package() {
       {/* <ReactCalendar /> */}
       {/* availability calendar left here (stretch) */}
 
-        <BookingBox price={packageItem.price} packageID={packageItem.id}  />
+        <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate}  />
 
         {/* <ReactCalendar /> */}
         {/* availability calendar left here (stretch) */}
