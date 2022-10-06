@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 export function NavDropdownMenu() {
   // 1. conditionally show different menus depending on if you're logged in or note
   // 2. new logout button in dropdown should log user our on click
-  
+
   /* <Link to="/package">Package </Link>
      <Link to="/bookings">Bookings</Link> */
   const [click, setClick] = useState(false)
@@ -30,6 +30,11 @@ export function NavDropdownMenu() {
       path: '/login',
       cName: 'dropdown-link',
     },
+    {
+      title: 'Logout', // this should be logout if you're logged in, just click and erase the cookie
+      path: '/logout',
+      cName: 'dropdown-link',
+    },
   ]
   const MenuItemsLoggedIn = [
     {
@@ -38,8 +43,8 @@ export function NavDropdownMenu() {
       cName: 'dropdown-link',
     },
     {
-      title: 'Login', // this should be logout if you're logged in, just click and erase the cookie
-      path: '/login',
+      title: 'Logout', // this should be logout if you're logged in, just click and erase the cookie
+      path: '/logout',
       cName: 'dropdown-link',
     },
   ]

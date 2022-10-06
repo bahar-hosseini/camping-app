@@ -12,6 +12,7 @@ import { Nav } from './components/Nav'
 import CategoryFilterItem from './components/CategoryFilterItem'
 import DateRangeFilterItem from './components/DateRangeFilterItem'
 import Login from './components/Login'
+import Logout from './components/Logout'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             />
             <Route path='/rangeSearch' element={<DateRangeFilterItem />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/logout' element={<Logout />} />
           </Routes>
         </div>
       </SearchProvider>
