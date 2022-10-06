@@ -36,7 +36,8 @@ export default function SearchProvider(props) {
         setPackages(res.data.data);
         setLoading(false);
       });
-      return ()=>console.log('cleanup')
+      // return ()=>console.log('cleanup')
+      return ()=>setLoading(false);
   }, [category, endDate]);
 
   const diff = differenceInDays(endDate, startDate);

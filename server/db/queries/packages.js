@@ -28,13 +28,16 @@ const filterPackages = (params) => {
   // let query = `SELECT * FROM bookings `;
 
   if (params.endDate > tomorrow & params.category > 0) {
-    query += ` WHERE packages.category = ${params.category} AND packages.category = ${params.category} ;`;
+    query += ` WHERE packages.category = ${params.category} AND bookings.end_date = ${params.endDate} ;`;
   }
 
   if (params.endDate > tomorrow) {
     query += ` WHERE bookings.end_date = ${params.endDate} ;`;
   }
 
+  if (params.category > 0) {
+    query += ` WHERE packages.category = ${params.category} ;`;
+  }
  
   // if (params.endDate > tomorrow) {
   //   query += ` WHERE 
@@ -46,9 +49,6 @@ const filterPackages = (params) => {
 
 
 
-  if (params.category > 0) {
-    query += ` WHERE packages.category = ${params.category} ;`;
-  }
 
   // let start = ` WHERE bookings.start_date > ${params.startDate} `;
 
