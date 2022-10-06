@@ -20,19 +20,19 @@ export const Login = () => {
 
   console.log('########', isLogin)
 
-  useEffect(() => {
-    userRef.current.focus()
-  }, [])
+  // // useEffect(() => {
+  // //   userRef.current.focus()
+  // // }, [])
 
-  useEffect(() => {
-    setErrMsg('')
-  }, [email, password])
+  // useEffect(() => {
+  //   setErrMsg('')
+  // }, [email, password])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     // try {
-    const response = await axios
+    axios
       .post(`/api/login`, JSON.stringify({ email, password }), {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
@@ -99,6 +99,7 @@ export const Login = () => {
           />
         </div>
         <div className='button-section'>
+          {/* <Link to={'/'}> */}
           <Button
             // onClick={(e) =>
             // success ? alert(`you're loged in`) : alert(errMsg)
@@ -109,10 +110,11 @@ export const Login = () => {
           >
             Submit
           </Button>
+          {/* </Link> */}
         </div>
         {/* <button>Login</button> */}
       </form>
-      <div>{isLogin && <Link to={'/'}>Home page</Link>}</div>
+      {/* <div>{isLogin && <Link to={'/'}>Home page</Link>}</div> */}
     </div>
   )
 }
