@@ -44,7 +44,7 @@ app.use('/api/packages', packagesRoute)
 app.use('/api/package', packageRoute)
 app.use('/api/bookings', bookingsRoute)
 app.use('/api/login', loginApiRoute)
-app.use('/logout', logoutRoutes)
+app.use('/api/logout', logoutRoutes)
 app.use('/api/cancel', cancelApiRoutes)
 
 app.use('/api/categories', categoriesRoute)
