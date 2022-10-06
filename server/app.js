@@ -24,8 +24,9 @@ app.use(
 /**
  * internal modules
  **/
-const packagesRoute = require('./routes/packages-api')
-const packageRoute = require('./routes/package-api')
+// const packagesRoute = require('./routes/packages-api')
+const packagesRouter = require('./routes/packages-api')
+// const packageRoute = require('./routes/package-api')
 const loginApiRoute = require('./routes/login-api')
 const logoutRoutes = require('./routes/logout')
 const bookingsRoute = require('./routes/bookings-api')
@@ -40,13 +41,13 @@ const cancelApiRoutes = require('./routes/cancel-api')
 // ROUTS
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.use('/api/packages', packagesRoute)
-app.use('/api/package', packageRoute)
+app.use('/api/packages', packagesRouter)
+// app.use('/api/package', packageRoute)
+//todo: make packages a single route
 app.use('/api/bookings', bookingsRoute)
 app.use('/api/login', loginApiRoute)
 app.use('/logout', logoutRoutes)
 app.use('/api/cancel', cancelApiRoutes)
-
 app.use('/api/categories', categoriesRoute)
 
 module.exports = app
