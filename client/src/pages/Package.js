@@ -55,29 +55,9 @@ export function Package() {
           </h2>
           <p className='description-box'>{packageItem.description}</p>
         </div>
-<<<<<<< HEAD
         <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate} diff={diff} />
       </div></>}
       
-=======
-        
-      {/* <BookingBox
-        startDate={startDate}
-        endDate={endDate}
-        setStartDate={setStartDate}
-        setEndDate={setEndDate}
-        price={currentPackage[0].price}
-        packageID={currentPackage[0].id}
-      /> */}
-      {/* <ReactCalendar /> */}
-      {/* availability calendar left here (stretch) */}
-
-        <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate}  />
-
-        {/* <ReactCalendar /> */}
-        {/* availability calendar left here (stretch) */}
-      </div>
->>>>>>> 7db2dca (packageID routes adjusted)
     </div>
   )
 }
