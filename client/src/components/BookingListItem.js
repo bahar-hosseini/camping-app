@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 // import bookingImg from '../assets/booking_imgs/booking_02.png'
 
 /**
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
  **/
 import { bookings } from "../mock_data/bookings";
 import "./styles/BookingListItem.scss";
+import { formatDateTitles } from "../helpers/formatDateTitles";
 import Button from "./Button";
 // import axios from 'axios'
 
@@ -26,12 +27,12 @@ const BookingListItem = (props) => {
       </Link>
       <div className="booking-content">
         <div className="top-section">
-          <h2>{props.category} Person Package</h2>
+          <h2>{formatDateTitles(props.category)} Person Package</h2>
           <h2 className="start-end-date">Start Date - End Date</h2>
           {/* Description: {props.description} */}
         </div>
         <div className="booking-btn-price">
-          <h2 className="booking-price">${props.price}/day</h2>
+          <h2 className="booking-price">${props.price} per day</h2>
           <div>
             <Button
               className="btn-cancel"

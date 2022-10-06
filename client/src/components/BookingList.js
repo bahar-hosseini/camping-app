@@ -60,7 +60,7 @@ const BookingList = () => {
   return (
     <>
       <div className='booking-container'>
-        <h2>My bookings</h2>
+        <h2>My Bookings</h2>
         {formattedBookings}
       </div>
     </>

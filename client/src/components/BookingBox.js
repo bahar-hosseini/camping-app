@@ -29,7 +29,7 @@ const { startDate, endDate } = useContext(searchContext);
   return (
     <div className="booking-box-container">
       <div className="booking-info">
-        <h2 className="package-price-box">${props.price}/day</h2>
+        <h2 className="package-price-box">${props.price} per day</h2>
         {/* {console.log(this.startDate)} */}
         {/* <h2>Duration: {differenceInDays(startDate, endDate)}</h2> */}
         <DatePickerBar />

@@ -2,6 +2,7 @@ import './styles/Package.scss'
 import { useParams } from 'react-router-dom'
 // import { packages } from '../mock_data/packages'
 import { ReactCalendar } from '../components/Calendar'
+import { formatDateTitles } from '../helpers/formatDateTitles'
 import { BookingBox } from '../components/BookingBox'
 import { PackageInfoCard } from '../components/PackageInfoCard'
 import 'react-calendar/dist/Calendar.css'
@@ -51,7 +52,7 @@ export function Package() {
       <div className='package-bottom'>
         <div>
           <h2>
-            {packageItem.category} Person Package
+            {formatDateTitles(packageItem.category)} Person Package
             <br />
             Gear owned by user {packageItem.user_id}
           </h2>
