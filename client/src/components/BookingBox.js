@@ -2,7 +2,7 @@ import {differenceInDays, getTime, toDate, formatDistance, formatDistanceStrict 
 import React from "react";
 import { bookings } from "../mock_data/bookings";
 import "./styles/BookingBox.scss";
-import DatePicker from "react-date-picker";
+
 
 import { DatePickerBar } from "./DatePickerBar";
 import Button from "./Button";
@@ -15,12 +15,12 @@ import useContext from "../providers/SearchProvider";
 export function BookingBox(props) {
   //  Handle button function: when we click on that button we are adding a new booking for that user (for now user 1)
   const { startDate, endDate, setStartDate, setEndDate } =
-  useContext(searchContext);
+    useContext(searchContext);
 
   // console.log(startDate,"@@@@@@")
   let diffDays = Date.parse(props.startDate)
 // let diff = endDate.diff(startDate)//.days()
-//console.log(startDate)
+console.log(startDate)
   // let diffDays =  formatDistanceStrict(new Date(endDate), new Date(startDate))
 
   // we can check the result in bookings page.
@@ -39,7 +39,7 @@ export function BookingBox(props) {
         <h2 className="package-price-box">${props.price} per day</h2>
         {/* {console.log(this.startDate)} */}
         
-        <h2>Duration: {diffDays}</h2>
+        <h2>Duration: {}</h2>
         <DatePickerBar />
         <div className="book-button">
           <Button onClick={handleBooking}>Book</Button>

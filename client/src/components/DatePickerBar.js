@@ -28,6 +28,7 @@ export function DatePickerBar() {
 
   return (
     <div className="search-box">
+      
       <div className="start-date">
         <h5>From</h5>
         <DatePicker onChange={setStartDate} value={startDate} minDate={today} />
