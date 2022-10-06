@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { differenceInDays, getTime, toDate } from 'date-fns'
 import React from 'react'
 import { bookings } from '../mock_data/bookings'
@@ -7,15 +8,34 @@ import { searchContext } from '../providers/SearchProvider'
 import useContext from '../providers/SearchProvider'
 import { DatePickerBar } from './DatePickerBar'
 import Button from './Button'
+=======
+import {differenceInDays, getTime, toDate } from "date-fns"
+import React from "react";
+import { bookings } from "../mock_data/bookings";
+import "./styles/BookingBox.scss";
+import DatePicker from "react-date-picker";
+
+import { DatePickerBar } from "./DatePickerBar";
+import Button from "./Button";
+>>>>>>> 967685f23b37f443572d2f87507d7065570d28d6
 // import "./styles/DatePicker.scss";
+
 // import { searchContext } from "../providers/SearchProvider";
-// import useContext from "../providers/SearchProvider"
+// import useContext from "../providers/SearchProvider";
+
 
 export function BookingBox(props) {
   //  Handle button function: when we click on that button we are adding a new booking for that user (for now user 1)
+<<<<<<< HEAD
   const { startDate, endDate } = useContext(searchContext)
   // let diff = endDate.diff(startDate)//.days()
   //console.log(startDate)
+=======
+
+  
+// let diff = endDate.diff(startDate)//.days()
+//console.log(startDate)
+>>>>>>> 967685f23b37f443572d2f87507d7065570d28d6
   // we can check the result in bookings page.
   const handleBooking = () => {
     const currentUser = 1
@@ -31,7 +51,8 @@ export function BookingBox(props) {
       <div className='booking-info'>
         <h2 className='package-price-box'>${props.price}/day</h2>
         {/* {console.log(this.startDate)} */}
-        {/* <h2>Duration: {differenceInDays(startDate, endDate)}</h2> */}
+        
+        <h2>Duration: {props.startDate}</h2>
         <DatePickerBar />
         <div className='book-button'>
           <Button onClick={handleBooking}>Book</Button>

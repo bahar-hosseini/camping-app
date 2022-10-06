@@ -1,16 +1,18 @@
 import './styles/Package.scss'
 import { useParams } from 'react-router-dom'
 // import { packages } from '../mock_data/packages'
-import packageImg from '../assets/product_page.png'
 import { ReactCalendar } from '../components/Calendar'
 import { BookingBox } from '../components/BookingBox'
 import { PackageInfoCard } from '../components/PackageInfoCard'
 import 'react-calendar/dist/Calendar.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { searchContext } from "../providers/SearchProvider";
+import useContext from "../providers/SearchProvider";
 
 export function Package() {
   const { id } = useParams()
+  const { startDate, endDate, diff } = useContext(searchContext);
   // const currentPackage = packages.filter((pack) => pack.id === Number(id))
 
   // <PackageListItem
@@ -29,16 +31,19 @@ export function Package() {
     axios.get(`/api/package/${id}`).then((res) => {
       setPackageItem(res.data.data.rows[0])
     })
-  }, [])
-
+  }, [id])
+  
   return (
     <div className='Package'>
       <div className='package-top'>
         <div>
-          <img src={packageImg} alt='img' className='package-img' />
+          {/* <img src={packageImg} alt='img' className='package-img' /> */}
+          {/* {packageItem.package_img && <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' />} */}
+          {packageItem.package_img ? <img src={require(`../assets/package_imgs/${packageItem.package_img}.png`)} alt='img' className='package-img' /> : <div width="2556px" height="1648px"/>}
         </div>
         <div className='card'>
           <PackageInfoCard
+            package_img={packageItem.package_img}
             tent={packageItem.tent_description}
             bags={packageItem.bags_description}
             lantern={packageItem.lantern_description}
@@ -67,7 +72,7 @@ export function Package() {
       {/* <ReactCalendar /> */}
       {/* availability calendar left here (stretch) */}
 
-        <BookingBox price={packageItem.price} packageID={packageItem.id} />
+        <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate} diff={diff} />
 
         {/* <ReactCalendar /> */}
         {/* availability calendar left here (stretch) */}

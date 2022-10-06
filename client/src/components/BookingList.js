@@ -11,6 +11,7 @@ import './styles/BookingList.scss'
 
 const BookingList = () => {
   const [bookings, setBookings] = useState([])
+
   useEffect(() => {
     axios.get('/api/bookings').then((res) => {
       console.log(res.data.data.rows)
@@ -23,7 +24,7 @@ const BookingList = () => {
     // let findIndx = bookings.findIndex((x) => x['id'] === id)
     // setState(false)
     // bookings.splice(findIndx, 1)
-    setBookings(bookings.filter((x) => x['id'] !== id))
+    // setBookings(bookings.filter((x) => x['id'] !== id))
 
     // console.log('#####', bookings[0]['id'])
     const cancelItemID = bookings[0]['id']
@@ -44,7 +45,7 @@ const BookingList = () => {
     return (
       <BookingListItem
         key={index}
-        image={booking.image}
+        booking_img={booking.booking_img}
         id={booking.id}
         userID={booking.user_id}
         price={booking.price}
