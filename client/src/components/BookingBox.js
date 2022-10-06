@@ -8,13 +8,13 @@ import { DatePickerBar } from "./DatePickerBar";
 import Button from "./Button";
 // import "./styles/DatePicker.scss";
 
-// import { searchContext } from "../providers/SearchProvider";
-// import useContext from "../providers/SearchProvider";
+import { searchContext } from "../providers/SearchProvider";
+import useContext from "../providers/SearchProvider";
 
 
 export function BookingBox(props) {
   //  Handle button function: when we click on that button we are adding a new booking for that user (for now user 1)
-
+  const { startDate, endDate, diff } = useContext(searchContext);
   
 // let diff = endDate.diff(startDate)//.days()
 //console.log(startDate)
@@ -34,7 +34,7 @@ export function BookingBox(props) {
         <h2 className="package-price-box">${props.price} per day</h2>
         {/* {console.log(this.startDate)} */}
         
-        <h2>Duration: {props.startDate}</h2>
+        {/* <h2>Duration: {props.startDate}</h2> */}
         <DatePickerBar />
         <div className="book-button">
           <Button onClick={handleBooking}>Book</Button>

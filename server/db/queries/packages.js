@@ -7,6 +7,13 @@ const getPackages = () => {
   });
 };
 
+const getPackage = (packagetId) => {
+  return db
+    .query(`SELECT * FROM packages WHERE packages.id = $1;`, [packagetId])
+    .then((data) => {
+      return data
+    })
+}
 
 //SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id
 
@@ -66,4 +73,4 @@ const filterPackages = (params) => {
   );
 };
 
-module.exports = { getPackages, filterPackages };
+module.exports = { getPackages, filterPackages, getPackage };

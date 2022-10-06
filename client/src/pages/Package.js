@@ -15,24 +15,17 @@ import useContext from "../providers/SearchProvider";
 export function Package() {
   const { id } = useParams()
   const { startDate, endDate, diff } = useContext(searchContext);
-  // const currentPackage = packages.filter((pack) => pack.id === Number(id))
-
-  // <PackageListItem
-  //       key={packageItem.id}
-  //       image={packageItem.image}
-  //       id={packageItem.id}
-  //       userID={packageItem.user_id}
-  //       price={packageItem.price}
-  //       category={packageItem.category}
-  //       location={packageItem.location}
-  //       availability={packageItem.availability}
-  //     />
-
   const [packageItem, setPackageItem] = useState({})
+
+
+ 
   useEffect(() => {
-    axios.get(`/api/package/${id}`).then((res) => {
+    axios.get(`/api/packages/${id}`)
+    // .then((res)=> console.log(res))
+    .then((res) => {
       setPackageItem(res.data.data.rows[0])
     })
+    return ()=>console.log('This is my cleanup')
   }, [id])
 
   console.log(packageItem);
@@ -62,9 +55,29 @@ export function Package() {
           </h2>
           <p className='description-box'>{packageItem.description}</p>
         </div>
+<<<<<<< HEAD
         <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate} diff={diff} />
       </div></>}
       
+=======
+        
+      {/* <BookingBox
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+        price={currentPackage[0].price}
+        packageID={currentPackage[0].id}
+      /> */}
+      {/* <ReactCalendar /> */}
+      {/* availability calendar left here (stretch) */}
+
+        <BookingBox price={packageItem.price} packageID={packageItem.id}  />
+
+        {/* <ReactCalendar /> */}
+        {/* availability calendar left here (stretch) */}
+      </div>
+>>>>>>> 7db2dca (packageID routes adjusted)
     </div>
   )
 }

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {getPackages, filterPackages} = require('../db/queries/packages')
+const {getPackages, filterPackages, getPackage} = require('../db/queries/packages')
 
 /* GET home page. */
 
@@ -18,7 +18,8 @@ router.get('/filter', function (req, res) {
 
 router.get('/:id', function (req, res) {
   let id = req.params.id
-  package.getPackage(id).then((data) => {
+  getPackage(id)
+  .then((data) => {
     res.json({ data })
   })
 })

@@ -20,16 +20,21 @@ export function DatePickerBar() {
   //     day: "numeric",
   //   });
   // };
-const  today = new Date();
+  const today = new Date()
+  const tomorrow = new Date(today)
+  tomorrow.setDate(tomorrow.getDate() + 1)
+
+
+
   return (
     <div className="search-box">
       <div className="start-date">
         <h5>From</h5>
-        <DatePicker onChange={setStartDate} value={startDate} minDate={today} maxDate={endDate}/>
+        <DatePicker onChange={setStartDate} value={startDate} minDate={today} />
       </div>
       <div className="end-date">
         <h5>Until</h5>
-        <DatePicker onChange={setEndDate} value={endDate} minDate={startDate}/>
+        <DatePicker onChange={setEndDate} value={endDate} minDate={tomorrow}/>
       </div>
     </div>
   );
