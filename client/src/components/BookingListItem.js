@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 /**
  * Internal Modules
  **/
-import { bookings } from "../mock_data/bookings";
 import "./styles/BookingListItem.scss";
 import { formatDateTitles } from "../helpers/formatDateTitles";
 import Button from "./Button";
@@ -13,7 +12,17 @@ import Button from "./Button";
 
 // Component to display individual Booking Item
 const BookingListItem = (props) => {
-  // const [state, setState] = useState(true)
+  const [buttonMode, setButtonMode] = useState("DEFAULT");
+
+  const clickedButton = async (id) => {
+    setButtonMode("LOADING");
+    setTimeout(() => {
+      props.sendFunc(id).then(() => {
+        setButtonMode("DEFAULT");
+      });
+    }, 1000);
+  };
+  console.log(buttonMode);
 
   return (
     <div className="booking-item-box">
@@ -34,12 +43,25 @@ const BookingListItem = (props) => {
         <div className="booking-btn-price">
           <h2 className="booking-price">${props.price} per day</h2>
           <div>
-            <Button
+            {/* <Button
               className="btn-cancel"
-              onClick={() => props.sendFunc(props.id)}
+              onClick={() => clickedButton()}
             >
               Cancel Booking
-            </Button>
+            </Button> */}
+            {buttonMode === "DEFAULT" && (
+              <Button
+                className="btn-cancel"
+                onClick={() => clickedButton(props.id)}
+              >
+              Cancel Booking
+              </Button>
+            )}
+            {buttonMode === "LOADING" && (
+              <Button className="btn-cancel">
+              <div class="spin"/>Deleting
+              </Button>
+            )}
           </div>
         </div>
       </div>
