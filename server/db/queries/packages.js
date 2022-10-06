@@ -7,29 +7,37 @@ const getPackages = () => {
   });
 };
 
+
+//SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id
+
 const filterPackages = (params) => {
   const today = new Date();
   let tomorrow = new Date();
-  tomorrow.setDate(today.getDate() + 7);
+  tomorrow.setDate(today.getDate() + 1);
   // console.log("tomorrow => ", tomorrow);
 
-  // let query = `SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id `;
-  let query = `SELECT * FROM packages `;
+  let query = `SELECT * FROM packages JOIN bookings ON packages.id=bookings.package_id `;
+  // let query = `SELECT * FROM packages `;
+  // let query = `SELECT * FROM bookings `;
 
-  // if (params.endDate > tomorrow & params.category > 0) {
-  //   query += ` WHERE packages.category = ${params.category} AND `;
-  // }
+  if (params.endDate > tomorrow & params.category > 0) {
+    query += ` WHERE packages.category = ${params.category} AND packages.category = ${params.category} ;`;
+  }
 
+  if (params.endDate > tomorrow) {
+    query += ` WHERE bookings.end_date = ${params.endDate} ;`;
+  }
+
+ 
   // if (params.endDate > tomorrow) {
-  //   query += ` WHERE bookings.end_date = ${params.endDate} `;
+  //   query += ` WHERE 
+  //   NOT (params.startDate <= start_date AND start_date <= params.endDate) AND 
+  //   NOT (params.startDate <= end_date AND end_date  <= params.endDate) AND
+  //   NOT (start_date < params.startDate AND params.endDate < end_date ) 
+  //   ;`;
   // }
 
-  //-------
-  //a = param
-  // (params.startDate <= start_date && start_date <= params.endDate) return true; // b starts in a
-  // (params.startDate <= end_date && end_date  <= params.endDate) return true; // b ends in a
-  // (start_date < params.startDate && params.endDate < end_date ) return true; // a in b
-  //-----
+
 
   if (params.category > 0) {
     query += ` WHERE packages.category = ${params.category} ;`;

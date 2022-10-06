@@ -30,14 +30,14 @@ export default function SearchProvider(props) {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("/api/packages/filter", { params: {  category } })
+      .get("/api/packages/filter", { params: { category, endDate } })
       // .then((res) => console.log(res.data.data))
       .then((res) => {
         setPackages(res.data.data);
         setLoading(false);
       });
       return ()=>console.log('cleanup')
-  }, [category]);
+  }, [category, endDate]);
 
   const diff = differenceInDays(endDate, startDate);
   //todo: set diff as a state
