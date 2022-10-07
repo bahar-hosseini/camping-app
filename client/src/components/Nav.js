@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { NavDropdownMenu } from "./NavDropdownMenu";
 import TentLogo from "../assets/tent_icon.svg";
 import ProfileCircle from "../assets/profile_circle.svg";
+import ProfileCircleLoggedIn from "../assets/person_logged_in.svg";
 import MenuBars from "../assets/menu_hamburger.svg";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -16,7 +17,7 @@ import axios from "axios";
 export function Nav() {
   const [dropdown, setDropdown] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const { setPackages } = useContext(searchContext);
+  const { setPackages, isLogin } = useContext(searchContext);
 
   // function that refreshes the homepage context when you click on the logo button
   const refreshHomepage = () => {
@@ -71,8 +72,9 @@ export function Nav() {
         {showLogin ? <div className="dimScreen"/> : <></>}
         <div className="nav-right">
           <div onClick={toggleDropdown} className="profile-badge" ref={ref}>
-            <img src={MenuBars} alt="tent" width="40px" />
-            <img src={ProfileCircle} alt="tent" width="40px" />
+            <img src={MenuBars} alt="menu-bars" width="35px" />
+            {isLogin && <img src={ProfileCircleLoggedIn} alt="profile-icon" width="40px" />}
+            {!isLogin && <img src={ProfileCircle} alt="profile-icon" width="40px" />}
           </div>
           {dropdown && <NavDropdownMenu showLoginForm={showLoginForm} />}
         </div>
