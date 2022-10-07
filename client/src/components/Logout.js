@@ -3,7 +3,7 @@ import { searchContext } from '../providers/SearchProvider'
 import axios from 'axios'
 
 const Logout = () => {
-  const { isLogin, setIsLogin } = useContext(searchContext)
+  // const { isLogin, setIsLogin } = useContext(searchContext)
   // console.log('EEEEEEEE', isLogin)
 
   const handlelogOut = () => {
@@ -13,7 +13,7 @@ const Logout = () => {
         // console.log('LOOOOGOUUUUUT', res)
       })
       .then(() => {
-        setIsLogin(() => false)
+        // setIsLogin(() => false)
         // console.log('EEEEEEEE', isLogin)
       })
   }

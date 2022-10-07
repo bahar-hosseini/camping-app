@@ -14,19 +14,19 @@ export const Login = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errMsg, setErrMsg] = useState('')
-  const [success, setSuccess] = useState(false)
+  // const [errMsg, setErrMsg] = useState('')
+  // const [success, setSuccess] = useState(false)
   const { isLogin, setIsLogin } = useContext(searchContext)
 
   console.log('########', isLogin)
 
-  useEffect(() => {
-    userRef.current.focus()
-  }, [])
+  // useEffect(() => {
+  //   userRef.current.focus()
+  // }, [])
 
-  useEffect(() => {
-    setErrMsg('')
-  }, [email, password])
+  // useEffect(() => {
+  //   setErrMsg('')
+  // }, [email, password])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -41,7 +41,7 @@ export const Login = () => {
         setIsLogin(true)
         setEmail('')
         setPassword('')
-        setSuccess(true)
+        // setSuccess(true)
       })
 
     // } catch (err) {
