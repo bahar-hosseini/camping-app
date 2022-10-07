@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { searchContext } from "../providers/SearchProvider";
 import useContext from "../providers/SearchProvider";
+import { ProductGrid } from "../components/ProductGrid";
 // import NotFound from "./NotFound.js"
 
 export function Package() {
@@ -20,21 +21,20 @@ export function Package() {
 
   const fetchData = () => {
     if (isNaN(+id)) {
-      setLoading(false)
+      setLoading(false);
       return setPackageItem({});
     } else {
       axios
         .get(`/api/packages/${id}`)
         .then((res) => {
           if (res.data.data.rows.length === 0) {
-            setLoading(false)
+            setLoading(false);
             return setPackageItem({});
           } else {
             setPackageItem(res.data.data.rows[0]);
             setTimeout(() => {
-              return setLoading(false)
-
-            },200)
+              return setLoading(false);
+            }, 200);
           }
         })
         .catch(function (error) {
@@ -71,8 +71,8 @@ export function Package() {
   return (
     <div className="Package">
       {loading && <h1>Loading Page</h1>}
-      {(!packageItem.id && !loading) && <h1>Package Not Found</h1>}
-      {(packageItem.id && !loading)  && (
+      {!packageItem.id && !loading && <h1>Package Not Found</h1>}
+      {packageItem.id && !loading && (
         <>
           <div className="package-top">
             <div className="empty-div">
@@ -104,8 +104,27 @@ export function Package() {
                 Gear owned by user {packageItem.user_id}
               </h2>
               <p className="description-box">{packageItem.description}</p>
+              <h2>Check out the gear:</h2>
+              <ProductGrid />
+              <h2>Notes about the gear:</h2>
+              <p className="description-box">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+                amet vestibulum sapien, ut porttitor est. In placerat odio erat,
+                a rutrum elit ullamcorper sed. Cras auctor lectus eu felis
+                fermentum mattis eget ac sem. Vestibulum eget ultricies quam.
+                Sed nulla turpis, tempus vel mattis in, mollis at lacus. Quisque
+                viverra augue libero, eget scelerisque mauris malesuada eu.
+                Suspendisse at nibh elit. Etiam lacus justo, tempus eu egestas
+                et, rhoncus ac elit.
+              </p>
             </div>
-            <BookingBox price={packageItem.price} packageID={packageItem.id} startDate={startDate} endDate={endDate} diff={diff} />
+            <BookingBox
+              price={packageItem.price}
+              packageID={packageItem.id}
+              startDate={startDate}
+              endDate={endDate}
+              diff={diff}
+            />
           </div>
         </>
       )}
