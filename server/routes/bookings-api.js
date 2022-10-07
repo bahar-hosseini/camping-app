@@ -33,10 +33,10 @@ router.post('/new', function (req, res) {
   
   const {package_id, booking_SD, booking_ED} = filterParams
 
-
+const userId = req.session['user_id']
   console.log(filterParams)
 
-  bookings.addBookings(package_id, booking_SD, booking_ED).then((data) => {
+  bookings.addBookings(userId, package_id, booking_SD, booking_ED).then((data) => {
     res.json({ data })
   })
 })

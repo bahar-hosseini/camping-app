@@ -38,7 +38,7 @@ export default function SearchProvider(props) {
   useEffect(() => {
     if (isLoadedRef.current === false) return;
     axios
-      .get("/api/packages/filter", { params: { category, endDate, startDate } })
+      .get("/api/packages/filter/", { params: { category, endDate, startDate } })
       // .then((res) => console.log(res.data.data))
       .then((res) => {
         setPackages(res.data.data);

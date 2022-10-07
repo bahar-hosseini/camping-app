@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { format, parseISO } from "date-fns";
 /**
  * Internal Modules
  **/
-import BookingListItem from './BookingListItem'
-import './styles/BookingList.scss'
+import BookingListItem from "./BookingListItem";
+import "./styles/BookingList.scss";
 
 const BookingList = () => {
-  const [bookings, setBookings] = useState([])
+  const [bookings, setBookings] = useState([]);
   // const [buttonMode, setButtonMode] = useState("DEFAULT");
-  console.log('BOOOOKINGS', bookings)
+  console.log("BOOOOKINGS", bookings);
   useEffect(() => {
-    axios.get('/api/bookings').then((res) => {
-      setBookings(res.data.data.rows)
-    })
-  }, [])
+    axios.get("/api/bookings").then((res) => {
+      setBookings(res.data.data.rows);
+    });
+  }, []);
 
   //Function to handle cancel button to remove item from booking dashboard
   const handleCancelBooking = async (id) => {
     axios
       .post(`/api/cancel`, JSON.stringify({ id }), {
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
         withCredentials: true,
       })
       .then((res) => {
         // console.log(res)
-        axios.get('/api/bookings').then((res) => {
-          return setBookings(res.data.data.rows)
-        })
-      })
+        axios.get("/api/bookings").then((res) => {
+          return setBookings(res.data.data.rows);
+        });
+      });
     // try {
     //   await axios
     //     .post(`/api/cancel`, JSON.stringify({ id }), {
@@ -44,8 +44,16 @@ const BookingList = () => {
     // } catch (err) {
     //   console.log(err);
     // }
-  }
+  };
   const formattedBookings = bookings.map((booking, index) => {
+    console.log(booking.start_date)
+    const start_date = parseISO(booking.start_date);
+    const end_date = parseISO(booking.end_date);
+
+
+    const start_dateFormatted = format(start_date, 'MM/dd/yyyy');
+    const end_dateFormatted = format(end_date, 'MM/dd/yyyy');
+
     return (
       <BookingListItem
         key={index}
@@ -58,15 +66,17 @@ const BookingList = () => {
         description={booking.description}
         test={setBookings}
         sendFunc={handleCancelBooking}
+        start_date={start_dateFormatted}
+        end_date={end_dateFormatted}
         // buttonModeSetter={setButtonMode}
         // currentButtonMode={buttonMode}
       />
-    )
-  })
+    );
+  });
 
   return (
     <>
-      <div className='booking-container'>
+      <div className="booking-container">
         <h2>My Bookings</h2>
         {bookings.length === 0 ? (
           <h2>You have no bookings!</h2>
@@ -76,7 +86,7 @@ const BookingList = () => {
         {/* {formattedBookings} */}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BookingList
+export default BookingList;
