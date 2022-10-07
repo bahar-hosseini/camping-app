@@ -29,6 +29,10 @@ export function Nav() {
     return setShowLogin(true);
   };
 
+  const hideLoginForm = () => {
+    return setShowLogin(false);
+  };
+
   const toggleDropdown = () => {
     dropdown ? setDropdown(false) : setDropdown(true);
   };
@@ -63,7 +67,7 @@ export function Nav() {
             <img src={TentLogo} alt="lantern" width="70px"></img>
           </Link>
         </div>
-        <div className="login-form-section">{showLogin ? <Login /> : <></>}</div>
+        <div className="login-form-section">{showLogin ? <Login hideLoginForm={hideLoginForm} /> : <></>}</div>
         {showLogin ? <div className="dimScreen"/> : <></>}
         <div className="nav-right">
           <div onClick={toggleDropdown} className="profile-badge" ref={ref}>
