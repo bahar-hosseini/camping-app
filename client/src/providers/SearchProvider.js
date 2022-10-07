@@ -14,6 +14,7 @@ export default function SearchProvider(props) {
   const [category, setCategories] = useState(0);
   // const [dateRange, setDateRange] = useState(startDate, endDate )
   const [packages, setPackages] = useState([]);
+  const [isLogin, setIsLogin] = useState([false])
 
   const [loading, setLoading] = useState(false);
   const isLoadedRef = useRef(false);
@@ -78,5 +79,5 @@ export default function SearchProvider(props) {
     <searchContext.Provider value={providerData}>
       {props.children}
     </searchContext.Provider>
-  )
+  );
 }
