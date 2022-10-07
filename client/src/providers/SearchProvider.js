@@ -57,7 +57,12 @@ export default function SearchProvider(props) {
   }, [])
 
   axios.get('/api/login').then((res) => {
-    console.log('This is cookie from back-->front', res.status)
+    // console.log('This is cookie from back-->front', res.status)
+
+    if (res.status == 200 || 304) {
+      setIsLogin(true)
+      // console.log(isLogin)
+    }
   })
 
   const diff = differenceInDays(endDate, startDate)

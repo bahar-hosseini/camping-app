@@ -18,7 +18,7 @@ export const Login = () => {
   // const [success, setSuccess] = useState(false)
   const { isLogin, setIsLogin } = useContext(searchContext)
 
-  console.log('########', isLogin)
+  // console.log('########', isLogin)
 
   useEffect(() => {
     userRef.current.focus()
@@ -37,10 +37,13 @@ export const Login = () => {
         withCredentials: true,
       })
       .then(() => {
-        setIsLogin(true)
-        setEmail('')
-        setPassword('')
+        setIsLogin(() => true)
+        // setEmail('')
+        // setPassword('')
         // setSuccess(true)
+      })
+      .catch((err) => {
+        console.log(err, 'EMAIL NOT FOUND')
       })
   }
 
