@@ -75,6 +75,8 @@ export default function SearchProvider(props) {
     diff,
     isLogin,
     setIsLogin,
+    setPackages,
+    setLoading,
   }
   // We can now use this as a component to wrap anything
   // that needs our state
