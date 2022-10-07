@@ -14,6 +14,7 @@ export function PackageList() {
   const [packages, setPackages] = useState([])
   useEffect(() => {
     axios.get('/api/packages').then((res) => setPackages(res.data.data.rows))
+    return () => console.log('ccccccleeeeeaan up')
   }, [])
 
   const packageGallery = packages.map((packageItem) => {
@@ -37,6 +38,3 @@ export function PackageList() {
     </div>
   )
 }
-
-
-

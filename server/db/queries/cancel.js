@@ -1,11 +1,11 @@
 const db = require('../../configs/db.config')
-const deleteBooking = (packageId) => {
+const deleteBooking = (bookingId) => {
   const query = `
   DELETE FROM bookings
-  WHERE package_id = $1
+  WHERE id = $1
   ;`
 
-  const args = [packageId]
+  const args = [bookingId]
 
   return db.query(query, args).then((data) => {
     // console.log(data);

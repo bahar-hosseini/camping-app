@@ -7,15 +7,10 @@ const Logout = () => {
   // console.log('EEEEEEEE', isLogin)
 
   const handlelogOut = () => {
-    axios
-      .get('/api/logout')
-      .then((res) => {
-        // console.log('LOOOOGOUUUUUT', res)
-      })
-      .then(() => {
-        setIsLogin(() => false)
-        // console.log('EEEEEEEE', isLogin)
-      })
+    axios.get('/api/logout').then(() => {
+      setIsLogin(() => false)
+      // console.log('EEEEEEEE', isLogin)
+    })
   }
 
   return (

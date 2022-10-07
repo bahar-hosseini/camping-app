@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import axios from 'axios'
-import AuthContext from '../providers/AuthProvider'
+
 import Button from './Button'
 import { searchContext } from '../providers/SearchProvider'
 
@@ -14,62 +14,43 @@ export const Login = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errMsg, setErrMsg] = useState('')
-  const [success, setSuccess] = useState(false)
+  // const [errMsg, setErrMsg] = useState('')
+  // const [success, setSuccess] = useState(false)
   const { isLogin, setIsLogin } = useContext(searchContext)
 
-  console.log('########', isLogin)
+  // console.log('########', isLogin)
 
   useEffect(() => {
     userRef.current.focus()
   }, [])
 
-  useEffect(() => {
-    setErrMsg('')
-  }, [email, password])
+  // useEffect(() => {
+  //   setErrMsg('')
+  // }, [email, password])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // try {
-    const response = await axios
+    axios
       .post(`/api/login`, JSON.stringify({ email, password }), {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
       })
       .then(() => {
-        setIsLogin(true)
-        setEmail('')
-        setPassword('')
-        setSuccess(true)
+        setIsLogin(() => true)
+        // setEmail('')
+        // setPassword('')
+        // setSuccess(true)
       })
-
-    // } catch (err) {
-    //   if (!err?.response) {
-    //     setErrMsg('No Server Response')
-    //   } else if (err.response?.status === 400) {
-    //     setErrMsg('Missing Username or Password')
-    //   } else if (err.response?.status === 401) {
-    //     setErrMsg('Unauthorized')
-    //   } else {
-    //     setErrMsg('Login Failed')
-    //   }
-    //   errRef.current.focus()
-    // }
+      .catch((err) => {
+        console.log(err, 'EMAIL NOT FOUND')
+      })
   }
 
   // console.log(state)
   return (
     <div className='form-container'>
       <h1>Login</h1>
-
-      {/* <p
-        ref={errRef}
-        className={errMsg ? 'errmsg' : 'offscreen'}
-        aria-live='assertive'
-      >
-        {errMsg}
-      </p> */}
 
       <form className='form' onSubmit={handleSubmit}>
         <div>
@@ -99,6 +80,7 @@ export const Login = () => {
           />
         </div>
         <div className='button-section'>
+          {/* <Link to={'/'}> */}
           <Button
             // onClick={(e) =>
             // success ? alert(`you're loged in`) : alert(errMsg)
@@ -109,10 +91,11 @@ export const Login = () => {
           >
             Submit
           </Button>
+          {/* </Link> */}
         </div>
         {/* <button>Login</button> */}
       </form>
-      <div>{isLogin && <Link to={'/'}>Home page</Link>}</div>
+      {/* <div>{isLogin && <Link to={'/'}>Home page</Link>}</div> */}
     </div>
   )
 }
