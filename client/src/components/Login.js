@@ -20,9 +20,9 @@ export const Login = () => {
 
   console.log('########', isLogin)
 
-  // // useEffect(() => {
-  // //   userRef.current.focus()
-  // // }, [])
+  useEffect(() => {
+    userRef.current.focus()
+  }, [])
 
   // useEffect(() => {
   //   setErrMsg('')
@@ -31,7 +31,6 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // try {
     axios
       .post(`/api/login`, JSON.stringify({ email, password }), {
         headers: { 'Content-Type': 'application/json' },
@@ -43,33 +42,12 @@ export const Login = () => {
         setPassword('')
         // setSuccess(true)
       })
-
-    // } catch (err) {
-    //   if (!err?.response) {
-    //     setErrMsg('No Server Response')
-    //   } else if (err.response?.status === 400) {
-    //     setErrMsg('Missing Username or Password')
-    //   } else if (err.response?.status === 401) {
-    //     setErrMsg('Unauthorized')
-    //   } else {
-    //     setErrMsg('Login Failed')
-    //   }
-    //   errRef.current.focus()
-    // }
   }
 
   // console.log(state)
   return (
     <div className='form-container'>
       <h1>Login</h1>
-
-      {/* <p
-        ref={errRef}
-        className={errMsg ? 'errmsg' : 'offscreen'}
-        aria-live='assertive'
-      >
-        {errMsg}
-      </p> */}
 
       <form className='form' onSubmit={handleSubmit}>
         <div>

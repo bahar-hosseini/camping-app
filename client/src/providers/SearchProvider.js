@@ -56,9 +56,9 @@ export default function SearchProvider(props) {
     return () => setPackages([])
   }, [])
 
-  // axios.get('/api/login').then((res) => {
-  //   console.log('WWWWWWWW', res.status)
-  // })
+  axios.get('/api/login').then((res) => {
+    console.log('This is cookie from back-->front', res.status)
+  })
 
   const diff = differenceInDays(endDate, startDate)
   //todo: set diff as a state
