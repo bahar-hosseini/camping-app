@@ -16,10 +16,12 @@ const queryUser = require('../db/queries/user_login')
 router.post('/', (req, res) => {
   const { email, password } = req.body
 
+  console.log('email', email)
   queryUser
     .getUser(email)
     //for now Just works with our db data!!
     .then((response) => {
+      // console.log('you are getting to this point', response)
       req.session['user_id'] = response.id
       // req.session.save()
 
@@ -27,7 +29,6 @@ router.post('/', (req, res) => {
         req.session['is_loged_in'] = true
       }
 
-      console.log(req.session['user_id'])
       res.redirect('/api/bookings')
       // if (response.is_admin) {
       //   req.session['authorized'] = true
@@ -44,7 +45,8 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
   if (req.session['is_loged_in']) {
-    res.json(data)
+    // console.log('loged in', res)
+
     res.redirect('/')
   } else {
     console.log('nuh')
