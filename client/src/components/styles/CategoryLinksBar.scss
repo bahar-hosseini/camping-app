@@ -16,9 +16,11 @@
   min-width: 900px;
 }
 
-// .category-group {
+// this is how you change the colour of the little people
+// .category-group > img {
+//   filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
 // }
 
-.category-group > Link > img {
-  width: 10px;
+.category-group {
+  cursor: pointer;
 }

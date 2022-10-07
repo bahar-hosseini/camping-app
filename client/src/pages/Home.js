@@ -15,8 +15,7 @@ import { bookings } from "../mock_data/bookings";
 import PackageListItem from "../components/PackageListItem";
 
 export function Home() {
-  const [filteredPackages, setFilteredPackages] = useState([]);
-  const { startDate, endDate, category, setCategory, packages, loading } =
+  const { startDate, endDate, setPackages, category, setCategory, packages, loading } =
     useContext(searchContext);
 
   // const [search_query, setSearchQuery] = useState("");
@@ -24,15 +23,24 @@ export function Home() {
   // const [filterByRange, setFilterByRange] = useState([]);
   // const [filterByLocation, setFilterByLocation] = useState([]);
 
-  // useEffect(() => {
-  //   const categoryFilter = function (data) {
-  //     if (category !== 0) {
-  //       const cF = data.filter((pack) => pack.category === category);
-  //       return cF;
-  //     }
-  //     return data;
-  //   };
-
+  useEffect(() => {
+    const categoryFilter = function (data) {
+      if (category !== 0) {
+        const cF = data.filter((pack) => pack.category === category);
+        return cF;
+      }
+      return data;
+    };
+  })
+  // function filterItems()  {axios
+  //   .get("/api/packages/filter", { params: { category, endDate, startDate } })
+  //   // .then((res) => console.log(res.data.data))
+  //   .then((res) => {
+  //     //console.log(res.data.data,'running@@@@@@')
+  //     setPackages(res.data.data);
+      
+  //   });
+  // }
   //   const rangeFilter = function (data) {
   //     if (startDate.getTime() === endDate.getTime()) {
   //       return data;
