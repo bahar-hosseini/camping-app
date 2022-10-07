@@ -15,9 +15,9 @@ import { bookings } from "../mock_data/bookings";
 import PackageListItem from "../components/PackageListItem";
 
 export function Home() {
-  const { startDate, endDate, setPackages, category, setCategory, packages, loading } =
+  const { startDate, endDate, setPackages, category, setCategory, packages, loading, testContextItem } =
     useContext(searchContext);
-
+ 
   // const [search_query, setSearchQuery] = useState("");
   // const [filterByCategory, setFilterByCategory] = useState(0);
   // const [filterByRange, setFilterByRange] = useState([]);

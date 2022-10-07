@@ -8,14 +8,19 @@ import { PackageInfoCard } from "../components/PackageInfoCard";
 import "react-calendar/dist/Calendar.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { searchContext } from "../providers/SearchProvider";
-import useContext from "../providers/SearchProvider";
+
 import { ProductGrid } from "../components/ProductGrid";
-// import NotFound from "./NotFound.js"
+
+import { useSearch } from "../providers/SearchProvider";
+
 
 export function Package() {
   const { id } = useParams();
-  const { startDate, endDate, diff } = useContext(searchContext);
+
+  // const { startDate, endDate, diff } = useContext(searchContext);
+  const {startDate, endDate, diff} = useSearch()
+
+
   const [packageItem, setPackageItem] = useState({});
   const [loading, setLoading] = useState(true);
 

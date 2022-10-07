@@ -13,7 +13,6 @@ const BookingList = () => {
   console.log('BOOOOKINGS', bookings)
   useEffect(() => {
     axios.get('/api/bookings').then((res) => {
-      console.log('RESPONSE', res.data.data.rows);
       setBookings(res.data.data.rows)
     })
   }, [])

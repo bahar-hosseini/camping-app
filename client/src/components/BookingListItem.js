@@ -22,7 +22,7 @@ const BookingListItem = (props) => {
       })
     }, 1000)
   }
-  console.log('booking list item props', props)
+  
 
   return (
     <div className='booking-item-box'>
