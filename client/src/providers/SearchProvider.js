@@ -58,15 +58,23 @@ export default function SearchProvider(props) {
   }, [])
 
   useEffect(() => {
-    // const abortCont = new AbortController();
     axios.get('/api/login').then((res) => {
-      // console.log('This is cookie from back-->front', res.status)
-      if (res.status == 200 || 304) {
+      // checks to see if response reveals that a user is logged in
+      // runs every time we refresh the app
+      if (res.data === 'in') {
         return setIsLogin(true)
-        // console.log(isLogin)
-      } else {
+      } else if (res.data === 'out') {
         return setIsLogin(false)
       }
+
+      // this is the old way we were doing it, if the current way breaks
+      // roll back to this:
+      // if (res.status == 200 || 304) {
+      //   return setIsLogin(true)
+      //   // console.log(isLogin)
+      // } else {
+      //   return setIsLogin(false)
+      // }
     })
   }, [])
 

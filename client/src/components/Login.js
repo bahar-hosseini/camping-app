@@ -37,7 +37,7 @@ export const Login = () => {
         withCredentials: true,
       })
       .then(() => {
-        setIsLogin(() => true)
+        return setIsLogin(() => true)
         // setEmail('')
         // setPassword('')
         // setSuccess(true)
