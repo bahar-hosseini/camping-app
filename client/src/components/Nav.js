@@ -18,12 +18,10 @@ export function Nav() {
 
   // function that refreshes the homepage context when you click on the logo button
   const refreshHomepage = () => {
-    // setLoading(true)
     axios
       .get("/api/packages")
-      // .then(()=> setDateRange(startDate, endDate))
       .then((res) => {
-        setPackages(res.data.data.rows);
+        return setPackages(res.data.data.rows);
       });
   };
 
