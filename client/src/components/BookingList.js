@@ -10,8 +10,7 @@ import './styles/BookingList.scss'
 const BookingList = () => {
   const [bookings, setBookings] = useState([])
   // const [buttonMode, setButtonMode] = useState("DEFAULT");
-  // console.log(bookings)
-
+  console.log('BOOOOKINGS', bookings)
   useEffect(() => {
     axios.get('/api/bookings').then((res) => {
       // console.log(res.data.data.rows);
@@ -52,7 +51,7 @@ const BookingList = () => {
       <BookingListItem
         key={index}
         booking_img={booking.booking_img}
-        id={booking.id}
+        id={booking.booking_id}
         userID={booking.user_id}
         price={booking.price}
         category={booking.category}
