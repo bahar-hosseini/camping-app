@@ -1,3 +1,29 @@
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+.spin::before {
+  animation: 0.75s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 3px black;
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  content: "";
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+
+
 .btn {
   background-color: #F9C6F5;
   padding: 1.5rem;

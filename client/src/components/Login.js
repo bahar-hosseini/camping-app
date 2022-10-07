@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import axios from 'axios'
-import AuthContext from '../providers/AuthProvider'
+
 import Button from './Button'
 import { searchContext } from '../providers/SearchProvider'
 
@@ -14,8 +14,8 @@ export const Login = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errMsg, setErrMsg] = useState('')
-  const [success, setSuccess] = useState(false)
+  // const [errMsg, setErrMsg] = useState('')
+  // const [success, setSuccess] = useState(false)
   const { isLogin, setIsLogin } = useContext(searchContext)
 
   console.log('########', isLogin)
@@ -41,7 +41,7 @@ export const Login = () => {
         setIsLogin(true)
         setEmail('')
         setPassword('')
-        setSuccess(true)
+        // setSuccess(true)
       })
 
     // } catch (err) {

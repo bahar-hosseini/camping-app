@@ -3,7 +3,11 @@ const router = express.Router()
 const {getPackages, filterPackages, getPackage} = require('../db/queries/packages')
 
 /* GET home page. */
-
+router.get('/', function (req, res) {
+  getPackages().then((data) => {
+    res.json({ data })
+  })
+})
 
 router.get('/filter', function (req, res) {
   
@@ -25,11 +29,7 @@ router.get('/:id', function (req, res) {
   })
 })
 
-router.get('/', function (req, res) {
-  getPackages().then((data) => {
-    res.json({ data })
-  })
-})
+
 
 module.exports = router
 

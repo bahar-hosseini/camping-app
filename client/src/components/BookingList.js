@@ -9,32 +9,43 @@ import './styles/BookingList.scss'
 
 const BookingList = () => {
   const [bookings, setBookings] = useState([])
-  console.log(bookings)
+  // const [buttonMode, setButtonMode] = useState("DEFAULT");
+  // console.log(bookings)
 
   useEffect(() => {
     axios.get('/api/bookings').then((res) => {
       // console.log(res.data.data.rows);
       setBookings(res.data.data.rows)
     })
-    // return () => console.log('ccccccleeeeeaan up')
   }, [])
 
   //Function to handle cancel button to remove item from booking dashboard
   const handleCancelBooking = async (id) => {
-    try {
-      await axios
-        .post(`/api/cancel`, JSON.stringify({ id }), {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
+    axios
+      .post(`/api/cancel`, JSON.stringify({ id }), {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      })
+      .then((res) => {
+        // console.log(res)
+        axios.get('/api/bookings').then((res) => {
+          return setBookings(res.data.data.rows)
         })
-        .then(
-          axios.get('/api/bookings').then((res) => {
-            return setBookings(res.data.data.rows)
-          })
-        )
-    } catch (err) {
-      console.log(err)
-    }
+      })
+    // try {
+    //   await axios
+    //     .post(`/api/cancel`, JSON.stringify({ id }), {
+    //       headers: { "Content-Type": "application/json" },
+    //       withCredentials: true,
+    //     })
+    //     .then(
+    //       axios.get("/api/bookings").then((res) => {
+    //         return setBookings(res.data.data.rows);
+    //       })
+    //     );
+    // } catch (err) {
+    //   console.log(err);
+    // }
   }
   const formattedBookings = bookings.map((booking, index) => {
     return (
@@ -48,6 +59,8 @@ const BookingList = () => {
         description={booking.description}
         test={setBookings}
         sendFunc={handleCancelBooking}
+        // buttonModeSetter={setButtonMode}
+        // currentButtonMode={buttonMode}
       />
     )
   })

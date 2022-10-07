@@ -1,38 +1,46 @@
-import { useEffect, useState } from 'react'
-import './styles/Home.scss'
-import { CategoryLinksBar } from '../components/CategoryLinksBar'
-import { PackageList } from '../components/PackageList'
-import { DatePickerBar } from '../components/DatePickerBar'
+import { useEffect, useState } from "react";
+import "./styles/Home.scss";
+import { CategoryLinksBar } from "../components/CategoryLinksBar";
+import { PackageList } from "../components/PackageList";
+import { DatePickerBar } from "../components/DatePickerBar";
 // import CategoryFilterItem from "../components/CategoryFilterItem";
-import { useContext } from 'react'
+import { useContext } from "react";
 // import SearchProvider from "../providers/SearchProvider";
-import { searchContext } from '../providers/SearchProvider'
-import { HomePackages } from '../components/HomePackages'
+import { searchContext } from "../providers/SearchProvider";
+import { HomePackages } from "../components/HomePackages";
 
-import axios from 'axios'
-import { avilableArry } from '../components/AvailabilityFunc'
-import { bookings } from '../mock_data/bookings'
-import PackageListItem from '../components/PackageListItem'
+import axios from "axios";
+import { avilableArry } from "../components/AvailabilityFunc";
+import { bookings } from "../mock_data/bookings";
+import PackageListItem from "../components/PackageListItem";
 
 export function Home() {
-  const [filteredPackages, setFilteredPackages] = useState([])
-  const { startDate, endDate, category, setCategory, packages } =
-    useContext(searchContext)
+  const { startDate, endDate, setPackages, category, setCategory, packages, loading } =
+    useContext(searchContext);
 
   // const [search_query, setSearchQuery] = useState("");
   // const [filterByCategory, setFilterByCategory] = useState(0);
   // const [filterByRange, setFilterByRange] = useState([]);
   // const [filterByLocation, setFilterByLocation] = useState([]);
 
-  // useEffect(() => {
-  //   const categoryFilter = function (data) {
-  //     if (category !== 0) {
-  //       const cF = data.filter((pack) => pack.category === category);
-  //       return cF;
-  //     }
-  //     return data;
-  //   };
-
+  useEffect(() => {
+    const categoryFilter = function (data) {
+      if (category !== 0) {
+        const cF = data.filter((pack) => pack.category === category);
+        return cF;
+      }
+      return data;
+    };
+  })
+  // function filterItems()  {axios
+  //   .get("/api/packages/filter", { params: { category, endDate, startDate } })
+  //   // .then((res) => console.log(res.data.data))
+  //   .then((res) => {
+  //     //console.log(res.data.data,'running@@@@@@')
+  //     setPackages(res.data.data);
+      
+  //   });
+  // }
   //   const rangeFilter = function (data) {
   //     if (startDate.getTime() === endDate.getTime()) {
   //       return data;
@@ -58,29 +66,24 @@ export function Home() {
         location={packageItem.location}
         availability={packageItem.availability}
       />
-    )
-  })
+    );
+  });
 
   // console.log(avilableArry([startDate,endDate], packages, bookings))
 
   return (
     <>
-      <DatePickerBar />
-      <CategoryLinksBar />
-      <div className='gallery-container'>
-        <div className='package-gallery'>{packageGallery}</div>
-      </div>
-      {/* {category === 0 && <PackageList />}
-      {category !== 0 && <CategoryFilterItem category={category} />} */}
-      {/* {category === 0 && <PackageList />} */}
-      {/* {category !== 0 && <CategoryFilterItem category={category} />} */}
-
-      {/* <DateRangeFilterItem 
-      startDate={startDate}
-      endDate={endDate}
-      /> */}
-      {/* {sdedSame(startDate, endDate) && <PackageList />} */}
-      {/* {sdedSame(startDate, endDate) && <DateRangeFilterItem  />} */}
+      {loading === true ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          <DatePickerBar />
+          <CategoryLinksBar />
+          <div className="gallery-container">
+            <div className="package-gallery">{packageGallery}</div>
+          </div>
+        </>
+      )}
     </>
-  )
+  );
 }
