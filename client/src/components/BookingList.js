@@ -13,7 +13,7 @@ const BookingList = () => {
   console.log('BOOOOKINGS', bookings)
   useEffect(() => {
     axios.get('/api/bookings').then((res) => {
-      // console.log(res.data.data.rows);
+      console.log('RESPONSE', res.data.data.rows);
       setBookings(res.data.data.rows)
     })
   }, [])
@@ -52,6 +52,7 @@ const BookingList = () => {
         key={index}
         booking_img={booking.booking_img}
         id={booking.booking_id}
+        package_id={booking.package_id}
         userID={booking.user_id}
         price={booking.price}
         category={booking.category}

@@ -18,6 +18,7 @@ export default function SearchProvider(props) {
 
   const [loading, setLoading] = useState(false)
   const isLoadedRef = useRef(false)
+
   useEffect(() => {
     // const abortCont = new AbortController();
     axios
@@ -56,14 +57,27 @@ export default function SearchProvider(props) {
     return () => setPackages([])
   }, [])
 
-  axios.get('/api/login').then((res) => {
-    // console.log('This is cookie from back-->front', res.status)
+  useEffect(() => {
+    // const abortCont = new AbortController();
+    axios.get('/api/login').then((res) => {
+      // console.log('This is cookie from back-->front', res.status)
+      if (res.status == 200 || 304) {
+        return setIsLogin(true)
+        // console.log(isLogin)
+      } else {
+        return setIsLogin(false)
+      }
+    })
+  }, [])
 
-    if (res.status == 200 || 304) {
-      setIsLogin(true)
-      // console.log(isLogin)
-    }
-  })
+  // axios.get('/api/login').then((res) => {
+  //   // console.log('This is cookie from back-->front', res.status)
+
+  //   if (res.status == 200 || 304) {
+  //     setIsLogin(true)
+  //     // console.log(isLogin)
+  //   }
+  // })
 
   const diff = differenceInDays(endDate, startDate)
   //todo: set diff as a state
