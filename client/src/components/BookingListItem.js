@@ -22,11 +22,11 @@ const BookingListItem = (props) => {
       })
     }, 1000)
   }
-  console.log(buttonMode)
+  console.log('booking list item props', props)
 
   return (
     <div className='booking-item-box'>
-      <Link to={'/package/' + props.id}>
+      <Link to={'/package/' + props.package_id}>
         <img
           src={require(`../assets/booking_imgs/${props.booking_img}.png`)}
           alt='img'
