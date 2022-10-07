@@ -22,8 +22,13 @@ router.post('/', (req, res) => {
     .then((response) => {
       req.session['user_id'] = response.id
       // req.session.save()
-      res.redirect('/api/bookings')
+
+      if (response) {
+        req.session['is_loged_in'] = true
+      }
+
       console.log(req.session['user_id'])
+      res.redirect('/api/bookings')
       // if (response.is_admin) {
       //   req.session['authorized'] = true
       // res.redirect('/home')
@@ -35,6 +40,15 @@ router.post('/', (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message })
     })
+})
+
+router.get('/', (req, res) => {
+  if (req.session['is_loged_in']) {
+    res.json(data)
+    res.redirect('/')
+  } else {
+    console.log('nuh')
+  }
 })
 
 module.exports = router
