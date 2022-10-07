@@ -10,19 +10,23 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { searchContext } from "../providers/SearchProvider";
+import Login from "./Login";
 import axios from "axios";
 
 export function Nav() {
   const [dropdown, setDropdown] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const { setPackages } = useContext(searchContext);
 
   // function that refreshes the homepage context when you click on the logo button
   const refreshHomepage = () => {
-    axios
-      .get("/api/packages")
-      .then((res) => {
-        return setPackages(res.data.data.rows);
-      });
+    axios.get("/api/packages").then((res) => {
+      return setPackages(res.data.data.rows);
+    });
+  };
+
+  const showLoginForm = () => {
+    return setShowLogin(true);
   };
 
   const toggleDropdown = () => {
@@ -59,12 +63,14 @@ export function Nav() {
             <img src={TentLogo} alt="lantern" width="70px"></img>
           </Link>
         </div>
+        <div className="login-form-section">{showLogin ? <Login /> : <></>}</div>
+        {showLogin ? <div className="dimScreen"/> : <></>}
         <div className="nav-right">
           <div onClick={toggleDropdown} className="profile-badge" ref={ref}>
             <img src={MenuBars} alt="tent" width="40px" />
             <img src={ProfileCircle} alt="tent" width="40px" />
           </div>
-          {dropdown && <NavDropdownMenu />}
+          {dropdown && <NavDropdownMenu showLoginForm={showLoginForm} />}
         </div>
       </div>
     </div>

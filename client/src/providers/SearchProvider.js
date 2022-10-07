@@ -32,6 +32,7 @@ export default function SearchProvider(props) {
   }, [])
 
   useEffect(() => {
+    console.log('START DATE TEST', startDate);
     if (isLoadedRef.current === false) return
     axios
       .get('/api/packages/filter', { params: { category, endDate, startDate } })
@@ -43,19 +44,18 @@ export default function SearchProvider(props) {
       })
     // return ()=>console.log('cleanup')
     return () => setPackages([])
-  }, [category])
-
-  useEffect(() => {
-    // const abortCont = new AbortController();
-    setLoading(true)
-    axios
-      .get('/api/packages')
-      // .then(()=> setDateRange(startDate, endDate))
-      .then((res) => {
-        setPackages(res.data.data.rows)
-      })
-    return () => setPackages([])
-  }, [])
+  }, [category, startDate, endDate])
+  // useEffect(() => {
+  //   // const abortCont = new AbortController();
+  //   setLoading(true)
+  //   axios
+  //     .get('/api/packages')
+  //     // .then(()=> setDateRange(startDate, endDate))
+  //     .then((res) => {
+  //       setPackages(res.data.data.rows)
+  //     })
+  //   return () => setPackages([])
+  // }, [])
 
   useEffect(() => {
     axios.get('/api/login').then((res) => {

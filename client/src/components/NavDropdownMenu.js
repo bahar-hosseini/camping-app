@@ -4,20 +4,24 @@ import './styles/Nav.scss'
 import { searchContext } from '../providers/SearchProvider'
 import axios from 'axios'
 
-export function NavDropdownMenu() {
-  // 1. conditionally show different menus depending on if you're logged in or note
-  // 2. new logout button in dropdown should log user our on click
 
-  /* <Link to="/package">Package </Link>
-     <Link to="/bookings">Bookings</Link> */
+export function NavDropdownMenu(props) {
   const [click, setClick] = useState(false)
   const { isLogin, setIsLogin } = useContext(searchContext)
+
+  /*
+  need a function that reveals login form based on clicking
+  input: a click
+  output: the menu on screen
+  */
+
+  
+
 
 
   const handleLogout = () => {
     axios.get('/api/logout').then(() => {
       return setIsLogin(() => false)
-      // console.log('EEEEEEEE', isLogin)
     })
   }
 
@@ -26,8 +30,9 @@ export function NavDropdownMenu() {
   const MenuItems = [
     {
       title: 'Login',
-      path: '/login',
+      // path: '/login',
       cName: 'dropdown-link',
+      clickFunc: props.showLoginForm
     },
   ]
   const MenuItemsLoggedIn = [
@@ -44,6 +49,7 @@ export function NavDropdownMenu() {
     },
   ]
   return (
+    <>
     <ul
       onClick={handleClick}
       className={click ? 'dropdown-menu clicked' : 'nav-drop-down'}
@@ -64,7 +70,7 @@ export function NavDropdownMenu() {
           })
         : MenuItems.map((item, index) => {
             return (
-              <li key={index}>
+              <li key={index} onClick={item.clickFunc}>
                 <Link
                   className={item.cName}
                   to={item.path}
@@ -76,6 +82,7 @@ export function NavDropdownMenu() {
             )
           })}
     </ul>
+    </>
   )
 }
 

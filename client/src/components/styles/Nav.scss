@@ -32,7 +32,6 @@
   margin-right: 2rem;
   height: 5rem;
   width: 200px;
-
 }
 
 .profile-badge {
@@ -52,7 +51,7 @@
   background: white;
   width: 175px;
   list-style: none;
-  text-align:left;
+  text-align: left;
   margin-top: 0.5rem;
   padding-left: 0px;
   border-radius: 20px;
@@ -73,4 +72,30 @@
 
 .dropdown-menu.clicked {
   display: none;
+}
+
+.dimScreen {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.22);
+  z-index: 1;
+}
+
+.login-form-section {
+  margin-top: 24rem;
+  margin-left: 8rem;
+  z-index: 2;
+}
+
+.login-form-section.open {
+  margin-top: 24rem;
+  margin-left: 8rem;
+  z-index: 2;
 }
