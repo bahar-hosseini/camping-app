@@ -49,5 +49,6 @@ app.use('/api/login', loginApiRoute)
 app.use('/api/logout', logoutRoutes)
 app.use('/api/cancel', cancelApiRoutes)
 app.use('/api/categories', categoriesRoute)
+app.use('/api/message', messageApiRoute)
 
 module.exports = app
