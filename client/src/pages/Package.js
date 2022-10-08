@@ -1,24 +1,24 @@
 import './styles/Package.scss'
 import { useParams } from 'react-router-dom'
-// import { packages } from '../mock_data/packages'
-import { ReactCalendar } from '../components/Calendar'
+// import { ReactCalendar } from "../components/Calendar";
 import { formatDateTitles } from '../helpers/formatDateTitles'
 import { BookingBox } from '../components/BookingBox'
 import { PackageInfoCard } from '../components/PackageInfoCard'
 import 'react-calendar/dist/Calendar.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { searchContext } from '../providers/SearchProvider'
-import useContext from '../providers/SearchProvider'
+
 import { ProductGrid } from '../components/ProductGrid'
+
+import { useSearch } from '../providers/SearchProvider'
 import Message from '../components/Message'
 import MessageArea from '../components/MessageArea'
 
-// import NotFound from "./NotFound.js"
-
 export function Package() {
   const { id } = useParams()
-  const { startDate, endDate, diff } = useContext(searchContext)
+
+  const { startDate, endDate, diff } = useSearch()
+
   const [packageItem, setPackageItem] = useState({})
   const [loading, setLoading] = useState(true)
 

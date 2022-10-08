@@ -22,7 +22,7 @@ const BookingListItem = (props) => {
       })
     }, 1000)
   }
-  console.log('booking list item props', props)
+  
 
   return (
     <div className='booking-item-box'>
@@ -37,7 +37,7 @@ const BookingListItem = (props) => {
       <div className='booking-content'>
         <div className='top-section'>
           <h2>{formatDateTitles(props.category)} Person Package</h2>
-          <h2 className='start-end-date'>Start Date - End Date</h2>
+          <h2 className='start-end-date'>{props.start_date} - {props.end_date}</h2>
           {/* Description: {props.description} */}
         </div>
         <div className='booking-btn-price'>

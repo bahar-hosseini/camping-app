@@ -1,8 +1,3 @@
-// import { packages } from "../mock_data/packages";
- const allBookings = require("../mock_data/bookings");
- const allPackages = require("../mock_data/packages");
-// console.log(packages)
-
 //filters all bookings and returns bookings with a specific bookings_id
 const bookingForSpecificPackage = function (packageID, bookingsData) {
   const listOfBookings = bookingsData.filter(
@@ -66,16 +61,18 @@ const mDROwithUserRange = function (packageArry, userRange) {
   return false;
 };
 
- const userReqRange = ["2022-10-15T04:00:00.000Z", "2022-10-25T04:00:00.000Z"];
+const userReqRange = ["2022-10-15T04:00:00.000Z", "2022-10-25T04:00:00.000Z"];
 // console.log(allPackages)
 // const packageArry = allPackages.packages;
 
 //homepage filter
 //returns an array of available packages for user's date range. Loop through these id's for filtered output
- const avilableArry = function (userRange, packageData, bookingData) {
+const avilableArry = function (userRange, packageData, bookingData) {
   let resultArry = [];
   for (let objs of packageData) {
-    const packageBookingsArry = allDates(bookingForSpecificPackage(objs.id, bookingData));
+    const packageBookingsArry = allDates(
+      bookingForSpecificPackage(objs.id, bookingData)
+    );
     //console.log(bookingForSpecificPackage(objs.id, bookingData))
     if (!mDROwithUserRange(userRange, packageBookingsArry)) {
       resultArry.push(objs);
@@ -94,4 +91,4 @@ const bookingConflictChecker = function (userRange, packageID) {
 };
 
 // console.log(bookingConflictChecker(userReqRange, 4));
-module.exports = {avilableArry}
+module.exports = { avilableArry };

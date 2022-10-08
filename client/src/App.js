@@ -1,8 +1,5 @@
 import './App.scss'
-import { useContext } from 'react'
 import SearchProvider from './providers/SearchProvider'
-import { searchContext } from './providers/SearchProvider'
-
 import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
