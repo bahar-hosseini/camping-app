@@ -130,7 +130,7 @@ export function Package() {
             />
           </div>
           <Message packageID={packageItem.id} />
-          <MessageArea packageID={packageItem.id} />
+          {/* <MessageArea packageID={packageItem.id} /> */}
         </>
       )}
     </div>

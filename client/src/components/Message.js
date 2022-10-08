@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import MessageArea from './MessageArea'
 
 const Message = (props) => {
   const [message, setMessage] = useState('')
+  const [text, setText] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -18,13 +19,31 @@ const Message = (props) => {
         withCredentials: true,
       })
       .then(() => {
-        console.log('is it pos')
-        resetStates()
+        // resetStates()
       })
       .catch((err) => {
         console.log(err, 'Message is not sent')
       })
   }
+
+  useEffect(() => {
+    axios.get(`/api/message/${props.packageID}`).then((res) => {
+      console.log('ressssss', res)
+      setText(res.data.messages)
+      console.log('final', res.data.messages)
+    })
+  }, [])
+
+  const textArea = text.map((t, index) => {
+    return (
+      <MessageArea
+        key={index}
+        date={t.date_sent}
+        message={t.message}
+        username={t.name}
+      />
+    )
+  })
 
   return (
     <>
@@ -41,7 +60,7 @@ const Message = (props) => {
           Send
         </button>
       </form>
-      <MessageArea test={handleSubmit} />
+      <div>{textArea}</div>
     </>
   )
 }

@@ -4,8 +4,9 @@ const db = require('../../configs/db.config')
 const getPackageMsg = (id) => {
   return db
     .query(
-      `SELECT messages.*
+      `SELECT messages.*, users.name
    FROM messages
+   JOIN users ON users.id = user_id
   WHERE package_id=$1;`,
       [id]
     )
