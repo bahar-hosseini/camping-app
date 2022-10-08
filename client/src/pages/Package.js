@@ -74,6 +74,7 @@ export function Package() {
 
   return (
     <div className="Package">
+      {/* {window.scrollTo(0, 0)} */}
       {loading && <h1>Loading Page</h1>}
       {!packageItem.id && !loading && <h1>Package Not Found</h1>}
       {packageItem.id && !loading && (

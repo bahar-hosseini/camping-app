@@ -1,15 +1,15 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 // const session = require('express-session')
-const bookings = require('../db/queries/bookings')
+const bookings = require("../db/queries/bookings");
 
-router.get('/', function (req, res) {
-  const userId = req.session['user_id']
-  console.log('$$$$$$$$$$', userId)
+router.get("/", function (req, res) {
+  const userId = req.session["user_id"];
+  console.log("$$$$$$$$$$", userId);
   bookings.getBookings(userId).then((data) => {
-    res.json({ data })
-  })
-})
+    res.json({ data });
+  });
+});
 
 // Add Item to the booking table
 //**old booking post route ****
@@ -27,28 +27,29 @@ router.get('/', function (req, res) {
 //     res.json({ data })
 //   })
 // })
-router.post('/new', function (req, res) {
-  const filterParams = req.body.params
+router.post("/new", function (req, res) {
+  const filterParams = req.body.params;
 
-  
-  const {package_id, booking_SD, booking_ED} = filterParams
+  const { package_id, booking_SD, booking_ED } = filterParams;
 
-const userId = req.session['user_id']
-  console.log(filterParams)
+  const userId = req.session["user_id"];
+  console.log(filterParams);
 
-  bookings.addBookings(userId, package_id, booking_SD, booking_ED).then((data) => {
-    res.json({ data })
-  })
-})
-module.exports = router
+  bookings
+    .addBookings(userId, package_id, booking_SD, booking_ED)
+    .then((data) => {
+      res.json({ data });
+    });
+});
+module.exports = router;
 
 // router.get('/filter', function (req, res) {
-  
+
 //   const filterParams = req.query
 //   filterPackages(filterParams)
 //   // .then(() => console.log('test@@@@@@@'))
 //   .then((data) => {
 //     res.json({ data })
 //   })
-  
+
 // })
