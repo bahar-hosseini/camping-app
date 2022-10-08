@@ -50,20 +50,10 @@ export function BookingBox(props) {
   return (
     <div className="booking-box-container">
       <div className="booking-info">
-        <h2 className="package-price-box">${props.price} <span style={{ fontWeight: "normal" }}>per day</span></h2>
+        <h2 className="package-price-box">${props.price} <span style={{ fontWeight: "normal", fontSize: "20px"  }}>per day</span></h2>
         {/* {console.log(this.startDate)} */}
         {/* <h2>Duration: {duration}</h2> */}
         <DatePickerBar />
-        <div className="book-button">
-          {!bookingCreated ? (
-            <Button onClick={handleBooking}>Book</Button>
-          ) : (
-            <Button>
-              <div className="spin" />
-              Working
-            </Button>
-          )}
-        </div>
         <div className="price-section">
           <div className="price-row">
             <div>Price x {duration}</div>
@@ -82,7 +72,7 @@ export function BookingBox(props) {
           </div>
           <div className="price-row">
             <div>
-              <span style={{ fontWeight: "bold" }}>Total</span>
+              <span style={{ fontWeight: "bold"}}>Total</span>
             </div>
             <div>
               <span style={{ fontWeight: "bold" }}>
@@ -93,6 +83,16 @@ export function BookingBox(props) {
               </span>
             </div>
           </div>
+        </div>
+        <div className="book-button">
+          {!bookingCreated ? (
+            <Button onClick={handleBooking} className="btn-book">Book</Button>
+          ) : (
+            <Button className="btn-book">
+              <div className="spin" />
+              Working
+            </Button>
+          )}
         </div>
         {/* <span>
           <DatePicker onChange={props.setStartDate} value={props.startDate} />

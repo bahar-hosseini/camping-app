@@ -63,7 +63,7 @@ const BookingListItem = (props) => {
               </Button>
             )}
             {buttonMode === 'LOADING' && (
-              <Button className='btn-cancel'>
+              <Button className='btn-cancel-clicked'>
                 <div className='spin' />
                 Deleting
               </Button>

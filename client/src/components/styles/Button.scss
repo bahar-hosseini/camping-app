@@ -22,10 +22,8 @@
   will-change: transform;
 }
 
-
-
 .btn {
-  background-color: #F9C6F5;
+  background-color: #f9c6f5;
   padding: 1.5rem;
   width: 12rem;
   border-radius: 40px;
@@ -35,4 +33,40 @@
     margin: 0px;
   }
   cursor: pointer;
+  &-book {
+    background-color: #f9c6f5;
+    padding: 1.5rem;
+    width: 15rem;
+    border-radius: 40px;
+    border: none;
+    filter: drop-shadow(0px 0px 4px #00000025);
+    h4 {
+      margin: 0px;
+    }
+    cursor: pointer;
+  }
+  &-cancel {
+    background-color: #f9c6f5;
+    padding: 1.5rem;
+    width: 13rem;
+    border-radius: 40px;
+    border: none;
+    filter: drop-shadow(0px 0px 4px #00000025);
+    h4 {
+      margin: 0px;
+    }
+    cursor: pointer;
+  }
+  &-cancel-clicked {
+    background-color: #f9c6f5;
+    padding: 1.5rem;
+    width: 13rem;
+    border-radius: 40px;
+    border: none;
+    filter: drop-shadow(0px 0px 4px #00000025);
+    h4 {
+      margin: 0px;
+    }
+    cursor: pointer;
+  }
 }
