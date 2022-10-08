@@ -107,7 +107,7 @@ export const Login = (props) => {
         <div className="button-section">
           {/* <Link to={'/'}> */}
           <Button
-            className='btn-form'
+            className='btn'
             type='submit'
           >
             Submit

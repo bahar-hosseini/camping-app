@@ -4,7 +4,6 @@ import "./styles/Button.scss";
 // import "components/Button.scss";
 
 export default function Button(props) {
-  console.log(props);
   //possible props: title, color
   return (
     <button

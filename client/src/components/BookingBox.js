@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 export function BookingBox(props) {
   //  Handle button function: when we click on that button we are adding a new booking for that user (for now user 1)
-  const { startDate, endDate } = useContext(searchContext);
+  const { startDate, endDate, isLogin } = useContext(searchContext);
   const [bookingCreated, setBookingCreated] = useState(false);
 
   let package_id = props.packageID;
@@ -50,7 +50,12 @@ export function BookingBox(props) {
   return (
     <div className="booking-box-container">
       <div className="booking-info">
-        <h2 className="package-price-box">${props.price} <span style={{ fontWeight: "normal", fontSize: "20px"  }}>per day</span></h2>
+        <h2 className="package-price-box">
+          ${props.price}{" "}
+          <span style={{ fontWeight: "normal", fontSize: "20px" }}>
+            per day
+          </span>
+        </h2>
         {/* {console.log(this.startDate)} */}
         {/* <h2>Duration: {duration}</h2> */}
         <DatePickerBar />
@@ -72,7 +77,7 @@ export function BookingBox(props) {
           </div>
           <div className="price-row">
             <div>
-              <span style={{ fontWeight: "bold"}}>Total</span>
+              <span style={{ fontWeight: "bold" }}>Total</span>
             </div>
             <div>
               <span style={{ fontWeight: "bold" }}>
@@ -84,16 +89,27 @@ export function BookingBox(props) {
             </div>
           </div>
         </div>
-        <div className="book-button">
-          {!bookingCreated ? (
-            <Button onClick={handleBooking} className="btn-book">Book</Button>
-          ) : (
-            <Button className="btn-book">
-              <div className="spin" />
-              Working
+        {!isLogin && (
+          <div className="book-button">
+            <Button className="btn-book-disabled">
+              Please Log In
             </Button>
-          )}
-        </div>
+          </div>
+        )}
+        {isLogin && (
+          <div className="book-button">
+            {!bookingCreated ? (
+              <Button onClick={handleBooking} className="btn-book">
+                Book
+              </Button>
+            ) : (
+              <Button className="btn-book">
+                <div className="spin" />
+                Working
+              </Button>
+            )}
+          </div>
+        )}
         {/* <span>
           <DatePicker onChange={props.setStartDate} value={props.startDate} />
         </span>
