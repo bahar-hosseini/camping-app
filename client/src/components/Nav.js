@@ -17,13 +17,20 @@ import axios from "axios";
 export function Nav() {
   const [dropdown, setDropdown] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const { setPackages, isLogin } = useContext(searchContext);
+  const { setPackages, isLogin, setCategories } = useContext(searchContext);
 
   // function that refreshes the homepage context when you click on the logo button
   const refreshHomepage = () => {
-    axios.get("/api/packages").then((res) => {
-      return setPackages(res.data.data.rows);
-    });
+    // setCategories(0).then(() => {
+    //   return (window.location = `/`);
+    // });
+    return (window.location = `/`);
+    // axios.get("/api/packages").then((res) => {
+    //   return setPackages(res.data.data.rows);
+
+    // }).then(()=>{
+    //   return (window.location = `/`);
+    // });
   };
 
   const showLoginForm = () => {
@@ -64,17 +71,32 @@ export function Nav() {
     <div className="Nav">
       <div className="nav-innards">
         <div className="nav-left">
-          <Link to="/" onClick={() => refreshHomepage()}>
-            <img src={TentLogo} alt="lantern" width="70px"></img>
-          </Link>
+          {/* <Link to="/" onClick={() => refreshHomepage()}> */}
+          <img
+            src={TentLogo}
+            alt="lantern"
+            width="70px"
+            onClick={() => refreshHomepage()}
+          ></img>
+          {/* </Link> */}
         </div>
-        <div className="login-form-section">{showLogin ? <Login hideLoginForm={hideLoginForm} /> : <></>}</div>
-        {showLogin ? <div className="dimScreen"/> : <></>}
+        <div className="login-form-section">
+          {showLogin ? <Login hideLoginForm={hideLoginForm} /> : <></>}
+        </div>
+        {showLogin ? <div className="dimScreen" /> : <></>}
         <div className="nav-right">
           <div onClick={toggleDropdown} className="profile-badge" ref={ref}>
             <img src={MenuBars} alt="menu-bars" width="35px" />
-            {isLogin && <img src={ProfileCircleLoggedIn} alt="profile-icon" width="40px" />}
-            {!isLogin && <img src={ProfileCircle} alt="profile-icon" width="40px" />}
+            {isLogin && (
+              <img
+                src={ProfileCircleLoggedIn}
+                alt="profile-icon"
+                width="40px"
+              />
+            )}
+            {!isLogin && (
+              <img src={ProfileCircle} alt="profile-icon" width="40px" />
+            )}
           </div>
           {dropdown && <NavDropdownMenu showLoginForm={showLoginForm} />}
         </div>

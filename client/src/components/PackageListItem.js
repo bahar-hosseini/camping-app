@@ -14,9 +14,13 @@ export default function PackageListItem(props) {
   // location={packageItem.location}
   // console.log(props, "test here");
 
+  const redirectToPackage = () => {
+    return window.location = `/package/${props.id}`
+  }
+
   return (
-    <Link to={'/package/' + props.id} className='home-package-item'>
-      <div>
+    // <Link to={'/package/' + props.id} className='home-package-item'>
+      <div onClick={redirectToPackage} className='home-package-item'>
         {/* <div classNames='card'> */}
         <img
           className='home-img'
@@ -32,6 +36,6 @@ export default function PackageListItem(props) {
           <br />${props.price} per day
         </h4>
       </div>
-    </Link>
+    // </Link>
   )
 }

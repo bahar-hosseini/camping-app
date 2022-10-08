@@ -22,6 +22,10 @@ const BookingListItem = (props) => {
       })
     }, 1000)
   }
+
+  const redirectToPackage = () => {
+    return window.location = `/package/${props.package_id}`
+  }
   
 
   return (
@@ -32,6 +36,7 @@ const BookingListItem = (props) => {
           alt='img'
           className='booking-img'
           height='175px'
+          // onClick={redirectToPackage}
         />
       </Link>
       <div className='booking-content'>
@@ -58,8 +63,8 @@ const BookingListItem = (props) => {
               </Button>
             )}
             {buttonMode === 'LOADING' && (
-              <Button className='btn-cancel'>
-                <div class='spin' />
+              <Button className='btn-cancel-clicked'>
+                <div className='spin' />
                 Deleting
               </Button>
             )}

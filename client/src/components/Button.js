@@ -4,11 +4,10 @@ import "./styles/Button.scss";
 // import "components/Button.scss";
 
 export default function Button(props) {
-
   //possible props: title, color
   return (
     <button
-      className="btn"
+      className={props.className ? props.className : "btn"}
       onClick={props.onClick}
       disabled={props.disabled}
     >
