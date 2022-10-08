@@ -8,6 +8,7 @@ router.post('/', (req, res) => {
   const today = new Date().toISOString().slice(0, 10)
   console.log(msg, today)
   const userId = req.session['user_id']
+  console.log('###', userId)
   // //TO DO : Add user id and package id to addmssg function
   messageQueries
     .addMessage(msg, userId, today)
@@ -23,11 +24,10 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // const userId = req.session['user_id']
   const msg = req.params.id
-
+  console.log('step2', msg)
   messageQueries
     .getPackageMsg(msg)
     .then((messages) => {
-      console.log('test message', messages)
       res.json({ messages })
     })
     .catch((err) => {
@@ -35,31 +35,5 @@ router.get('/:id', (req, res) => {
       res.status(500).json({ error: err })
     })
 })
-
-// if (req.session['authorized']) {
-//   messageQueries.getAdminProductMsg(userId)
-//     .then(messages => {
-//       res.json({ messages });
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-
-//   } else {
-//     messageQueries.getUserProductMsg(userId)
-//       .then(messages => {
-//         res.json({ messages });
-//       })
-//       .catch(err => {
-//         console.error(err);
-//         res
-//           .status(500)
-//           .json({ error: err.message });
-//       });
-//   }
-// })
 
 module.exports = router

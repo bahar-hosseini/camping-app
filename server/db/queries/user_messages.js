@@ -4,7 +4,7 @@ const db = require('../../configs/db.config')
 const getPackageMsg = (id) => {
   return db
     .query(
-      `SELECT messages.*, users.name
+      `SELECT messages.*, users.name AS name
    FROM messages
    JOIN users ON users.id = user_id
   WHERE package_id=$1;`,
@@ -23,7 +23,7 @@ const addMessage = function (msg, userId, today) {
         messages(message,user_id,package_id,date_sent)
         VALUES($1,$2,$3,$4)
         RETURNING *;`,
-      [msg.message, msg.userid, msg.id, today]
+      [msg.message, userId, msg.id, today]
     )
     .then((result) => {
       console.log(result.rows[0])
