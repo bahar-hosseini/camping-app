@@ -32,6 +32,7 @@ const logoutRoutes = require('./routes/logout')
 const bookingsRoute = require('./routes/bookings-api')
 const categoriesRoute = require('./routes/categoriesRoute-api')
 const cancelApiRoutes = require('./routes/cancel-api')
+const messageApiRoute = require('./routes/message-api')
 
 // TEST
 // app.get('/list', (req, res) => {
