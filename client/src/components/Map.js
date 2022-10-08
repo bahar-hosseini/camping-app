@@ -26,6 +26,7 @@ export function Map({ location, zoomLevel }) {
             defaultCenter={location}
             defaultZoom={zoomLevel}
           >
+            
             <LocationPin
               lat={location.lat}
               lng={location.lng}
