@@ -5,7 +5,7 @@ import { searchContext } from "../providers/SearchProvider";
 import "./styles/Login.scss";
 import { Link } from "react-router-dom";
 
-export const Login = () => {
+export const Login = (props) => {
   // const { setAuth } = useContext(AuthContext)
   const userRef = useRef();
   const errRef = useRef();
@@ -40,14 +40,41 @@ export const Login = () => {
         // setPassword('')
         // setSuccess(true)
       })
+      .then(() => {
+        return props.hideLoginForm();
+        // setEmail('')
+        // setPassword('')
+        // setSuccess(true)
+      })
       .catch((err) => {
         console.log(err, "EMAIL NOT FOUND");
       });
   };
 
-  // console.log(state)
+  const ref = useRef();
+
+  const useOutsideClick = (ref, callback) => {
+    const handleClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        callback();
+      }
+    };
+
+    useEffect(() => {
+      document.addEventListener("click", handleClick);
+
+      return () => {
+        document.removeEventListener("click", handleClick);
+      };
+    });
+  };
+
+  useOutsideClick(ref, () => {
+    return props.hideLoginForm()
+  });
+
   return (
-    <div className="form-container">
+    <div className='form-container'ref={ref}>
       <h1>Login</h1>
 
       <form className="form" onSubmit={handleSubmit}>
@@ -80,12 +107,8 @@ export const Login = () => {
         <div className="button-section">
           {/* <Link to={'/'}> */}
           <Button
-            // onClick={(e) =>
-            // success ? alert(`you're loged in`) : alert(errMsg)
-            // }
-            // onClick={(e) => (window.location.href = '/bookings')}
-            className="btn-form"
-            type="submit"
+            className='btn-form'
+            type='submit'
           >
             Submit
           </Button>
