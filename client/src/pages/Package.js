@@ -1,50 +1,53 @@
-import "./styles/Package.scss";
-import { useParams } from "react-router-dom";
+import './styles/Package.scss'
+import { useParams } from 'react-router-dom'
 // import { packages } from '../mock_data/packages'
-import { ReactCalendar } from "../components/Calendar";
-import { formatDateTitles } from "../helpers/formatDateTitles";
-import { BookingBox } from "../components/BookingBox";
-import { PackageInfoCard } from "../components/PackageInfoCard";
-import "react-calendar/dist/Calendar.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { searchContext } from "../providers/SearchProvider";
-import useContext from "../providers/SearchProvider";
-import { ProductGrid } from "../components/ProductGrid";
+import { ReactCalendar } from '../components/Calendar'
+import { formatDateTitles } from '../helpers/formatDateTitles'
+import { BookingBox } from '../components/BookingBox'
+import { PackageInfoCard } from '../components/PackageInfoCard'
+import 'react-calendar/dist/Calendar.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { searchContext } from '../providers/SearchProvider'
+import useContext from '../providers/SearchProvider'
+import { ProductGrid } from '../components/ProductGrid'
+import Message from '../components/Message'
+import MessageArea from '../components/MessageArea'
+
 // import NotFound from "./NotFound.js"
 
 export function Package() {
-  const { id } = useParams();
-  const { startDate, endDate, diff } = useContext(searchContext);
-  const [packageItem, setPackageItem] = useState({});
-  const [loading, setLoading] = useState(true);
+  const { id } = useParams()
+  const { startDate, endDate, diff } = useContext(searchContext)
+  const [packageItem, setPackageItem] = useState({})
+  const [loading, setLoading] = useState(true)
 
   const fetchData = () => {
     if (isNaN(+id)) {
-      setLoading(false);
-      return setPackageItem({});
+      setLoading(false)
+      return setPackageItem({})
     } else {
       axios
         .get(`/api/packages/${id}`)
         .then((res) => {
           if (res.data.data.rows.length === 0) {
-            setLoading(false);
-            return setPackageItem({});
+            setLoading(false)
+            return setPackageItem({})
           } else {
-            setPackageItem(res.data.data.rows[0]);
+            setPackageItem(res.data.data.rows[0])
             setTimeout(() => {
-              return setLoading(false);
-            }, 200);
+              return setLoading(false)
+            }, 200)
           }
         })
         .catch(function (error) {
-          return setPackageItem({});
-        });
+          return setPackageItem({})
+        })
     }
-  };
+  }
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   // useEffect(() => {
   //   if (isNaN(+id)) {
@@ -69,24 +72,24 @@ export function Package() {
   // }, [id])
 
   return (
-    <div className="Package">
+    <div className='Package'>
       {loading && <h1>Loading Page</h1>}
       {!packageItem.id && !loading && <h1>Package Not Found</h1>}
       {packageItem.id && !loading && (
         <>
-          <div className="package-top">
-            <div className="empty-div">
+          <div className='package-top'>
+            <div className='empty-div'>
               {loading ? (
                 <div></div>
               ) : (
                 <img
                   src={require(`../assets/package_imgs/${packageItem.package_img}.png`)}
-                  alt="img"
-                  className="package-img"
+                  alt='img'
+                  className='package-img'
                 />
               )}
             </div>
-            <div className="card">
+            <div className='card'>
               <PackageInfoCard
                 package_img={packageItem.package_img}
                 tent={packageItem.tent_description}
@@ -96,18 +99,18 @@ export function Package() {
               />
             </div>
           </div>
-          <div className="package-bottom">
+          <div className='package-bottom'>
             <div>
               <h2>
                 {formatDateTitles(packageItem.category)} Person Package
                 <br />
                 Gear owned by user {packageItem.user_id}
               </h2>
-              <p className="description-box">{packageItem.description}</p>
+              <p className='description-box'>{packageItem.description}</p>
               <h2>Check out the gear:</h2>
               <ProductGrid />
               <h2>Notes about the gear:</h2>
-              <p className="description-box">
+              <p className='description-box'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
                 amet vestibulum sapien, ut porttitor est. In placerat odio erat,
                 a rutrum elit ullamcorper sed. Cras auctor lectus eu felis
@@ -126,8 +129,10 @@ export function Package() {
               diff={diff}
             />
           </div>
+          <Message packageID={packageItem.id} />
+          <MessageArea packageID={packageItem.id} />
         </>
       )}
     </div>
-  );
+  )
 }

@@ -38,8 +38,8 @@ export const Login = () => {
       })
       .then(() => {
         setIsLogin(() => true)
-        // setEmail('')
-        // setPassword('')
+        setEmail('')
+        setPassword('')
         // setSuccess(true)
       })
       .catch((err) => {
