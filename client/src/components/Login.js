@@ -10,9 +10,7 @@ export const Login = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { isLogin, setIsLogin } = useContext(searchContext)
-
-  // console.log('########', isLogin)
+  const { setIsLogin } = useContext(searchContext)
 
   useEffect(() => {
     userRef.current.focus()
@@ -70,7 +68,6 @@ export const Login = (props) => {
 
       <form className='form' onSubmit={handleSubmit}>
         <div>
-          {/* <label for='inputEmail1'>Email address</label> */}
           <input
             className='input-email'
             ref={userRef}
@@ -83,7 +80,6 @@ export const Login = (props) => {
           />
         </div>
         <div>
-          {/* <label for='inputPassword'>Password</label> */}
           <input
             className='input-password'
             ref={userRef}
@@ -96,13 +92,10 @@ export const Login = (props) => {
           />
         </div>
         <div className='button-section'>
-          {/* <Link to={'/'}> */}
           <Button className='btn-form' type='submit'>
             Submit
           </Button>
-          {/* </Link> */}
         </div>
-        {/* <button>Login</button> */}
       </form>
       {/* <div>{isLogin && <Link to={'/'}>Home page</Link>}</div> */}
     </div>

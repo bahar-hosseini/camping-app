@@ -5,6 +5,7 @@ import MessageArea from './MessageArea'
 const Message = (props) => {
   const [message, setMessage] = useState('')
   const [text, setText] = useState([])
+  const [isSubmit, setIsSubmit] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -19,7 +20,8 @@ const Message = (props) => {
         withCredentials: true,
       })
       .then(() => {
-        // resetStates()
+        isSubmit ? setIsSubmit(false) : setIsSubmit(true)
+        resetStates()
       })
       .catch((err) => {
         console.log(err, 'Message is not sent')
@@ -28,11 +30,9 @@ const Message = (props) => {
 
   useEffect(() => {
     axios.get(`/api/message/${props.packageID}`).then((res) => {
-      console.log('ressssss', res)
       setText(res.data.messages)
-      console.log('final', res.data.messages)
     })
-  }, [])
+  }, [isSubmit])
 
   const textArea = text.map((t, index) => {
     return (
