@@ -20,6 +20,7 @@ const getBookings = (userId) => {
       return data
     })
 }
+
 const addBookings = (userId, packageItem, startDate, endDate) => {
   return db
     .query(

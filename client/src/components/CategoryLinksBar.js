@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PersonIcon from "../assets/person.svg";
 import "./styles/CategoryLinksBar.scss";
 import { useContext } from 'react'

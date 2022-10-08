@@ -44,12 +44,15 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
+  // checks to see if a user is logged in, then responds
   if (req.session['is_loged_in']) {
-    // console.log('loged in', res)
-
-    res.redirect('/')
+    console.log('currently logged in')
+    res.send('in')
+    // res.redirect('/')
   } else {
-    console.log('nuh')
+    console.log('currently logged out')
+    res.send('out')
+    // res.redirect('/')
   }
 })
 

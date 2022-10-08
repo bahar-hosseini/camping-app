@@ -4,6 +4,8 @@ import { NewPackage } from "./components/NewPackage";
 import { Routes, Route } from "react-router-dom";
 
 export function PackageRoutes() {
+  // const { startDate, endDate, diff } = useContext(searchContext);
+  // console.log(startDate)
   return ( 
     <>
     <Routes>
