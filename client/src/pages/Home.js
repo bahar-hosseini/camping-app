@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles/Home.scss";
 import { CategoryLinksBar } from "../components/CategoryLinksBar";
 import { DatePickerBar } from "../components/DatePickerBar";
@@ -6,10 +6,30 @@ import { useContext } from "react";
 import { searchContext } from "../providers/SearchProvider";
 import PackageListItem from "../components/PackageListItem";
 
+import MapWrapper from "../components/Map";
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import React from 'react'
+
+
+import {Map} from '../components/Map' // import the map here
+
+
+
+// import './styles/Map.scss'
+
+
 export function Home() {
-  const { startDate, endDate, setPackages, category, setCategory, packages, loading, testContextItem } =
-    useContext(searchContext);
- 
+  const {
+    startDate,
+    endDate,
+    setPackages,
+    category,
+    setCategory,
+    packages,
+    loading,
+    testContextItem,
+  } = useContext(searchContext);
+
   // const [search_query, setSearchQuery] = useState("");
   // const [filterByCategory, setFilterByCategory] = useState(0);
   // const [filterByRange, setFilterByRange] = useState([]);
@@ -23,14 +43,14 @@ export function Home() {
       }
       return data;
     };
-  })
+  });
   // function filterItems()  {axios
   //   .get("/api/packages/filter", { params: { category, endDate, startDate } })
   //   // .then((res) => console.log(res.data.data))
   //   .then((res) => {
   //     //console.log(res.data.data,'running@@@@@@')
   //     setPackages(res.data.data);
-      
+
   //   });
   // }
   //   const rangeFilter = function (data) {
@@ -63,6 +83,21 @@ export function Home() {
 
   // console.log(avilableArry([startDate,endDate], packages, bookings))
 
+  //map stuff
+  // const render = (status) => {
+  //   return <h1>{status}</h1>;
+  // };
+
+  // const ref = useRef();
+  // const [map, setMap] = useState();
+
+  // useEffect(() => {
+  //   if (ref.current && !map) {
+  //     setMap(new window.google.maps.Map(ref.current, {}));
+  //   }
+  // }, [ref, map]);
+
+
   return (
     <>
       {loading === true ? (
@@ -76,6 +111,7 @@ export function Home() {
           </div>
         </>
       )}
+      
     </>
   );
 }

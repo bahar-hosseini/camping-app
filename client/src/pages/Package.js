@@ -11,7 +11,7 @@ import axios from "axios";
 import { ProductGrid } from "../components/ProductGrid";
 
 import { useSearch } from "../providers/SearchProvider";
-
+import {Map} from '../components/Map' // import the map here
 
 export function Package() {
   const { id } = useParams();
@@ -71,7 +71,15 @@ export function Package() {
   //   return ()=>console.log('This is my cleanup')
   //   }
   // }, [id])
+  const location = {
+    address: '1600 Amphitheatre Parkway, Mountain View, california.',
+    lat: 43.74448752008877,
+    lng: -79.36574518361907,
+    
+  }
 
+
+  
   return (
     <div className="Package">
       {loading && <h1>Loading Page</h1>}
@@ -130,6 +138,10 @@ export function Package() {
               diff={diff}
             />
           </div>
+
+          <div>
+            <Map location={location} zoomLevel={12} /> include it here
+      </div>
         </>
       )}
     </div>
