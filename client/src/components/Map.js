@@ -12,7 +12,18 @@ export function Map({ location, zoomLevel }) {
       <p className="pin-text">{text}</p>
     </div>
   );
-
+  //const MultiPoints = locations.map((loco, index) => {
+  //   return (
+  //     <LocationPin
+  //       Key={index}
+  //       lat={loco.lat}
+  //       lng={loco.long}
+  //       text={loco.text}
+  //     />
+  //   );
+  // });
+  //console.log(MultiPoints)
+  // const center = useMemo(() => ({ lat: 43.65, lng: -79.70 }), []);
   return (
     <>
       <div className="map">

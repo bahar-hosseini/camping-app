@@ -8,6 +8,7 @@ import "react-calendar/dist/Calendar.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 import { useSearch } from "../providers/SearchProvider";
 import { Map } from "../components/Map"; // import the map here
 import { ProductGrid } from "../components/ProductGrid";
@@ -72,17 +73,18 @@ export function Package() {
   //   }
   // }, [id])
  
-  // const location = {
-  //   address: "1600 Amphitheatre Parkway, Mountain View, california.",
-  //   lat: 43.792426126615254,
-  //   lng: -79.38456174763746,
-  // };
+ 
+
   let location = {
     address: packageItem.latitude,
-    lat: parseInt(packageItem.latitude), 
-    lng: parseInt(packageItem.longitude)  
+    lat: packageItem.latitude, 
+    lng: packageItem.longitude  
   };
-  console.log(packageItem)
+  console.log(location)
+ 
+
+
+
 
   return (
     <div className="Package">

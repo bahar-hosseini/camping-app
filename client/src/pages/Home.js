@@ -5,18 +5,12 @@ import { DatePickerBar } from "../components/DatePickerBar";
 import { useContext } from "react";
 import { searchContext } from "../providers/SearchProvider";
 import PackageListItem from "../components/PackageListItem";
-
+// import { Map } from "../components/Map"; // import the map here
 import MapWrapper from "../components/Map";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import React from 'react'
-
-
-import {Map} from '../components/Map' // import the map here
-
-
+import React from "react";
 
 // import './styles/Map.scss'
-
 
 export function Home() {
   const {
@@ -98,6 +92,14 @@ export function Home() {
   // }, [ref, map]);
 
 
+
+  // var locations = [
+  //   { "text": "Bondi Beach", "long": 43.73914697574119, "lat": -79.21909733404391 },
+  //   { "text": "Coogee Beach", "long": 43.792426126615254, "lat": -79.23470826080701 },
+  //   { "text": "Cronulla Beach", "long": 43.81372694863631, "lat": -79.22610019572875},
+  //   { "text": "Manly Beach", "long": 43.81136197718913, "lat": -79.34276992649617},
+  //   { "text": "Maroubra Beach", "long": 43.776653976358276, "lat": -79.33991734987256},
+  // ];
   return (
     <>
       {loading === true ? (
@@ -109,9 +111,11 @@ export function Home() {
           <div className="gallery-container">
             <div className="package-gallery">{packageGallery}</div>
           </div>
+          <div>
+            {/* <Map locations={locations} zoomLevel={17} /> include it here */}
+          </div>
         </>
       )}
-      
     </>
   );
 }
