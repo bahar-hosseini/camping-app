@@ -14,5 +14,7 @@ CREATE TABLE packages (
   bags_description character varying(255) NOT NULL,
   lantern_description character varying(255) NOT NULL,
   cooking_description character varying(255) NOT NULL,
-  location INTEGER  NOT NULL DEFAULT 0
+  latitude INTEGER, 
+  longitude INTEGER
+ 
 );
