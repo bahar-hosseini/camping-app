@@ -10,7 +10,6 @@ import "./styles/BookingList.scss";
 const BookingList = () => {
   const [bookings, setBookings] = useState([]);
   // const [buttonMode, setButtonMode] = useState("DEFAULT");
-  console.log("BOOOOKINGS", bookings);
   useEffect(() => {
     axios.get("/api/bookings").then((res) => {
       setBookings(res.data.data.rows);
@@ -25,7 +24,6 @@ const BookingList = () => {
         withCredentials: true,
       })
       .then((res) => {
-        // console.log(res)
         axios.get("/api/bookings").then((res) => {
           return setBookings(res.data.data.rows);
         });
@@ -46,7 +44,6 @@ const BookingList = () => {
     // }
   };
   const formattedBookings = bookings.map((booking, index) => {
-    console.log(booking.start_date)
     const start_date = parseISO(booking.start_date);
     const end_date = parseISO(booking.end_date);
 

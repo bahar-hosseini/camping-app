@@ -12,7 +12,6 @@ import Button from './Button'
 
 // Component to display individual Booking Item
 const BookingListItem = (props) => {
-  // console.log(props)
   const [buttonMode, setButtonMode] = useState('DEFAULT')
 
   const clickedButton = async (id) => {

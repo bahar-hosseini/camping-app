@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./styles/Home.scss";
 import { CategoryLinksBar } from "../components/CategoryLinksBar";
-import { PackageList } from "../components/PackageList";
 import { DatePickerBar } from "../components/DatePickerBar";
-// import CategoryFilterItem from "../components/CategoryFilterItem";
 import { useContext } from "react";
-// import SearchProvider from "../providers/SearchProvider";
 import { searchContext } from "../providers/SearchProvider";
-import { HomePackages } from "../components/HomePackages";
-
-import axios from "axios";
-import { avilableArry } from "../components/AvailabilityFunc";
-import { bookings } from "../mock_data/bookings";
 import PackageListItem from "../components/PackageListItem";
 
 export function Home() {

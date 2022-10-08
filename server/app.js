@@ -42,8 +42,6 @@ const cancelApiRoutes = require('./routes/cancel-api')
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/api/packages', packagesRouter)
-// app.use('/api/package', packageRoute)
-//todo: make packages a single route
 app.use('/api/bookings', bookingsRoute)
 app.use('/api/login', loginApiRoute)
 app.use('/api/logout', logoutRoutes)
