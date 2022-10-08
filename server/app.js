@@ -24,9 +24,8 @@ app.use(
 /**
  * internal modules
  **/
-// const packagesRoute = require('./routes/packages-api')
+
 const packagesRouter = require('./routes/packages-api')
-// const packageRoute = require('./routes/package-api')
 const loginApiRoute = require('./routes/login-api')
 const logoutRoutes = require('./routes/logout')
 const bookingsRoute = require('./routes/bookings-api')
