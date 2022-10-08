@@ -23,6 +23,8 @@ export function Nav() {
   const refreshHomepage = () => {
     axios.get("/api/packages").then((res) => {
       return setPackages(res.data.data.rows);
+    }).then(()=>{
+      window.scrollTo(0,0); 
     });
   };
 
