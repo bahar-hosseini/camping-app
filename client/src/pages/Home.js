@@ -5,7 +5,7 @@ import { DatePickerBar } from "../components/DatePickerBar";
 import { useContext } from "react";
 import { searchContext } from "../providers/SearchProvider";
 import PackageListItem from "../components/PackageListItem";
-// import { Map } from "../components/Map"; // import the map here
+import { Map } from "../components/Map"; // import the map here
 import MapWrapper from "../components/Map";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import React from "react";
@@ -69,7 +69,6 @@ export function Home() {
         userID={packageItem.user_id}
         price={packageItem.price}
         category={packageItem.category}
-        location={packageItem.location}
         availability={packageItem.availability}
       />
     );
@@ -90,16 +89,33 @@ export function Home() {
   //     setMap(new window.google.maps.Map(ref.current, {}));
   //   }
   // }, [ref, map]);
+  
+ //const MultiPoints = locations.map((loco, index) => {
+  //   return (
 
+  //   );
+  // });
+  //console.log(MultiPoints)
+  // const center = useMemo(() => ({ lat: 43.65, lng: -79.70 }), []);
+  // let location = {
+  //   address: packageItem.latitude,
+  //   lat: packageItem.latitude, 
+  //   lng: packageItem.longitude  
+  // };
+  let location = packages.map((loco) => {
+    return (
+      
+      {
+        lat:loco.lat,
+        lng:loco.long,
+        text:loco.text
+      }
+      
+      
+    );
+  });
+console.log(location)
 
-
-  // var locations = [
-  //   { "text": "Bondi Beach", "long": 43.73914697574119, "lat": -79.21909733404391 },
-  //   { "text": "Coogee Beach", "long": 43.792426126615254, "lat": -79.23470826080701 },
-  //   { "text": "Cronulla Beach", "long": 43.81372694863631, "lat": -79.22610019572875},
-  //   { "text": "Manly Beach", "long": 43.81136197718913, "lat": -79.34276992649617},
-  //   { "text": "Maroubra Beach", "long": 43.776653976358276, "lat": -79.33991734987256},
-  // ];
   return (
     <>
       {loading === true ? (
@@ -112,7 +128,7 @@ export function Home() {
             <div className="package-gallery">{packageGallery}</div>
           </div>
           <div>
-            {/* <Map locations={locations} zoomLevel={17} /> include it here */}
+            <Map location={location} zoomLevel={12} /> include it here
           </div>
         </>
       )}

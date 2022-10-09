@@ -6,24 +6,22 @@ import locationIcon from "@iconify/icons-mdi/map-marker";
 import "../components/styles/Map.scss";
 
 export function Map({ location, zoomLevel }) {
-  const LocationPin = ({ text }) => (
-    <div className="pin">
-      <Icon icon={locationIcon} className="pin-icon" />
-      <p className="pin-text">{text}</p>
-    </div>
-  );
-  //const MultiPoints = locations.map((loco, index) => {
-  //   return (
-  //     <LocationPin
-  //       Key={index}
-  //       lat={loco.lat}
-  //       lng={loco.long}
-  //       text={loco.text}
-  //     />
-  //   );
+  
+    let LocationPin = ({ text }) => (
+      <div className="pin">
+        <Icon icon={locationIcon} className="pin-icon" />
+        <p className="pin-text">{text}</p>
+      </div>
+    );
+ 
+
+  // const locationGallery = location.map((items) => {
+  
+   
+
+  //   return <LocationPin lat={items.lat} lng={items.lng} text={items.address} />;
   // });
-  //console.log(MultiPoints)
-  // const center = useMemo(() => ({ lat: 43.65, lng: -79.70 }), []);
+  console.log(location);
   return (
     <>
       <div className="map">
@@ -37,12 +35,17 @@ export function Map({ location, zoomLevel }) {
             defaultCenter={location}
             defaultZoom={zoomLevel}
           >
-            
             <LocationPin
               lat={location.lat}
               lng={location.lng}
               text={location.address}
             />
+            {/* {location.length < 2 && <LocationPin
+              lat={location.lat}
+              lng={location.lng}
+              text={location.address}
+            />} */}
+            {/* {location.length > 1 && locationGallery} */}
           </GoogleMapReact>
         </div>
       </div>

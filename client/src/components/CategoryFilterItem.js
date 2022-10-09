@@ -30,7 +30,6 @@ export default function CategoryFilterItem(props) {
         userID={packageItem.user_id}
         price={packageItem.price}
         category={packageItem.category}
-        location={packageItem.location}
         availability={packageItem.availability}
       />
     );

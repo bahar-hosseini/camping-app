@@ -80,7 +80,7 @@ export function Package() {
     lat: packageItem.latitude, 
     lng: packageItem.longitude  
   };
-  console.log(location)
+  
  
 
 
