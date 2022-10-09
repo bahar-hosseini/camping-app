@@ -10,8 +10,6 @@ import { MapMultiHome } from "../components/MapMultiHome"; // import the map her
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import React from "react";
 
-// import './styles/Map.scss'
-
 export function Home() {
   const {
     startDate,
@@ -22,6 +20,7 @@ export function Home() {
     packages,
     loading,
     testContextItem,
+    loadMap,
   } = useContext(searchContext);
 
   // const [search_query, setSearchQuery] = useState("");
@@ -74,47 +73,13 @@ export function Home() {
     );
   });
 
-  // console.log(avilableArry([startDate,endDate], packages, bookings))
-
-  //map stuff
-  // const render = (status) => {
-  //   return <h1>{status}</h1>;
-  // };
-
-  // const ref = useRef();
-  // const [map, setMap] = useState();
-
-  // useEffect(() => {
-  //   if (ref.current && !map) {
-  //     setMap(new window.google.maps.Map(ref.current, {}));
-  //   }
-  // }, [ref, map]);
-  
- //const MultiPoints = locations.map((loco, index) => {
-  //   return (
-
-  //   );
-  // });
-  //console.log(MultiPoints)
-  // const center = useMemo(() => ({ lat: 43.65, lng: -79.70 }), []);
-  // let location = {
-  //   address: packageItem.latitude,
-  //   lat: packageItem.latitude, 
-  //   lng: packageItem.longitude  
-  // };
-  let location = packages.map((loco) => {
-    return (
-      
-      {
-        lat:loco.latitude,
-        lng:loco.longitude,
-      }
-      
-      
-    );
+  let locations = packages.map((loco, index) => {
+    return {
+   
+      lat: loco.latitude,
+      lng: loco.longitude,
+    };
   });
-//   console.log(packages)
-// console.log("this dis ", location)
 
   return (
     <>
@@ -127,12 +92,10 @@ export function Home() {
           <div className="gallery-container">
             <div className="package-gallery">{packageGallery}</div>
           </div>
-          {/* <div>
-            <MapMultiHome location={location} zoomLevel={12} /> include it here
-          </div> */}
+
+          {loadMap && <MapMultiHome location={locations} zoomLevel={12} />}
         </>
       )}
-      
     </>
   );
 }

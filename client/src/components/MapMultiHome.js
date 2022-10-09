@@ -3,49 +3,62 @@ import GoogleMapReact from "google-map-react";
 import { Icon } from "@iconify/react";
 import locationIcon from "@iconify/icons-mdi/map-marker";
 
-import "../components/styles/Map.scss";
+import "../components/styles/MapMulti.scss";
 
+// const MapMultiHome = React.lazy (()=> {
 export function MapMultiHome({ location, zoomLevel }) {
-  
-    // let LocationPin = ({ text }) => (
-    //   <div className="pin">
-    //     <Icon icon={locationIcon} className="pin-icon" />
-    //     <p className="pin-text">{text}</p>
-    //   </div>
-    // );
- 
-      console.log(location)
-  // const locationGallery = location.map((items) => {
-    
-      // const renderMarkers = (map, maps) => {
-      //  let marker = new location.Marker({
-      //  position: { lat: location.lat, lng: location.lng },
-      //  map,
-      //  title: 'Hello World!'
-      //  });
-      //  return marker;
-      // };
- 
+  // let LocationPin = ({ text }) => (
+  //   <div className="pin">
+  //     <Icon icon={locationIcon} className="pin-icon" />
+  //     <p className="pin-text">{text}</p>
+  //   </div>
+  // );
+  console.log(location);
+  let LocationPin = ({ text }) => (
+    <div className="pin">
+      <Icon icon={locationIcon} className="pin-icon" />
+      <p className="pin-text">{text}</p>
+    </div>
+  );
 
-  //   return <LocationPin lat={items.lat} lng={items.lng} text={items.address} />;
-  // });
-  // console.log(location);
+  const markerCollection = location.map((items, index) => {
+    return <LocationPin lat={items.lat} lng={items.lng} key={index} />;
+  });
+
   return (
-    <div style={{ height: '50vh', width: '100%' }}>
-    <GoogleMapReact
-      bootstrapURLKeys={{ key: 'AIzaSyDJMA5lagbJeI5P-kNG8aYQi1nK9UyZF1U' }}
-      defaultCenter={{ lat: 43.687775, lng: -79.388245 }}
-      defaultZoom={16}
-      yesIWantToUseGoogleMapApiInternals
-      // onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
-      onGoogleApiLoaded={({map, maps}) => this.renderMarkers(map, maps)}
-
-    >
-    </GoogleMapReact>
-   </div>
-
-
-
+    <div style={{ height: "50vh", width: "100%" }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyDJMA5lagbJeI5P-kNG8aYQi1nK9UyZF1U" }}
+        defaultCenter={{ lat: 43.687775, lng: -79.388245 }}
+        defaultZoom={12}
+        yesIWantToUseGoogleMapApiInternals
+        options={{
+          streetViewControl: false,
+          scaleControl: false,
+          mapTypeControl: false,
+          panControl: false,
+          zoomControl: false,
+          disableDoubleClickZoom: true,
+          rotateControl: false,
+          scrollwheel: false,
+          fullscreenControl: false
+        }}
+        // onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
+        // onGoogleApiLoaded={({map, maps}) => this.renderMarkers(map, maps)}
+      >
+        {/* <LocationPin
+          lat={location[0].lat}
+          lng={location[0].lng}
+          text={location[0].address}
+        />
+         <LocationPin
+          lat={location[1].lat}
+          lng={location[1].lng}
+          text={location[1].address}
+        /> */}
+        {markerCollection}
+      </GoogleMapReact>
+    </div>
 
     // <>
     //   <div className="map">
@@ -65,7 +78,7 @@ export function MapMultiHome({ location, zoomLevel }) {
     //           lng={location.lng}
     //           text={location.address}
     //         />
-           
+
     //         {/* {location.length < 2 && <LocationPin
     //           lat={location.lat}
     //           lng={location.lng}

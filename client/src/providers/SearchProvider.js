@@ -19,6 +19,7 @@ export default function SearchProvider(props) {
   
   const [loading, setLoading] = useState(false);
   const isLoadedRef = useRef(false);
+  const [loadMap, setLoadMap] = useState(false);
 
 
   useEffect(() => {
@@ -29,6 +30,7 @@ export default function SearchProvider(props) {
       .then((res) => {
         setPackages(res.data.data.rows);
         isLoadedRef.current = true;
+        setLoadMap(true)
       });
     return () => setPackages([]);
   }, []);
@@ -104,7 +106,8 @@ export default function SearchProvider(props) {
     isLogin,
     setIsLogin,
     setPackages,
-    setLoading,
+    setLoading, 
+    loadMap
    };
   // We can now use this as a component to wrap anything
   // that needs our state

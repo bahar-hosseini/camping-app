@@ -2,7 +2,7 @@ import React from "react";
 import GoogleMapReact from "google-map-react";
 import { Icon } from "@iconify/react";
 import locationIcon from "@iconify/icons-mdi/map-marker";
-
+import "../"
 import "../components/styles/Map.scss";
 
 export function Map({ location, zoomLevel }) {
@@ -14,11 +14,11 @@ export function Map({ location, zoomLevel }) {
       </div>
     );
  
-
+//console.log(process.env.REACT_APP_GOOGLE_API_KEY, "@@")
   return (
     <>
       <div className="map">
-        <h2 className="map-h2">Nearby Camping Rentals</h2>
+        <h2 className="map-h2">Package Location</h2>
 
         <div className="google-map">
           <GoogleMapReact
