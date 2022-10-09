@@ -48,7 +48,7 @@ export default function SearchProvider(props) {
       setPackages((prev) => [...res.data.data.rows])
       isLoadedRef.current = true
     })
-    return (offset += 4)
+    return (offset += 3)
   }
   useEffect(() => {
     loadPackage()
