@@ -10,8 +10,8 @@ import CategoryFilterItem from "./components/CategoryFilterItem";
 import DateRangeFilterItem from "./components/DateRangeFilterItem";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
-import React, { useContext } from 'react'
-
+import React from 'react'
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
@@ -46,6 +46,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
           </Routes>
+          <Footer />
         </div>
       </SearchProvider>
     </div>
