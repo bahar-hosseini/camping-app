@@ -46,7 +46,7 @@ const filterPackages = (params) => {
 let query = `SELECT
 
 packages.home_img, packages.package_img, packages.booking_img, packages.user_id, packages.price, packages.category, packages.description,
-packages.tent_description, packages.bags_description, packages.lantern_description, packages.cooking_description, packages.location, packages.id
+packages.tent_description, packages.bags_description, packages.lantern_description, packages.cooking_description, packages.id
 
 FROM packages
   LEFT JOIN bookings
