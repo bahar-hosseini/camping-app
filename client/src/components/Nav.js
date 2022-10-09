@@ -21,16 +21,7 @@ export function Nav() {
 
   // function that refreshes the homepage context when you click on the logo button
   const refreshHomepage = () => {
-    // setCategories(0).then(() => {
-    //   return (window.location = `/`);
-    // });
     return (window.location = `/`);
-    // axios.get("/api/packages").then((res) => {
-    //   return setPackages(res.data.data.rows);
-
-    // }).then(()=>{
-    //   return (window.location = `/`);
-    // });
   };
 
   const showLoginForm = () => {
@@ -75,9 +66,9 @@ export function Nav() {
           <img
             src={TentLogo}
             alt="lantern"
-            width="70px"
+            width="65px"
             onClick={() => refreshHomepage()}
-          ></img>
+          ></img><p><span style={{fontWeight: "bold", fontSize: "1.45rem"}}>campr</span></p>
           {/* </Link> */}
         </div>
         <div className="login-form-section">
