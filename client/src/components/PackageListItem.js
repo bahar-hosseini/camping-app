@@ -2,18 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles/PackageListItem.scss'
 import { formatDateTitles } from '../helpers/formatDateTitles'
+
 // import classnames as 'classnames';
 
 export default function PackageListItem(props) {
-  // key={packageItem.id}
-  // image={packageItem.image}
-  // id={packageItem.id}
-  // userID={packageItem.user_id}
-  // price={packageItem.price}
-  // category={packageItem.category}
-  // location={packageItem.location}
-  // console.log(props, "test here");
-
   return (
     <Link to={'/package/' + props.id} className='home-package-item'>
       <div>
