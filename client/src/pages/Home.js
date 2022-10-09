@@ -77,10 +77,18 @@ export function Home() {
         <h1>Loading...</h1>
       ) : (
         <>
+            <h1 className="header-text">find your next adventure</h1>
           <div className="selector-container">
-          {/* <h1 className="header-text">find your next adventure</h1> */}
-            <DatePickerBar />
-            <CategoryLinksBar />
+            <div className="date-picker-section">
+            <div>
+              <DatePickerBar />
+              </div>
+              <div>
+              <CategoryLinksBar />
+              </div>
+            </div>
+          </div>
+          <div className="selector-container-empty">
           </div>
           <div className="top-area" />
           <div className="gallery-container">

@@ -3,12 +3,13 @@
   width: 100%;
   display: flex;
   padding-bottom: 50px;
-  padding-top: 10px;
+  padding-top: 1rem;
   justify-content: center;
   background-color: white;
 }
 
 .package-gallery {
+  padding-top: 2rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -19,4 +20,5 @@
   margin-right: 70px;
   max-width: 1400px;
   min-width: 1000px;
+  min-height: 101vh; // a potential way to keep scroll on category click
 }
