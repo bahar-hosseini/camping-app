@@ -69,11 +69,11 @@ export function Nav() {
             <img
               src={TentLogo}
               alt="lantern"
-              width="65px"
+              width="56px"
               onClick={() => refreshHomepage()}
             ></img>
             <p>
-              <span style={{ fontWeight: "bold", fontSize: "1.45rem" }}>
+              <span style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
                 campr
               </span>
             </p>

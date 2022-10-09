@@ -5,7 +5,7 @@ import "./styles/DatePicker.scss";
 
 import { searchContext } from "../providers/SearchProvider";
 
-export function DatePickerBar() {
+export function DatePickerBar(props) {
   const { startDate, endDate, setStartDate, setEndDate } =
     useContext(searchContext);
 
