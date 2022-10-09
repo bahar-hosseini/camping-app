@@ -21,16 +21,7 @@ export function Nav() {
 
   // function that refreshes the homepage context when you click on the logo button
   const refreshHomepage = () => {
-    // setCategories(0).then(() => {
-    //   return (window.location = `/`);
-    // });
     return (window.location = `/`);
-    // axios.get("/api/packages").then((res) => {
-    //   return setPackages(res.data.data.rows);
-
-    // }).then(()=>{
-    //   return (window.location = `/`);
-    // });
   };
 
   const showLoginForm = () => {
@@ -68,39 +59,47 @@ export function Nav() {
   });
 
   return (
-    <div className="Nav">
-      <div className="nav-innards">
-        <div className="nav-left">
-          {/* <Link to="/" onClick={() => refreshHomepage()}> */}
-          <img
-            src={TentLogo}
-            alt="lantern"
-            width="70px"
-            onClick={() => refreshHomepage()}
-          ></img>
-          {/* </Link> */}
-        </div>
-        <div className="login-form-section">
-          {showLogin ? <Login hideLoginForm={hideLoginForm} /> : <></>}
-        </div>
-        {showLogin ? <div className="dimScreen" /> : <></>}
-        <div className="nav-right">
-          <div onClick={toggleDropdown} className="profile-badge" ref={ref}>
-            <img src={MenuBars} alt="menu-bars" width="35px" />
-            {isLogin && (
-              <img
-                src={ProfileCircleLoggedIn}
-                alt="profile-icon"
-                width="40px"
-              />
-            )}
-            {!isLogin && (
-              <img src={ProfileCircle} alt="profile-icon" width="40px" />
-            )}
+    <>
+      {showLogin ? <div className="dimScreen" /> : <></>}
+      {showLogin ? <Login hideLoginForm={hideLoginForm} /> : <></>}
+      <div className="Nav">
+        <div className="nav-innards">
+          <div className="nav-left">
+            {/* <Link to="/" onClick={() => refreshHomepage()}> */}
+            <img
+              src={TentLogo}
+              alt="lantern"
+              width="56px"
+              onClick={() => refreshHomepage()}
+            ></img>
+            <p>
+              <span style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
+                campr
+              </span>
+            </p>
+            {/* </Link> */}
           </div>
-          {dropdown && <NavDropdownMenu showLoginForm={showLoginForm} />}
+          {/* <div className="login-form-section">
+          {showLogin ? <Login hideLoginForm={hideLoginForm} /> : <></>}
+        </div> */}
+          <div className="nav-right">
+            <div onClick={toggleDropdown} className="profile-badge" ref={ref}>
+              <img src={MenuBars} alt="menu-bars" width="35px" />
+              {isLogin && (
+                <img
+                  src={ProfileCircleLoggedIn}
+                  alt="profile-icon"
+                  width="40px"
+                />
+              )}
+              {!isLogin && (
+                <img src={ProfileCircle} alt="profile-icon" width="40px" />
+              )}
+            </div>
+            {dropdown && <NavDropdownMenu showLoginForm={showLoginForm} />}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
