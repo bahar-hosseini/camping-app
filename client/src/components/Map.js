@@ -34,6 +34,7 @@ export function Map({ location, zoomLevel }) {
             }}
             defaultCenter={location}
             defaultZoom={zoomLevel}
+            zoomControl= {false}
           >
             <LocationPin
               lat={location.lat}
