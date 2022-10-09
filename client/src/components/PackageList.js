@@ -12,11 +12,19 @@ import './styles/PackageList.scss'
 export function PackageList() {
   const [packages, setPackages] = useState([])
 
+  // let offset = 0
+
+  // const loadPackage = () => {
+  //   axios.get(`/api/packages/`, { params: { offset } }).then((res) => {
+  //     setPackages((prevValue) => [...prevValue, ...res.data.data.rows])
+  //     offset += 1
+  //   })
+  // }
+
   const packageGallery = packages.map((packageItem, index) => {
     return (
       <PackageListItem
         key={index}
-        test={index}
         home_img={packageItem.home_img}
         id={packageItem.id}
         userID={packageItem.user_id}

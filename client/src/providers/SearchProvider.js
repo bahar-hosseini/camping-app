@@ -41,7 +41,7 @@ export default function SearchProvider(props) {
       loadPackage()
     }
   }
-  let offset = 1
+  let offset = 0
 
   const loadPackage = () => {
     axios.get(`/api/packages/`, { params: { offset } }).then((res) => {

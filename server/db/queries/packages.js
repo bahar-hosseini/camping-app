@@ -5,8 +5,8 @@ const getPackages = (eachQuery) => {
   console.log('qqqqq', eachQuery)
   return db
     .query(
-      `SELECT * FROM packages WHERE id < $1 ORDER BY 
-    id ;`,
+      `SELECT * FROM packages ORDER BY 
+    id LIMIT $1;`,
       [eachQuery]
     )
     .then((data) => {
