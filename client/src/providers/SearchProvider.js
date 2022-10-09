@@ -57,6 +57,7 @@ export default function SearchProvider(props) {
   //   return () => setPackages([])
   // }, [])
 
+  //
   useEffect(() => {
     axios.get('/api/login').then((res) => {
       // checks to see if response reveals that a user is logged in
@@ -67,17 +68,19 @@ export default function SearchProvider(props) {
         return setIsLogin(false)
       }
 
-      // this is the old way we were doing it, if the current way breaks
-      // roll back to this:
-      // if (res.status == 200 || 304) {
-      //   return setIsLogin(true)
-      //   // console.log(isLogin)
-      // } else {
-      //   return setIsLogin(false)
-      // }
-    })
-  }, [])
+    }, [])
+    // this is the old way we were doing it, if the current way breaks
+    // roll back to this:
+    // if (res.status == 200 || 304) {
+    //   return setIsLogin(true)
+    //   // console.log(isLogin)
+    // } else {
+    //   return setIsLogin(false)
+    // }
+  })
+    
 
+  
   // axios.get('/api/login').then((res) => {
   //   // console.log('This is cookie from back-->front', res.status)
 

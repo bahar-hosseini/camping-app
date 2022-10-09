@@ -46,7 +46,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </SearchProvider>
     </div>

@@ -146,9 +146,9 @@ export function Package() {
           </div>
 
           <div>
-            <Map location={location} zoomLevel={12} /> include it here
+            <Map location={location} zoomLevel={12.5} /> include it here
           </div>
-          <Message packageID={packageItem.id} />
+          <Message packageID={packageItem.id}  />
           {/* <MessageArea packageID={packageItem.id} /> */}
         </>
       )}

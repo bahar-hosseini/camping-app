@@ -15,13 +15,6 @@ export function Map({ location, zoomLevel }) {
     );
  
 
-  // const locationGallery = location.map((items) => {
-  
-   
-
-  //   return <LocationPin lat={items.lat} lng={items.lng} text={items.address} />;
-  // });
-  console.log(location);
   return (
     <>
       <div className="map">
@@ -34,13 +27,26 @@ export function Map({ location, zoomLevel }) {
             }}
             defaultCenter={location}
             defaultZoom={zoomLevel}
-            zoomControl= {false}
+            options={{
+              streetViewControl: false,
+              scaleControl: false,
+              mapTypeControl: false,
+              panControl: false,
+              zoomControl: false,
+              disableDoubleClickZoom: true,
+              rotateControl: false,
+              scrollwheel: false,
+              fullscreenControl: false
+            }}
+            // fullscreenControl={false}
+          
           >
             <LocationPin
               lat={location.lat}
               lng={location.lng}
               text={location.address}
             />
+           
             {/* {location.length < 2 && <LocationPin
               lat={location.lat}
               lng={location.lng}

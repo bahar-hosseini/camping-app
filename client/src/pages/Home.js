@@ -5,9 +5,9 @@ import { DatePickerBar } from "../components/DatePickerBar";
 import { useContext } from "react";
 import { searchContext } from "../providers/SearchProvider";
 import PackageListItem from "../components/PackageListItem";
-import { Map } from "../components/Map"; // import the map here
-import MapWrapper from "../components/Map";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { MapMultiHome } from "../components/MapMultiHome"; // import the map here
+// import MapWrapper from "../components/Map";
+// import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import React from "react";
 
 // import './styles/Map.scss'
@@ -106,15 +106,15 @@ export function Home() {
     return (
       
       {
-        lat:loco.lat,
-        lng:loco.long,
-        text:loco.text
+        lat:loco.latitude,
+        lng:loco.longitude,
       }
       
       
     );
   });
-console.log(location)
+//   console.log(packages)
+// console.log("this dis ", location)
 
   return (
     <>
@@ -127,11 +127,12 @@ console.log(location)
           <div className="gallery-container">
             <div className="package-gallery">{packageGallery}</div>
           </div>
-          <div>
-            <Map location={location} zoomLevel={12} /> include it here
-          </div>
+          {/* <div>
+            <MapMultiHome location={location} zoomLevel={12} /> include it here
+          </div> */}
         </>
       )}
+      
     </>
   );
 }
