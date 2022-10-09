@@ -72,7 +72,7 @@ const BookingList = () => {
 
   return (
     <>
-      {window.scrollTo(0, 0)}
+      {/* {window.scrollTo(0, 0)} */}
       <div className='booking-container'>
         <h2>My Bookings</h2>
         {bookings.length === 0 ? (
