@@ -91,8 +91,11 @@ export const Login = (props) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className='button-section'>
-          <Button className='btn-form' type='submit'>
+        <div className="button-section">
+          <Button
+            className='btn'
+            type='submit'
+          >
             Submit
           </Button>
         </div>
