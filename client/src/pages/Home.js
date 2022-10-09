@@ -7,9 +7,17 @@ import { searchContext } from "../providers/SearchProvider";
 import PackageListItem from "../components/PackageListItem";
 
 export function Home() {
-  const { startDate, endDate, setPackages, category, setCategory, packages, loading, testContextItem } =
-    useContext(searchContext);
- 
+  const {
+    startDate,
+    endDate,
+    setPackages,
+    category,
+    setCategory,
+    packages,
+    loading,
+    testContextItem,
+  } = useContext(searchContext);
+
   // const [search_query, setSearchQuery] = useState("");
   // const [filterByCategory, setFilterByCategory] = useState(0);
   // const [filterByRange, setFilterByRange] = useState([]);
@@ -23,14 +31,14 @@ export function Home() {
       }
       return data;
     };
-  })
+  });
   // function filterItems()  {axios
   //   .get("/api/packages/filter", { params: { category, endDate, startDate } })
   //   // .then((res) => console.log(res.data.data))
   //   .then((res) => {
   //     //console.log(res.data.data,'running@@@@@@')
   //     setPackages(res.data.data);
-      
+
   //   });
   // }
   //   const rangeFilter = function (data) {
@@ -69,8 +77,12 @@ export function Home() {
         <h1>Loading...</h1>
       ) : (
         <>
-          <DatePickerBar />
-          <CategoryLinksBar />
+          <div className="selector-container">
+          {/* <h1 className="header-text">find your next adventure</h1> */}
+            <DatePickerBar />
+            <CategoryLinksBar />
+          </div>
+          <div className="top-area" />
           <div className="gallery-container">
             <div className="package-gallery">{packageGallery}</div>
           </div>

@@ -1,5 +1,5 @@
 .category-links-container {
-  width: 100%;
+  width: 37rem;
   display: flex;
   justify-content: center;
 }
@@ -11,9 +11,12 @@
   align-items: center;
   margin-left: 70px;
   margin-right: 70px;
-  width: 70%;
-  max-width: 1100px;
-  min-width: 900px;
+  width: 100%;
+  // padding-bottom: 0.75rem;
+  // padding-top: 0.75rem;
+  margin-top:-7em;
+  padding-right: 0.75rem;
+  // background-color: red;
 }
 
 // this is how you change the colour of the little people
@@ -47,21 +50,34 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 1.5rem;
+  width: 4rem;
   &-selected {
     display: flex;
     justify-content: center;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    animation-name: bounce;
-    animation-fill-mode: both;
-    animation-duration: 0.9s;
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
     cursor: pointer;
+    border-radius: 1.5rem;
+    // filter: drop-shadow(0px 2px 5px #00000020);
+    width: 4rem;
   }
+  background-color: white;
+  // filter: drop-shadow(0px 2px 5px #00000020);
+}
+
+.category-group-selected{
+  background-color: white;
 }
 
 .category-group-selected > img {
   filter: invert(82%) sepia(39%) saturate(291%) hue-rotate(273deg)
     brightness(99%) contrast(98%);
+    animation-name: bounce;
+    animation-fill-mode: both;
+    animation-duration: 0.9s;
 }
