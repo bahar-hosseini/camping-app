@@ -10,23 +10,20 @@ export const useSearch = () => useContext(searchContext)
 //todo:change file name to dataprovider
 
 export default function SearchProvider(props) {
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
+  const today = new Date()
+  const tomorrow = new Date(today)
+  tomorrow.setDate(tomorrow.getDate() + 1)
+  
+  const [endDate, setEndDate] = useState(tomorrow)
+  const [startDate, setStartDate] = useState(today)
   const [category, setCategories] = useState(0)
   // const [dateRange, setDateRange] = useState(startDate, endDate )
-  const [packages, setPackages] = useState([]);
-  const [isLogin, setIsLogin] = useState(false);
-  
-  const [loading, setLoading] = useState(false);
-  const isLoadedRef = useRef(false);
-  const [loadMap, setLoadMap] = useState(false);
+  const [packages, setPackages] = useState([])
+  const [isLogin, setIsLogin] = useState(false)
 
-// load 4 (first row )
-//
-//
-//
-//
-//
+  const [loading, setLoading] = useState(false)
+  const isLoadedRef = useRef(false)
+
 
   // on page load
   // useEffect(() => {
@@ -80,20 +77,9 @@ export default function SearchProvider(props) {
   useEffect(() => {
     if (isLoadedRef.current === false) return
     axios
-      .get("/api/packages")
-      // .then(()=> setDateRange(startDate, endDate))
-      .then((res) => {
-        setPackages(res.data.data.rows);
-        isLoadedRef.current = true;
-        setLoadMap(true)
-      });
-    return () => setPackages([]);
-  }, []);
-
-  useEffect(() => {
-    if (isLoadedRef.current === false) return;
-    axios
-      .get("/api/packages/filter/", { params: { category, endDate, startDate } })
+      .get('/api/packages/filter/', {
+        params: { category, endDate, startDate },
+      })
       // .then((res) => console.log(res.data.data))
       .then((res) => {
         setPackages(res.data.data)
@@ -114,7 +100,6 @@ export default function SearchProvider(props) {
   //   return () => setPackages([])
   // }, [])
 
-  //
   useEffect(() => {
     axios.get('/api/login').then((res) => {
       // checks to see if response reveals that a user is logged in
@@ -125,19 +110,17 @@ export default function SearchProvider(props) {
         return setIsLogin(false)
       }
 
-    }, [])
-    // this is the old way we were doing it, if the current way breaks
-    // roll back to this:
-    // if (res.status == 200 || 304) {
-    //   return setIsLogin(true)
-    //   // console.log(isLogin)
-    // } else {
-    //   return setIsLogin(false)
-    // }
-  })
-    
+      // this is the old way we were doing it, if the current way breaks
+      // roll back to this:
+      // if (res.status == 200 || 304) {
+      //   return setIsLogin(true)
+      //   // console.log(isLogin)
+      // } else {
+      //   return setIsLogin(false)
+      // }
+    })
+  }, [])
 
-  
   // axios.get('/api/login').then((res) => {
   //   // console.log('This is cookie from back-->front', res.status)
 
@@ -161,9 +144,8 @@ export default function SearchProvider(props) {
     isLogin,
     setIsLogin,
     setPackages,
-    setLoading, 
-    loadMap
-   };
+    setLoading,
+  }
   // We can now use this as a component to wrap anything
   // that needs our state
   return (

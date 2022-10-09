@@ -3,7 +3,7 @@
 // import axios from 'axios'
 
 const MessageArea = (props) => {
-  console.log(props)
+  //console.log(props)
   return (
     <div>
       <h4>user : {props.username}</h4>

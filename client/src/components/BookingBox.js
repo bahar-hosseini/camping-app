@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles/BookingBox.scss";
 import axios from "axios";
-import { formatDistanceStrict } from "date-fns";
+import { formatDistanceStrict, format } from "date-fns";
 import { DatePickerBar } from "./DatePickerBar";
 import Button from "./Button";
 // import "./styles/DatePicker.scss";
@@ -43,9 +43,27 @@ export function BookingBox(props) {
     unit: "day",
   });
 
-  const rangeToDays = (start, end) => {
-    return Math.abs(Math.round((start - end) / 1000 / 60 / 60 / 24));
-  };
+  // const rangeToDays = (start, end) => {
+  //   return Math.abs(Math.round((start - end) / 1000 / 60 / 60 / 24));
+  // };
+
+  function rangeToDays(start, end) {
+    const date1 = new Date(format(start, 'MM/dd/yyyy'));
+    const date2 = new Date(format(end, 'MM/dd/yyyy'));
+
+    // One day in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    // Calculating the time difference between two dates
+    const diffInTime = date2.getTime() - date1.getTime();
+
+    // Calculating the no. of days between two dates
+    const diffInDays = Math.round(diffInTime / oneDay);
+
+    return diffInDays;
+}
+
+
 
   return (
     <div className="booking-box-container">

@@ -13,7 +13,7 @@ export function MapMultiHome({ location, zoomLevel }) {
   //     <p className="pin-text">{text}</p>
   //   </div>
   // );
-  console.log(location);
+  //console.log(location);
   let LocationPin = ({ text }) => (
     <div className="pin">
       <Icon icon={locationIcon} className="pin-icon" />
