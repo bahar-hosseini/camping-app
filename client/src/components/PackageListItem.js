@@ -19,6 +19,15 @@ export default function PackageListItem(props) {
     return (window.location = `/package/${props.id}`)
   }
 
+
+  function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  
+  const rndInt = randomIntFromInterval(10, 50)
+  console.log(rndInt)
+
+
   return (
     <Link to={'/package/' + props.id} className='home-package-item'>
     {/* <div className='home-package-item'> */}
@@ -33,7 +42,7 @@ export default function PackageListItem(props) {
         {formatDateTitles(props.category)} Person Package
       </h2>
       <h4 className='package-card-text'>
-        <span className='distance-packagelist'>{props.location}km away</span>
+        <span className='distance-packagelist'>{rndInt}km away</span>
         <br />${props.price} per day
       </h4>
     {/* </div> */}
