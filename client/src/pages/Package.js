@@ -24,6 +24,8 @@ export function Package() {
   const [packageItem, setPackageItem] = useState({});
   const [loading, setLoading] = useState(true);
 
+  console.log(startDate);
+
   const fetchData = () => {
     if (isNaN(+id)) {
       setLoading(false);
@@ -38,6 +40,7 @@ export function Package() {
           } else {
             setPackageItem(res.data.data.rows[0]);
             setTimeout(() => {
+              window.scrollTo(0, 0);
               return setLoading(false);
             }, 200);
           }

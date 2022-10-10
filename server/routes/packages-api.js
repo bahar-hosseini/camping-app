@@ -15,6 +15,17 @@ router.get('/', function (req, res) {
   })
 })
 
+// DELETE ONCE SCROLL LOADING IS WORKING
+// router.get('/', function (req, res) {
+//   const limit = req.query.limit
+//   const packageCount = req.query.loadedPackages
+//   console.log('EEEEEEEE', limit)
+//   console.log('OOOOOO', packageCount)
+//   getPackages(limit, packageCount).then((data) => {
+//     res.json({ data })
+//   })
+// })
+
 router.get('/filter', function (req, res) {
   const filterParams = req.query
   filterPackages(filterParams)

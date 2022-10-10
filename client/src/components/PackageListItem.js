@@ -20,8 +20,8 @@ export default function PackageListItem(props) {
   }
 
   return (
-    // <Link to={'/package/' + props.id} className='home-package-item'>
-    <div onClick={redirectToPackage} className='home-package-item'>
+    <Link to={'/package/' + props.id} className='home-package-item'>
+    {/* <div className='home-package-item'> */}
       {/* <div classNames='card'> */}
       <img
         className='home-img'
@@ -36,7 +36,7 @@ export default function PackageListItem(props) {
         <span className='distance-packagelist'>{props.location}km away</span>
         <br />${props.price} per day
       </h4>
-    </div>
-    // </Link>
+    {/* </div> */}
+    </Link>
   )
 }
