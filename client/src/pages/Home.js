@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-import "./styles/Home.scss";
-import { CategoryLinksBar } from "../components/CategoryLinksBar";
-import { DatePickerBar } from "../components/DatePickerBar";
-import { useContext } from "react";
-import { searchContext } from "../providers/SearchProvider";
-import PackageListItem from "../components/PackageListItem";
-import { MapMultiHome } from "../components/MapMultiHome"; // import the map here
+import { useEffect, useRef, useState } from 'react'
+import './styles/Home.scss'
+import { CategoryLinksBar } from '../components/CategoryLinksBar'
+import { DatePickerBar } from '../components/DatePickerBar'
+import { useContext } from 'react'
+import { searchContext } from '../providers/SearchProvider'
+import PackageListItem from '../components/PackageListItem'
+import { MapMultiHome } from '../components/MapMultiHome' // import the map here
 // import MapWrapper from "../components/Map";
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import React from "react";
+import React from 'react'
 
 export function Home() {
   const {
@@ -21,7 +21,7 @@ export function Home() {
     loading,
     testContextItem,
     loadMap,
-  } = useContext(searchContext);
+  } = useContext(searchContext)
 
   // const [search_query, setSearchQuery] = useState("");
   // const [filterByCategory, setFilterByCategory] = useState(0);
@@ -31,12 +31,12 @@ export function Home() {
   useEffect(() => {
     const categoryFilter = function (data) {
       if (category !== 0) {
-        const cF = data.filter((pack) => pack.category === category);
-        return cF;
+        const cF = data.filter((pack) => pack.category === category)
+        return cF
       }
-      return data;
-    };
-  });
+      return data
+    }
+  })
   // function filterItems()  {axios
   //   .get("/api/packages/filter", { params: { category, endDate, startDate } })
   //   // .then((res) => console.log(res.data.data))
@@ -59,10 +59,10 @@ export function Home() {
   //   setFilteredPackages(rangeFiltered);
   // }, [packages, category, startDate, endDate]);
 
-  const packageGallery = packages.map((packageItem) => {
+  const packageGallery = packages.map((packageItem, index) => {
     return (
       <PackageListItem
-        key={packageItem.id}
+        key={index}
         home_img={packageItem.home_img}
         id={packageItem.id}
         userID={packageItem.user_id}
@@ -70,16 +70,15 @@ export function Home() {
         category={packageItem.category}
         availability={packageItem.availability}
       />
-    );
-  });
+    )
+  })
 
   let locations = packages.map((loco, index) => {
     return {
-   
       lat: loco.latitude,
       lng: loco.longitude,
-    };
-  });
+    }
+  })
 
   return (
     <>
@@ -87,27 +86,26 @@ export function Home() {
         <h1>Loading...</h1>
       ) : (
         <>
-            <h1 className="header-text">find your next adventure</h1>
-          <div className="selector-container">
-            <div className="date-picker-section">
-            <div>
-              <DatePickerBar />
+          <h1 className='header-text'>find your next adventure</h1>
+          <div className='selector-container'>
+            <div className='date-picker-section'>
+              <div>
+                <DatePickerBar />
               </div>
               <div>
-              <CategoryLinksBar />
+                <CategoryLinksBar />
               </div>
             </div>
           </div>
-          <div className="selector-container-empty">
-          </div>
-          <div className="top-area" />
-          <div className="gallery-container">
-            <div className="package-gallery">{packageGallery}</div>
+          <div className='selector-container-empty'></div>
+          <div className='top-area' />
+          <div className='gallery-container'>
+            <div className='package-gallery'>{packageGallery}</div>
           </div>
 
           {loadMap && <MapMultiHome location={locations} zoomLevel={12} />}
         </>
       )}
     </>
-  );
+  )
 }

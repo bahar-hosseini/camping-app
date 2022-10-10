@@ -8,8 +8,7 @@ router.post('/', (req, res) => {
   const today = new Date().toISOString().slice(0, 10)
   console.log(msg, today)
   const userId = req.session['user_id']
-  console.log('###', userId)
-  // //TO DO : Add user id and package id to addmssg function
+
   messageQueries
     .addMessage(msg, userId, today)
     .then((messages) => {
@@ -24,7 +23,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // const userId = req.session['user_id']
   const msg = req.params.id
-  console.log('step2', msg)
+
   messageQueries
     .getPackageMsg(msg)
     .then((messages) => {

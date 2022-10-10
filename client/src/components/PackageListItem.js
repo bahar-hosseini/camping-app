@@ -33,7 +33,7 @@ export default function PackageListItem(props) {
         {formatDateTitles(props.category)} Person Package
       </h2>
       <h4 className='package-card-text'>
-        <span className='distance-packagelist'>{props.location}km away</span>
+        {/* <span className='distance-packagelist'>{props.location}km away</span> */}
         <br />${props.price} per day
       </h4>
     </div>

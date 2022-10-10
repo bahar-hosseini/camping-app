@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import MessageArea from './MessageArea'
+import emailjs from 'emailjs-com'
 
 const Message = (props) => {
   const [message, setMessage] = useState('')
   const [text, setText] = useState([])
   const [isSubmit, setIsSubmit] = useState(false)
+
+  const form = useRef()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,6 +29,23 @@ const Message = (props) => {
       .catch((err) => {
         console.log(err, 'Message is not sent')
       })
+    //////////////////////// Email sent via EmailJS.com ///////////////////////////////
+    emailjs
+      .sendForm(
+        'service_rspyy2a',
+        'template_a3rw924',
+        e.target,
+        'jBCq6m7BSsXzpT4su'
+      )
+      .then(
+        (result) => {
+          // window.location.reload()
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+    e.target.reset()
   }
 
   useEffect(() => {
@@ -44,11 +64,17 @@ const Message = (props) => {
       />
     )
   })
-
   return (
     <>
       <h2>Comment</h2>
       <form onSubmit={handleSubmit}>
+        <label>Name</label>
+        <input type='text' name='from_name' />
+        <label>Email to:</label>
+        <input type='email' name='email' />
+        {/* <label for='reply_to'>reply_to</label>
+        <input type='text' name='reply_to' id='reply_to' /> */}
+        <label>Message</label>
         <textarea
           placeholder='Message '
           name='message'

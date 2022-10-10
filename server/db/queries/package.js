@@ -2,7 +2,11 @@ const db = require('../../configs/db.config')
 
 const getPackage = (packagetId) => {
   return db
-    .query(`SELECT * FROM packages WHERE packages.id = $1;`, [packagetId])
+    .query(
+      `SELECT *,users.name AS name FROM packages 
+    JOIN users ON users.id = user_id WHERE packages.id = $1;`,
+      [packagetId]
+    )
     .then((data) => {
       return data.rows
     })

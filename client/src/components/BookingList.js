@@ -6,16 +6,17 @@ import { format, parseISO } from 'date-fns'
  **/
 import BookingListItem from './BookingListItem'
 import './styles/BookingList.scss'
+import { useSearch } from '../providers/SearchProvider'
 
 const BookingList = () => {
   const [bookings, setBookings] = useState([])
+  const { rangeToDays } = useSearch()
   // const [buttonMode, setButtonMode] = useState("DEFAULT");
   useEffect(() => {
     axios.get('/api/bookings').then((res) => {
       setBookings(res.data.data.rows)
     })
   }, [])
-
   //Function to handle cancel button to remove item from booking dashboard
   const handleCancelBooking = async (id) => {
     axios
@@ -47,9 +48,10 @@ const BookingList = () => {
     const start_date = parseISO(booking.start_date)
     const end_date = parseISO(booking.end_date)
 
-    const start_dateFormatted = format(start_date, 'MM/dd/yyyy')
-    const end_dateFormatted = format(end_date, 'MM/dd/yyyy')
+    const start_dateFormatted = format(start_date, 'd MMMM yyyy')
+    const end_dateFormatted = format(end_date, 'd MMMM yyyy')
 
+    const duration = rangeToDays(start_date, end_date)
     return (
       <BookingListItem
         key={index}
@@ -64,6 +66,7 @@ const BookingList = () => {
         sendFunc={handleCancelBooking}
         start_date={start_dateFormatted}
         end_date={end_dateFormatted}
+        duration={duration}
         // buttonModeSetter={setButtonMode}
         // currentButtonMode={buttonMode}
       />

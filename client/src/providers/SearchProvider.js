@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useRef, useContext } from 'react'
 // import DatePicker from "react-date-picker";
 // Create a Context
+import { format } from 'date-fns'
 import axios from 'axios'
 export const searchContext = createContext()
 // Create a Component wrapper from Context.Provider
@@ -21,6 +22,7 @@ export default function SearchProvider(props) {
   const isLoadedRef = useRef(false)
   const [loadMap, setLoadMap] = useState(false)
 
+  console.log('#######', packages)
   // load 4 (first row )
   //
   //
@@ -147,7 +149,21 @@ export default function SearchProvider(props) {
   //     // console.log(isLogin)
   //   }
   // })
+  function rangeToDays(start, end) {
+    const date1 = new Date(format(start, 'MM/dd/yyyy'))
+    const date2 = new Date(format(end, 'MM/dd/yyyy'))
 
+    // One day in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24
+
+    // Calculating the time difference between two dates
+    const diffInTime = date2.getTime() - date1.getTime()
+
+    // Calculating the no. of days between two dates
+    const diffInDays = Math.round(diffInTime / oneDay)
+
+    return diffInDays
+  }
   //todo: set diff as a state
   // This list can get long with a lot of functions.  Reducer may be a better choice
   // const providerData = { counter, increment, decrement, clear };
@@ -164,6 +180,7 @@ export default function SearchProvider(props) {
     setPackages,
     setLoading,
     loadMap,
+    rangeToDays,
   }
   // We can now use this as a component to wrap anything
   // that needs our state
