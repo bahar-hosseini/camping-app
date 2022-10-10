@@ -103,7 +103,7 @@ export function Home() {
             <div className='package-gallery'>{packageGallery}</div>
           </div>
 
-          {loadMap && <MapMultiHome location={locations} zoomLevel={12} />}
+          {/* {loadMap && <MapMultiHome location={locations} zoomLevel={12} />} */}
         </>
       )}
     </>

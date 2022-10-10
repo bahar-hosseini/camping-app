@@ -22,7 +22,6 @@ export default function SearchProvider(props) {
   const isLoadedRef = useRef(false)
   const [loadMap, setLoadMap] = useState(false)
 
-  console.log('#######', packages)
   // load 4 (first row )
   //
   //
@@ -43,6 +42,12 @@ export default function SearchProvider(props) {
   //   return () => setPackages([]);
   // }, []);
 
+  /*
+  INPUT: scroll data
+  - when scroll data is greater than a certain number, make axios call for 4 more packages
+  OUTPUT: 4 more packages are added to the packages on screen
+  */
+
   const handleScroll = (e) => {
     if (
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
@@ -52,7 +57,8 @@ export default function SearchProvider(props) {
       loadPackage()
     }
   }
-  let offset = 0
+
+  let offset = 8
 
   const loadPackage = () => {
     axios.get(`/api/packages/`, { params: { offset } }).then((res) => {
@@ -120,7 +126,6 @@ export default function SearchProvider(props) {
   //   return () => setPackages([])
   // }, [])
 
-  //
   useEffect(() => {
     axios.get('/api/login').then((res) => {
       // checks to see if response reveals that a user is logged in

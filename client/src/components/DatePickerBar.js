@@ -9,12 +9,9 @@ export function DatePickerBar(props) {
   const { startDate, endDate, setStartDate, setEndDate } =
     useContext(searchContext);
 
-  const today = new Date()
-  const tomorrow = new Date(today)
-  tomorrow.setDate(tomorrow.getDate() + 1)
+  
 
-
-
+//console.log('startDate:',startDate, 'endDate: ',endDate)
   
   return (
     <div className="search-box">
@@ -24,7 +21,7 @@ export function DatePickerBar(props) {
     </div>
     <div className="end-date">
       <h5>Until</h5>
-      <DatePicker onChange={setEndDate} value={endDate} minDate={startDate}/>
+      <DatePicker onChange={setEndDate}  value={endDate} minDate={startDate}/>
     </div>
   </div>
 );

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 // import { ReactCalendar } from "../components/Calendar";
 import { formatDateTitles } from '../helpers/formatDateTitles'
 import { BookingBox } from '../components/BookingBox'
+import { MessageBox } from '../components/MessageBox'
 import { PackageInfoCard } from '../components/PackageInfoCard'
 import 'react-calendar/dist/Calendar.css'
 import { useState, useEffect } from 'react'
@@ -14,7 +15,6 @@ import { ProductGrid } from '../components/ProductGrid'
 
 import Message from '../components/Message'
 import MessageArea from '../components/MessageArea'
-// import { packages } from '../mock_data/packages'
 
 export function Package() {
   const { id } = useParams()
@@ -23,6 +23,8 @@ export function Package() {
 
   const [packageItem, setPackageItem] = useState({})
   const [loading, setLoading] = useState(true)
+
+  console.log(startDate)
 
   const fetchData = () => {
     if (isNaN(+id)) {
@@ -38,6 +40,7 @@ export function Package() {
           } else {
             setPackageItem(res.data.data.rows[0])
             setTimeout(() => {
+              window.scrollTo(0, 0)
               return setLoading(false)
             }, 200)
           }
@@ -128,6 +131,9 @@ export function Package() {
                 Suspendisse at nibh elit. Etiam lacus justo, tempus eu egestas
                 et, rhoncus ac elit.
               </p>
+              <h2>Ask the owner a question:</h2>
+              <MessageBox />
+              <h2>Package location:</h2>
             </div>
             <BookingBox
               price={packageItem.price}
@@ -136,12 +142,13 @@ export function Package() {
               endDate={endDate}
               diff={diff}
             />
+            {/* <Message packageID={packageItem.id} /> */}
           </div>
 
           <div>
             <Map location={location} zoomLevel={12.5} />
           </div>
-          <Message packageID={packageItem.id} />
+          {/* <Message packageID={packageItem.id} /> */}
           {/* <MessageArea packageID={packageItem.id} /> */}
         </>
       )}

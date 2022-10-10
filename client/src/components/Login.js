@@ -12,9 +12,9 @@ export const Login = (props) => {
 
   const { setIsLogin } = useContext(searchContext)
 
-  useEffect(() => {
-    userRef.current.focus()
-  }, [])
+  // useEffect(() => {
+  //   userRef.current.focus()
+  // }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

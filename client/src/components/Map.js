@@ -18,7 +18,7 @@ export function Map({ location, zoomLevel }) {
   return (
     <>
       <div className="map">
-        <h2 className="map-h2">Package Location</h2>
+        {/* <h2 className="map-h2">Package Location</h2> */}
 
         <div className="google-map">
           <GoogleMapReact
