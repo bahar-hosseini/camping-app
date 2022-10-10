@@ -14,19 +14,19 @@ export default function SearchProvider(props) {
   const [endDate, setEndDate] = useState(new Date())
   const [category, setCategories] = useState(0)
   // const [dateRange, setDateRange] = useState(startDate, endDate )
-  const [packages, setPackages] = useState([]);
-  const [isLogin, setIsLogin] = useState(false);
-  
-  const [loading, setLoading] = useState(false);
-  const isLoadedRef = useRef(false);
-  const [loadMap, setLoadMap] = useState(false);
+  const [packages, setPackages] = useState([])
+  const [isLogin, setIsLogin] = useState(false)
 
-// load 4 (first row )
-//
-//
-//
-//
-//
+  const [loading, setLoading] = useState(false)
+  const isLoadedRef = useRef(false)
+  const [loadMap, setLoadMap] = useState(false)
+
+  // load 4 (first row )
+  //
+  //
+  //
+  //
+  //
 
   // on page load
   // useEffect(() => {
@@ -46,6 +46,7 @@ export default function SearchProvider(props) {
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
       e.target.documentElement.scrollHeight
     ) {
+      console.log('teeest')
       loadPackage()
     }
   }
@@ -53,15 +54,16 @@ export default function SearchProvider(props) {
 
   const loadPackage = () => {
     axios.get(`/api/packages/`, { params: { offset } }).then((res) => {
-      setPackages((prev) => [...res.data.data.rows])
+      setPackages((prev) => [...prev, ...res.data.data.rows])
       isLoadedRef.current = true
     })
-    return (offset += 3)
+
+    return (offset += 12)
   }
   useEffect(() => {
     loadPackage()
     window.addEventListener('scroll', handleScroll)
-    return () => console.log('check')
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   ////////////////////////////////////
@@ -80,20 +82,22 @@ export default function SearchProvider(props) {
   useEffect(() => {
     if (isLoadedRef.current === false) return
     axios
-      .get("/api/packages")
+      .get('/api/packages')
       // .then(()=> setDateRange(startDate, endDate))
       .then((res) => {
-        setPackages(res.data.data.rows);
-        isLoadedRef.current = true;
+        setPackages(res.data.data.rows)
+        isLoadedRef.current = true
         setLoadMap(true)
-      });
-    return () => setPackages([]);
-  }, []);
+      })
+    return () => setPackages([])
+  }, [])
 
   useEffect(() => {
-    if (isLoadedRef.current === false) return;
+    if (isLoadedRef.current === false) return
     axios
-      .get("/api/packages/filter/", { params: { category, endDate, startDate } })
+      .get('/api/packages/filter/', {
+        params: { category, endDate, startDate },
+      })
       // .then((res) => console.log(res.data.data))
       .then((res) => {
         setPackages(res.data.data)
@@ -124,7 +128,6 @@ export default function SearchProvider(props) {
       } else if (res.data === 'out') {
         return setIsLogin(false)
       }
-
     }, [])
     // this is the old way we were doing it, if the current way breaks
     // roll back to this:
@@ -135,9 +138,7 @@ export default function SearchProvider(props) {
     //   return setIsLogin(false)
     // }
   })
-    
 
-  
   // axios.get('/api/login').then((res) => {
   //   // console.log('This is cookie from back-->front', res.status)
 
@@ -161,9 +162,9 @@ export default function SearchProvider(props) {
     isLogin,
     setIsLogin,
     setPackages,
-    setLoading, 
-    loadMap
-   };
+    setLoading,
+    loadMap,
+  }
   // We can now use this as a component to wrap anything
   // that needs our state
   return (
