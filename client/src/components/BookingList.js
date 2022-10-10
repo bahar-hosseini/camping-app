@@ -12,6 +12,7 @@ const BookingList = () => {
   const [bookings, setBookings] = useState([])
   const { rangeToDays } = useSearch()
   // const [buttonMode, setButtonMode] = useState("DEFAULT");
+
   useEffect(() => {
     axios.get('/api/bookings').then((res) => {
       setBookings(res.data.data.rows)

@@ -12,7 +12,12 @@ export const useSearch = () => useContext(searchContext)
 
 export default function SearchProvider(props) {
   const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
+
+  const today = new Date()
+  let tomorrow = new Date()
+  tomorrow.setDate(today.getDate() + 1)
+
+  const [endDate, setEndDate] = useState(tomorrow)
   const [category, setCategories] = useState(0)
   // const [dateRange, setDateRange] = useState(startDate, endDate )
   const [packages, setPackages] = useState([])
@@ -58,7 +63,7 @@ export default function SearchProvider(props) {
     }
   }
 
-  let offset = 8
+  let offset = 0
 
   const loadPackage = () => {
     axios.get(`/api/packages/`, { params: { offset } }).then((res) => {

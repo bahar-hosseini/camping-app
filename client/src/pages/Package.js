@@ -132,7 +132,11 @@ export function Package() {
                 et, rhoncus ac elit.
               </p>
               <h2>Ask the owner a question:</h2>
-              <MessageBox />
+              {/* <MessageBox /> */}
+              <Message
+                packageID={packageItem.id}
+                packageOwner={packageItem.email}
+              />
               <h2>Package location:</h2>
             </div>
             <BookingBox
@@ -148,7 +152,6 @@ export function Package() {
           <div>
             <Map location={location} zoomLevel={12.5} />
           </div>
-          {/* <Message packageID={packageItem.id} /> */}
           {/* <MessageArea packageID={packageItem.id} /> */}
         </>
       )}
