@@ -10,12 +10,8 @@ export const useSearch = () => useContext(searchContext)
 //todo:change file name to dataprovider
 
 export default function SearchProvider(props) {
-  const today = new Date()
-  const tomorrow = new Date(today)
-  tomorrow.setDate(tomorrow.getDate() + 1)
-  
-  const [endDate, setEndDate] = useState(tomorrow)
-  const [startDate, setStartDate] = useState(today)
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
   const [category, setCategories] = useState(0)
   // const [dateRange, setDateRange] = useState(startDate, endDate )
   const [packages, setPackages] = useState([])

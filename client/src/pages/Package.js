@@ -8,7 +8,6 @@ import "react-calendar/dist/Calendar.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 import { useSearch } from "../providers/SearchProvider";
 import { Map } from "../components/Map"; // import the map here
 import { ProductGrid } from "../components/ProductGrid";
@@ -72,19 +71,12 @@ export function Package() {
   //   return ()=>console.log('This is my cleanup')
   //   }
   // }, [id])
- 
- 
 
   let location = {
     address: packageItem.latitude,
-    lat: packageItem.latitude, 
-    lng: packageItem.longitude  
+    lat: packageItem.latitude,
+    lng: packageItem.longitude,
   };
-  
- 
-
-
-
 
   return (
     <div className="Package">
@@ -143,12 +135,13 @@ export function Package() {
               endDate={endDate}
               diff={diff}
             />
+            {/* <Message packageID={packageItem.id} /> */}
           </div>
 
           <div>
-            <Map location={location} zoomLevel={12.5} /> 
+            <Map location={location} zoomLevel={12.5} />
           </div>
-          <Message packageID={packageItem.id}  />
+          {/* <Message packageID={packageItem.id} /> */}
           {/* <MessageArea packageID={packageItem.id} /> */}
         </>
       )}
