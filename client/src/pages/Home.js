@@ -87,7 +87,8 @@ export function Home() {
         <h1>Loading...</h1>
       ) : (
         <>
-            <h1 className="header-text">find your next adventure</h1>
+          
+          <div className="top-area"><h1 className="header-text">campr</h1></div>
           <div className="selector-container">
             <div className="date-picker-section">
             <div>
@@ -100,7 +101,6 @@ export function Home() {
           </div>
           <div className="selector-container-empty">
           </div>
-          <div className="top-area" />
           <div className="gallery-container">
             <div className="package-gallery">{packageGallery}</div>
           </div>
