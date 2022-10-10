@@ -8,11 +8,12 @@ import { Link } from 'react-router-dom'
 import './styles/BookingListItem.scss'
 import { formatDateTitles } from '../helpers/formatDateTitles'
 import Button from './Button'
-// import axios from 'axios'
+import { formatDistanceStrict, format } from "date-fns";
 
 // Component to display individual Booking Item
 const BookingListItem = (props) => {
   const [buttonMode, setButtonMode] = useState('DEFAULT')
+  console.log(props);
 
   const clickedButton = async (id) => {
     setButtonMode('LOADING')
@@ -41,13 +42,12 @@ const BookingListItem = (props) => {
       <div className='booking-content'>
         <div className='top-section'>
           <h2>{formatDateTitles(props.category)} Person Package</h2>
-          <h2 className='start-end-date'>
-            {props.start_date} - {props.end_date}
+          <h2 className='start-end-date' style={{fontSize: "1.2rem"}}>
+            {props.start_date} - {props.end_date} ({props.duration} Days)
           </h2>
-          {props.duration} Days
         </div>
         <div className='booking-btn-price'>
-          <h2 className='booking-price'>${props.price * props.duration}</h2>
+          <h2 className='booking-price'>Total: ${(props.price * props.duration * 1.13).toFixed(2)}</h2>
           <div>
             {/* <Button
               className="btn-cancel"

@@ -62,7 +62,7 @@
   }
   
   &-cancel {
-    background-color: #2732d4;
+    background-color: #ff6138;
     padding: 1.5rem;
     width: 13rem;
     border-radius: 40px;
@@ -75,14 +75,16 @@
     cursor: pointer;
   }
   &-cancel-clicked {
-    background-color: #2732d4;
+    background-color: #ff6138;
     padding: 1.5rem;
     width: 13rem;
     border-radius: 40px;
     border: none;
     filter: drop-shadow(0px 0px 4px #00000025);
     h4 {
+      color: white;
       margin: 0px;
+      margin-left: 0.5rem;
     }
     cursor: pointer;
   }

@@ -57,7 +57,7 @@ export default function SearchProvider(props) {
   const handleScroll = (e) => {
     if (
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
-      e.target.documentElement.scrollHeight
+      e.target.documentElement.scrollHeight && !packageLoad
     ) {
       loadPackage()
     }
