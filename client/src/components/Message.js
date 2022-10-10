@@ -10,6 +10,7 @@ const Message = (props) => {
   const [message, setMessage] = useState('')
   const [text, setText] = useState([])
   const [isSubmit, setIsSubmit] = useState(false)
+  const [boxState, setBoxState] = useState('READY'); // state that controls if the box says message sent or not
 
   const { startDate, endDate, isLogin } = useContext(searchContext)
   const [messageStatus, setMessageStatus] = useState(false)
@@ -27,19 +28,27 @@ const Message = (props) => {
     const resetStates = () => {
       setMessage('')
     }
-
+    setBoxState('SENDING');
     axios
       .post(`/api/message`, JSON.stringify({ message, id: props.packageID }), {
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
         withCredentials: true,
       })
       .then(() => {
-        isSubmit ? setIsSubmit(false) : setIsSubmit(true)
-        resetStates()
+        isSubmit ? setIsSubmit(false) : setIsSubmit(true);
+        setTimeout(() => {
+          setBoxState("SENT");
+          resetStates();
+        }, 1000);
+      })
+      .then(() => {
+        setTimeout(() => {
+          setBoxState("READY");
+        }, 2000);
       })
       .catch((err) => {
-        console.log(err, 'Message is not sent')
-      })
+        console.log(err, "Message is not sent");
+      });
     //////////////////////// Email sent via EmailJS.com ///////////////////////////////
     emailjs
       .sendForm(
@@ -77,7 +86,8 @@ const Message = (props) => {
   })
   return (
     <>
-      {isLogin && (
+      {/* LOGGED IN and READY */}
+      {(isLogin && boxState === 'READY') && (
         <form onSubmit={handleSubmit}>
           <div className='message-box-column'>
             <div className='message-box-container'>
@@ -104,6 +114,28 @@ const Message = (props) => {
               {/* <button type='submit ' name='button '>
                 Send
               </button> */}
+            </div>
+          </div>
+        </form>
+      )}
+      {/* LOGGED IN and SENDING */}
+      {(isLogin && boxState === 'SENDING') && (
+        <form onSubmit={handleSubmit}>
+          <div className='message-box-column'>
+            <div className='message-box-container'>
+           
+            <div className="loading-spin" />
+            
+            </div>
+          </div>
+        </form>
+      )}
+      {/* LOGGED IN and SENDING */}
+      {(isLogin && boxState === 'SENT') && (
+        <form onSubmit={handleSubmit}>
+          <div className='message-box-column'>
+            <div className='message-box-container'>
+            <h3>Your message has been sent!</h3>
             </div>
           </div>
         </form>

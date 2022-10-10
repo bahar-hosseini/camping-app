@@ -58,6 +58,29 @@ textarea::-webkit-scrollbar-thumb {
   // overflow-y: scroll;
 }
 
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+.loading-spin::before {
+  animation: 0.75s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 3px #2732d4;
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  content: "";
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+
 
 
 
