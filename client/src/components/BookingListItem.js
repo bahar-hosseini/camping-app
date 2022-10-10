@@ -24,9 +24,8 @@ const BookingListItem = (props) => {
   }
 
   const redirectToPackage = () => {
-    return window.location = `/package/${props.package_id}`
+    return (window.location = `/package/${props.package_id}`)
   }
-  
 
   return (
     <div className='booking-item-box'>
@@ -42,11 +41,13 @@ const BookingListItem = (props) => {
       <div className='booking-content'>
         <div className='top-section'>
           <h2>{formatDateTitles(props.category)} Person Package</h2>
-          <h2 className='start-end-date'>{props.start_date} - {props.end_date}</h2>
-          {/* Description: {props.description} */}
+          <h2 className='start-end-date'>
+            {props.start_date} - {props.end_date}
+          </h2>
+          {props.duration} Days
         </div>
         <div className='booking-btn-price'>
-          <h2 className='booking-price'>${props.price} per day</h2>
+          <h2 className='booking-price'>${props.price * props.duration}</h2>
           <div>
             {/* <Button
               className="btn-cancel"
