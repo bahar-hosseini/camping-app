@@ -1,35 +1,43 @@
-.booking-box-container {
+textarea::-webkit-scrollbar {
+  background: rgba(255, 255, 255, 0);
+  width: 12px;
+  padding-right: 1rem;
+}
+
+textarea::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+  padding-right: 1rem;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 8px;
+  width: 8px;
+  border: 3px solid white;
+}
+
+.message-box-container {
   // position: sticky;
-  // top: 6rem;
+  // top: 40rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 40px;
-  background-color: #fff;
+  background-color: rgb(73, 127, 255);
   filter: drop-shadow(0px 4px 7px #00000020);
   margin-top: 1.5rem;
   max-height: 22.75rem;
-  // h4{
-  //   font-size: 0.8rem;
-  //   padding: 2%;
-  // }
-  // .booking-info{
-  //   margin-bottom: 5%;
-  // }
-  //   .btn-booking{
-
-  //   font-family: inherit;
-  //   font-weight: 500;
-  //   font-size: 16px;
-  //   padding: 0.7em 2em 0.7em 2em;
-  //   color: 	#000000;
-  //   background: linear-gradient(0deg, rgba(249,198,245,2) 0%, rgb(208, 137, 202) 100%);
-  //   border: none;
-  //   box-shadow: 0 0.7em 1.5em -0.5em #b25aab;
-  //   border-radius: 20em;
-  //   cursor: pointer;
-  // }
 }
+
+.message-text-area{
+  border-radius: 10px;
+  padding: 0.5rem;
+  border: 0.75px solid #c7c7c7;
+  resize: none;
+  overflow:hidden;
+  overflow-y: scroll;
+}
+
 
 .booking-info {
   display: flex;

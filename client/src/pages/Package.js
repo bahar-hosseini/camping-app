@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 // import { ReactCalendar } from "../components/Calendar";
 import { formatDateTitles } from "../helpers/formatDateTitles";
 import { BookingBox } from "../components/BookingBox";
+import { MessageBox } from "../components/MessageBox";
 import { PackageInfoCard } from "../components/PackageInfoCard";
 import "react-calendar/dist/Calendar.css";
 import { useState, useEffect } from "react";
@@ -131,6 +132,7 @@ export function Package() {
                 et, rhoncus ac elit.
               </p>
             </div>
+            <div className="package-boxes">
             <BookingBox
               price={packageItem.price}
               packageID={packageItem.id}
@@ -138,6 +140,8 @@ export function Package() {
               endDate={endDate}
               diff={diff}
             />
+            <MessageBox/>
+            </div>
             {/* <Message packageID={packageItem.id} /> */}
           </div>
 
