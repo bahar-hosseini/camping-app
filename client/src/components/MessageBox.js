@@ -8,7 +8,7 @@ import { useContext } from 'react'
 import SendIcon from '../assets/send.svg'
 
 export function MessageBox(props) {
-  const { startDate, endDate, isLogin } = useContext(searchContext)
+  const { isLogin } = useContext(searchContext)
   const [messageStatus, setMessageStatus] = useState(false)
 
   const handleMessage = () => {

@@ -26,6 +26,7 @@ export default function SearchProvider(props) {
   const [loading, setLoading] = useState(false)
   const isLoadedRef = useRef(false)
   const [loadMap, setLoadMap] = useState(false)
+  const [packageLoad, setPackageLoad] = useState(false);
 
   // load 4 (first row )
   //
@@ -58,7 +59,6 @@ export default function SearchProvider(props) {
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
       e.target.documentElement.scrollHeight
     ) {
-      console.log('teeest')
       loadPackage()
     }
   }
@@ -67,8 +67,14 @@ export default function SearchProvider(props) {
 
   const loadPackage = () => {
     axios.get(`/api/packages/`, { params: { offset } }).then((res) => {
-      setPackages((prev) => [...prev, ...res.data.data.rows])
-      isLoadedRef.current = true
+      if (res.data.data.rows.length > 0) {
+        setPackageLoad(true)
+        setTimeout(()=>{
+          setPackages((prev) => [...prev, ...res.data.data.rows])
+          isLoadedRef.current = true
+          setPackageLoad(false)
+        },1200)
+      }
     })
 
     return (offset += 12)
@@ -191,6 +197,7 @@ export default function SearchProvider(props) {
     setLoading,
     loadMap,
     rangeToDays,
+    packageLoad,
   }
   // We can now use this as a component to wrap anything
   // that needs our state

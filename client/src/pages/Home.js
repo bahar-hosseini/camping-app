@@ -22,6 +22,7 @@ export function Home() {
     loading,
     testContextItem,
     loadMap,
+    packageLoad
   } = useContext(searchContext)
 
   // const [search_query, setSearchQuery] = useState("");
@@ -108,6 +109,8 @@ export function Home() {
           <div className="gallery-container">
             <div className="package-gallery">{packageGallery}</div>
           </div>
+          <br/>
+            {packageLoad && <div><div className="loading-spin" /></div>}
 
           {/* {loadMap && <MapMultiHome location={locations} zoomLevel={12} />} */}
         </>
