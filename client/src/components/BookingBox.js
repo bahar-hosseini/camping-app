@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles/BookingBox.scss";
 import axios from "axios";
-import { formatDistanceStrict } from "date-fns";
+import { formatDistanceStrict, format } from "date-fns";
 import { DatePickerBar } from "./DatePickerBar";
 import Button from "./Button";
 // import "./styles/DatePicker.scss";
@@ -43,83 +43,147 @@ export function BookingBox(props) {
     unit: "day",
   });
 
-  const rangeToDays = (start, end) => {
-    return Math.abs(Math.round((start - end) / 1000 / 60 / 60 / 24));
-  };
+  // const rangeToDays = (start, end) => {
+  //   return Math.abs(Math.round((start - end) / 1000 / 60 / 60 / 24));
+  // };
+
+  function rangeToDays(start, end) {
+    const date1 = new Date(format(start, "MM/dd/yyyy"));
+    const date2 = new Date(format(end, "MM/dd/yyyy"));
+
+    // One day in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    // Calculating the time difference between two dates
+    const diffInTime = date2.getTime() - date1.getTime();
+
+    // Calculating the no. of days between two dates
+    const diffInDays = Math.round(diffInTime / oneDay);
+
+    return diffInDays;
+  }
 
   return (
-    <div className="booking-box-container">
-      <div className="booking-info">
-        <h2 className="package-price-box">
-          ${props.price}{" "}
-          <span style={{ fontWeight: "normal", fontSize: "20px" }}>
-            per day
-          </span>
-        </h2>
-        {/* {console.log(this.startDate)} */}
-        {/* <h2>Duration: {duration}</h2> */}
-        <DatePickerBar />
-        <div className="price-section">
-          <div className="price-row">
-            <div>Price x {duration}</div>
-            <div>
-              ${(rangeToDays(startDate, endDate) * props.price).toFixed(2)}
+    <>
+      <div className="booking-box-container">
+        <div className="booking-info">
+          <h2 className="package-price-box">
+            ${props.price}{" "}
+            <span style={{ fontWeight: "normal", fontSize: "20px" }}>
+              per day
+            </span>
+          </h2>
+          {/* {console.log(this.startDate)} */}
+          {/* <h2>Duration: {duration}</h2> */}
+          <DatePickerBar />
+          <div className="price-section">
+            <div className="price-row">
+              <div>Price x {rangeToDays(startDate, endDate)}</div>
+              <div>
+                ${(rangeToDays(startDate, endDate) * props.price).toFixed(2)}
+              </div>
             </div>
-          </div>
-          <div className="price-row">
-            <div>Tax (13%)</div>
-            <div>
-              $
-              {(rangeToDays(startDate, endDate) * props.price * 0.13).toFixed(
-                2
-              )}
-            </div>
-          </div>
-          <div className="price-row">
-            <div>
-              <span style={{ fontWeight: "bold" }}>Total</span>
-            </div>
-            <div>
-              <span style={{ fontWeight: "bold" }}>
+            <div className="price-row">
+              <div>Tax (13%)</div>
+              <div>
                 $
-                {(rangeToDays(startDate, endDate) * props.price * 1.13).toFixed(
+                {(rangeToDays(startDate, endDate) * props.price * 0.13).toFixed(
                   2
                 )}
-              </span>
+              </div>
+            </div>
+            <div className="price-row">
+              <div>
+                <span style={{ fontWeight: "bold" }}>Total</span>
+              </div>
+              <div>
+                <span style={{ fontWeight: "bold" }}>
+                  $
+                  {(
+                    rangeToDays(startDate, endDate) *
+                    props.price *
+                    1.13
+                  ).toFixed(2)}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        {!isLogin && (
-          <div className="book-button">
-            <Button className="btn-book-disabled">
-              Please Log In
-            </Button>
-          </div>
-        )}
-        {isLogin && (
-          <div className="book-button">
-            {!bookingCreated ? (
-              <Button onClick={handleBooking} className="btn-book">
-                Book
-              </Button>
-            ) : (
-              <Button className="btn-book">
-                <div className="spin" />
-                Working
-              </Button>
-            )}
-          </div>
-        )}
-        {/* <span>
+          {!isLogin && (
+            <div className="book-button">
+              <Button className="btn-book-disabled">Please Log In</Button>
+            </div>
+          )}
+          {isLogin && (
+            <div className="book-button">
+              {!bookingCreated ? (
+                <Button onClick={handleBooking} className="btn-book">
+                  Book
+                </Button>
+              ) : (
+                <Button className="btn-book">
+                  <div className="spin" />
+                  Working
+                </Button>
+              )}
+            </div>
+          )}
+          {/* <span>
           <DatePicker onChange={props.setStartDate} value={props.startDate} />
         </span>
         <span>
           <DatePicker onChange={props.setEndDate} value={props.endDate} />
         </span> */}
-      </div>
-      {/* <button className="btn-booking" onClick={handleBooking}>
+        </div>
+        {/* <button className="btn-booking" onClick={handleBooking}>
         BOOK
       </button> */}
-    </div>
+      </div>
+{/* submit box starts here _--------------------------------------------------------------------- */}
+      <div className="booking-box-container">
+        <div className="booking-info">
+          <h2 className="package-price-box">
+            <span style={{ fontWeight: "normal", fontSize: "20px" }}>
+              Contact package Owner
+            </span>
+          </h2>
+
+          <div className="price-section">
+            <div className="price-row">
+              <div>Your Message</div>
+            </div>
+
+            <div className="price-row" border="0px">
+              <div>
+                <textarea
+                  placeholder="Message "
+                  name="message"
+                  rows="6"
+                  cols="35"
+                ></textarea>{" "}
+              </div>
+            </div>
+          </div>
+          {!isLogin && (
+            <div className="book-button">
+              <Button className="btn-book-disabled">Send Message</Button>
+            </div>
+          )}
+          {isLogin && (
+            <div className="book-button">
+              {!bookingCreated ? (
+                <Button onClick={handleBooking} className="btn-book">
+                  Book
+                </Button>
+              ) : (
+                <Button className="btn-book">
+                  <div className="spin" />
+                  Working
+                </Button>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 }

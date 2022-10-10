@@ -6,7 +6,7 @@ const users = require('../db/queries/users')
 /* GET users listing. */
 router.get('/', (req, res) => {
   users.getAllUsers().then((data) => {
-    console.log(data)
+    //console.log(data)
     res.json({ users: data })
   })
 })

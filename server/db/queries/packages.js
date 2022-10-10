@@ -2,11 +2,11 @@ const db = require('../../configs/db.config')
 const { param } = require('../../routes')
 
 const getPackages = (eachQuery) => {
-  console.log('qqqqq', eachQuery)
+  // console.log('qqqqq', eachQuery)
   return db
     .query(
       `SELECT * FROM packages ORDER BY 
-    id LIMIT $1;`,
+    id LIMIT 12 offset $1;`,
       [eachQuery]
     )
     .then((data) => {
