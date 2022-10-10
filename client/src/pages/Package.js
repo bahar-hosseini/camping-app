@@ -131,8 +131,10 @@ export function Package() {
                 Suspendisse at nibh elit. Etiam lacus justo, tempus eu egestas
                 et, rhoncus ac elit.
               </p>
+              <h2>Ask the owner a question:</h2>
+              <MessageBox/>
+              <h2>Package location:</h2>
             </div>
-            <div className="package-boxes">
             <BookingBox
               price={packageItem.price}
               packageID={packageItem.id}
@@ -140,8 +142,6 @@ export function Package() {
               endDate={endDate}
               diff={diff}
             />
-            <MessageBox/>
-            </div>
             {/* <Message packageID={packageItem.id} /> */}
           </div>
 
