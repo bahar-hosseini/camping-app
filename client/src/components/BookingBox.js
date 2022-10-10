@@ -75,7 +75,7 @@ export function BookingBox(props) {
           </h2>
           {/* {console.log(this.startDate)} */}
           {/* <h2>Duration: {duration}</h2> */}
-          <DatePickerBar />
+          <DatePickerBar class_name={"search-box-booking"} />
           <div className="price-section">
             <div className="price-row">
               <div>Price x {duration}</div>

@@ -9,7 +9,7 @@
 .spin::before {
   animation: 0.75s linear infinite spinner;
   animation-play-state: inherit;
-  border: solid 3px black;
+  border: solid 3px rgb(255, 255, 255);
   border-bottom-color: rgba(0, 0, 0, 0);
   border-radius: 50%;
   content: "";
@@ -23,24 +23,26 @@
 }
 
 .btn {
-  background-color: #f9c6f5;
+  background-color: #2732d4;
   padding: 1.5rem;
   width: 12rem;
   border-radius: 40px;
   border: none;
   filter: drop-shadow(0px 0px 4px #00000025);
   h4 {
+    color: white;
     margin: 0px;
   }
   cursor: pointer;
   &-book {
-    background-color: #f9c6f5;
+    background-color: #2732d4;
     padding: 1.5rem;
     width: 15rem;
     border-radius: 40px;
     border: none;
     filter: drop-shadow(0px 0px 4px #00000025);
     h4 {
+      color: white;
       margin: 0px;
     }
     cursor: pointer;
@@ -52,6 +54,7 @@
       border: none;
       filter: drop-shadow(0px 0px 4px #00000025);
       h4 {
+        color: white;
         margin: 0px;
         color: rgb(95, 95, 95);
       }
@@ -59,19 +62,20 @@
   }
   
   &-cancel {
-    background-color: #f9c6f5;
+    background-color: #2732d4;
     padding: 1.5rem;
     width: 13rem;
     border-radius: 40px;
     border: none;
     filter: drop-shadow(0px 0px 4px #00000025);
     h4 {
+      color: white;
       margin: 0px;
     }
     cursor: pointer;
   }
   &-cancel-clicked {
-    background-color: #f9c6f5;
+    background-color: #2732d4;
     padding: 1.5rem;
     width: 13rem;
     border-radius: 40px;
@@ -83,7 +87,7 @@
     cursor: pointer;
   }
   &-message{
-    background-color: #f9c6f5;
+    background-color: #2732d4;
     width: 20rem;
     border-radius: 20px;
     border: none;
@@ -93,7 +97,7 @@
       margin: 0px;
     }
     img {
-      // filter: invert(100%);
+      filter: invert(100%);
     }
   }
 }

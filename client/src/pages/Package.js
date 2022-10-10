@@ -115,7 +115,7 @@ export function Package() {
               <h2>
                 {formatDateTitles(packageItem.category)} Person Package
                 <br />
-                Gear owned by user {packageItem.name}
+                Gear owned by {packageItem.name}
               </h2>
               <p className='description-box'>{packageItem.description}</p>
               <h2>Check out the gear:</h2>

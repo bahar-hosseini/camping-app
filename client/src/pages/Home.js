@@ -5,6 +5,7 @@ import { DatePickerBar } from '../components/DatePickerBar'
 import { useContext } from 'react'
 import { searchContext } from '../providers/SearchProvider'
 import PackageListItem from '../components/PackageListItem'
+import TentLogo from "../assets/tent_icon.svg";
 import { MapMultiHome } from '../components/MapMultiHome' // import the map here
 // import MapWrapper from "../components/Map";
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
@@ -87,7 +88,11 @@ export function Home() {
       ) : (
         <>
           
-          <div className="top-area"><h1 className="header-text">campr</h1></div>
+          <div className="top-area"><h1 className="header-text">campr</h1><img
+              src={TentLogo}
+              alt="lantern"
+              width="70px"
+            ></img></div>
           <div className="selector-container">
             <div className="date-picker-section">
             <div>

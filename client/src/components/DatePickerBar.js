@@ -6,6 +6,7 @@ import './styles/DatePicker.scss'
 import { searchContext } from '../providers/SearchProvider'
 
 export function DatePickerBar(props) {
+  console.log('PROPS', props);
   const { startDate, endDate, setStartDate, setEndDate } =
     useContext(searchContext)
 
@@ -14,7 +15,7 @@ export function DatePickerBar(props) {
   let tomorrow = new Date()
   tomorrow.setDate(today.getDate() + 1)
   return (
-    <div className='search-box'>
+    <div className={props.class_name ? props.class_name : 'search-box' }>
       <div className='start-date'>
         <h5>From</h5>
         <DatePicker onChange={setStartDate} minDate={today} value={startDate} />
