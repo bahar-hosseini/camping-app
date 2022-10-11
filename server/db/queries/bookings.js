@@ -12,7 +12,8 @@ const getBookings = (userId) => {
        FROM bookings
        JOIN packages
        ON packages.id = package_id
-       WHERE bookings.user_id =$1;`,
+       WHERE bookings.user_id =$1
+       ORDER BY bookings.start_date;`,
       [userId]
     )
     .then((data) => {

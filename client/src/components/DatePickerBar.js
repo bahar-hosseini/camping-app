@@ -14,6 +14,9 @@ export function DatePickerBar(props) {
   const today = new Date()
   let tomorrow = new Date()
   tomorrow.setDate(today.getDate() + 1)
+
+
+  
   return (
     <div className={props.class_name ? props.class_name : 'search-box' }>
       <div className='start-date'>
@@ -22,7 +25,7 @@ export function DatePickerBar(props) {
       </div>
       <div className='end-date'>
         <h5>Until</h5>
-        <DatePicker onChange={setEndDate} value={endDate} minDate={tomorrow} />
+        <DatePicker onChange={setEndDate} value={endDate} minDate={startDate} />
       </div>
     </div>
   )

@@ -33,7 +33,7 @@ export function Map({ location, zoomLevel }) {
               mapTypeControl: false,
               panControl: false,
               zoomControl: false,
-              disableDoubleClickZoom: true,
+              disableDoubleClickZoom: false,
               rotateControl: false,
               scrollwheel: false,
               fullscreenControl: false
@@ -44,7 +44,7 @@ export function Map({ location, zoomLevel }) {
             <LocationPin
               lat={location.lat}
               lng={location.lng}
-              text={location.address}
+              // text={"location.address"}
             />
            
             {/* {location.length < 2 && <LocationPin
