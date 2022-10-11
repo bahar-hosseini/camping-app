@@ -26,7 +26,7 @@ export default function SearchProvider(props) {
   const [loading, setLoading] = useState(false)
   const isLoadedRef = useRef(false)
   const [loadMap, setLoadMap] = useState(false)
-  const [packageLoad, setPackageLoad] = useState(false)
+  const [packageLoad, setPackageLoad] = useState(false);
 
   // load 4 (first row )
   //
@@ -56,13 +56,8 @@ export default function SearchProvider(props) {
 
   const handleScroll = (e) => {
     if (
-      (window.innerHeight + e.target.documentElement.scrollTop + 1 >=
-        e.target.documentElement.scrollHeight &&
-        !packageLoad &&
-        category !== 1) ||
-      category !== 2 ||
-      category !== 3 ||
-      category !== 4
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight && !packageLoad && category === 0
     ) {
       loadPackage()
     }
@@ -74,14 +69,15 @@ export default function SearchProvider(props) {
     axios.get(`/api/packages/`, { params: { offset } }).then((res) => {
       if (res.data.data.rows.length > 0) {
         setPackageLoad(true)
-        setTimeout(() => {
+        setTimeout(()=>{
           setPackages((prev) => [...prev, ...res.data.data.rows])
           isLoadedRef.current = true
           setPackageLoad(false)
           return (offset += 12)
-        }, 800)
+        },800)
       }
     })
+
   }
   useEffect(() => {
     loadPackage()
