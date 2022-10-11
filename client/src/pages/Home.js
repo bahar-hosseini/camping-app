@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
-import './styles/Home.scss'
-import { CategoryLinksBar } from '../components/CategoryLinksBar'
-import { DatePickerBar } from '../components/DatePickerBar'
-import { useContext } from 'react'
-import { searchContext } from '../providers/SearchProvider'
-import PackageListItem from '../components/PackageListItem'
-import TentLogo from "../assets/tent_icon.svg";
-import { MapMultiHome } from '../components/MapMultiHome' // import the map here
+import { useEffect, useRef, useState } from "react";
+import "./styles/Home.scss";
+import { CategoryLinksBar } from "../components/CategoryLinksBar";
+import { DatePickerBar } from "../components/DatePickerBar";
+import { useContext } from "react";
+import { searchContext } from "../providers/SearchProvider";
+import PackageListItem from "../components/PackageListItem";
+import TentLogo from "../assets/tent_anim.png";
+import { MapMultiHome } from "../components/MapMultiHome"; // import the map here
 // import MapWrapper from "../components/Map";
 // import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import React from 'react'
+import React from "react";
 
 export function Home() {
   const {
@@ -22,8 +22,8 @@ export function Home() {
     loading,
     testContextItem,
     loadMap,
-    packageLoad
-  } = useContext(searchContext)
+    packageLoad,
+  } = useContext(searchContext);
 
   // const [search_query, setSearchQuery] = useState("");
   // const [filterByCategory, setFilterByCategory] = useState(0);
@@ -33,12 +33,12 @@ export function Home() {
   useEffect(() => {
     const categoryFilter = function (data) {
       if (category !== 0) {
-        const cF = data.filter((pack) => pack.category === category)
-        return cF
+        const cF = data.filter((pack) => pack.category === category);
+        return cF;
       }
-      return data
-    }
-  })
+      return data;
+    };
+  });
   // function filterItems()  {axios
   //   .get("/api/packages/filter", { params: { category, endDate, startDate } })
   //   // .then((res) => console.log(res.data.data))
@@ -72,15 +72,15 @@ export function Home() {
         category={packageItem.category}
         availability={packageItem.availability}
       />
-    )
-  })
+    );
+  });
 
   let locations = packages.map((loco, index) => {
     return {
       lat: loco.latitude,
       lng: loco.longitude,
-    }
-  })
+    };
+  });
 
   return (
     <>
@@ -88,33 +88,36 @@ export function Home() {
         <h1>Loading...</h1>
       ) : (
         <>
-          
-          <div className="top-area"><h1 className="header-text">campr</h1><img
-              src={TentLogo}
-              alt="lantern"
-              width="70px"
-            ></img></div>
+          <div className="top-area">
+            <div className="top-image">
+              <img src={TentLogo} alt="lantern" width="175px"></img>
+              <h1 className="header-text">campr</h1>
+            </div>
+          </div>
           <div className="selector-container">
             <div className="date-picker-section">
-            <div>
-              <DatePickerBar />
+              <div>
+                <DatePickerBar />
               </div>
               <div>
                 <CategoryLinksBar />
               </div>
             </div>
           </div>
-          <div className="selector-container-empty">
-          </div>
+          <div className="selector-container-empty"></div>
           <div className="gallery-container">
             <div className="package-gallery">{packageGallery}</div>
           </div>
-          <br/>
-            {packageLoad && <div><div className="loading-spin" /></div>}
+          <br />
+          {packageLoad && (
+            <div>
+              <div className="loading-spin" />
+            </div>
+          )}
 
           {/* {loadMap && <MapMultiHome location={locations} zoomLevel={12} />} */}
         </>
       )}
     </>
-  )
+  );
 }
