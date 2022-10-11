@@ -57,7 +57,7 @@ export default function SearchProvider(props) {
   const handleScroll = (e) => {
     if (
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
-      e.target.documentElement.scrollHeight && !packageLoad
+      e.target.documentElement.scrollHeight && !packageLoad && category === 0
     ) {
       loadPackage()
     }
@@ -73,11 +73,11 @@ export default function SearchProvider(props) {
           setPackages((prev) => [...prev, ...res.data.data.rows])
           isLoadedRef.current = true
           setPackageLoad(false)
-        },1200)
+          return (offset += 12)
+        },800)
       }
     })
 
-    return (offset += 12)
   }
   useEffect(() => {
     loadPackage()
