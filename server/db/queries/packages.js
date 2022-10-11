@@ -18,9 +18,9 @@ const getPackages = (eachQuery) => {
 const getPackage = (packagetId) => {
   return db
     .query(
-      `SELECT packages.* , users.name AS name FROM packages 
-    JOIN users ON packages
-    WHERE packages.id = $1;`,
+      `SELECT packages.* , users.name AS name FROM packages
+      JOIN users ON packages.user_id=users.id 
+      WHERE packages.id = $1;`,
       [packagetId]
     )
     .then((data) => {

@@ -13,7 +13,6 @@ import { formatDistanceStrict, format } from 'date-fns'
 // Component to display individual Booking Item
 const BookingListItem = (props) => {
   const [buttonMode, setButtonMode] = useState('DEFAULT')
-  console.log('&&&&&&&&&&&', props)
 
   const clickedButton = async (id) => {
     setButtonMode('LOADING')

@@ -18,11 +18,11 @@ const Message = (props) => {
     setMessageStatus(true)
   }
 
-  console.log('_____>', props)
+
   const form = useRef()
 
   const handleSubmit = (e) => {
-    console.log('test is this work')
+
     e.preventDefault()
 
     const resetStates = () => {

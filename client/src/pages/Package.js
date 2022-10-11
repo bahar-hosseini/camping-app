@@ -32,6 +32,7 @@ export function Package() {
       axios
         .get(`/api/packages/${id}`)
         .then((res) => {
+          console.log(res,"this is my resp for package")
           if (res.data.data.rows.length === 0) {
             setLoading(false)
             return setPackageItem({})
