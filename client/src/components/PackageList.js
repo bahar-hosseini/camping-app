@@ -13,7 +13,7 @@ import './styles/PackageList.scss'
 export function PackageList() {
   // const [packages, setPackages] = useState([])
   const { packages } = useContext(searchContext)
-  console.log(packages)
+  console.log('inam bebin', packages)
 
   const packageGallery = packages.map((packageItem, index) => {
     return (

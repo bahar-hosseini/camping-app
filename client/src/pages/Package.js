@@ -24,8 +24,6 @@ export function Package() {
   const [packageItem, setPackageItem] = useState({})
   const [loading, setLoading] = useState(true)
 
-  console.log(startDate)
-
   const fetchData = () => {
     if (isNaN(+id)) {
       setLoading(false)
@@ -54,6 +52,7 @@ export function Package() {
     fetchData()
   }, [])
 
+  // console.log('This should be packageId,', packageItem)
   // useEffect(() => {
   //   if (isNaN(+id)) {
   //     return setPackageItem({});
