@@ -25,7 +25,7 @@ export default function PackageListItem(props) {
   }
   
   const rndInt = randomIntFromInterval(10, 50)
-  console.log(rndInt)
+  // console.log(rndInt)
 
 
   return (

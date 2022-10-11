@@ -62,6 +62,7 @@ export function Home() {
   // }, [packages, category, startDate, endDate]);
 
   const packageGallery = packages.map((packageItem, index) => {
+   
     return (
       <PackageListItem
         key={index}

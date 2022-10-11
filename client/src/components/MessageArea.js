@@ -54,7 +54,7 @@ const MessageArea = (props) => {
 export default MessageArea
 
 // const MessageArea = (props) => {
-//   //console.log(props)
+
 //   return (
 //     <div>
 //       <h4>user : {props.username}</h4>

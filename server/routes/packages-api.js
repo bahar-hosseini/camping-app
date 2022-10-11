@@ -34,7 +34,9 @@ router.get('/filter', function (req, res) {
 
 router.get('/:id', function (req, res) {
   let id = req.params.id
+  console.log('thisis my id',id)
   getPackage(id).then((data) => {
+    console.log(data,'@@@@@@@!!@#!@#!@#!@#!#')
     res.json({ data })
   })
 })

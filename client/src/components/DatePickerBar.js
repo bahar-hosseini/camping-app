@@ -6,7 +6,7 @@ import './styles/DatePicker.scss'
 import { searchContext } from '../providers/SearchProvider'
 
 export function DatePickerBar(props) {
-  console.log('PROPS', props);
+
   const { startDate, endDate, setStartDate, setEndDate } =
     useContext(searchContext)
 
