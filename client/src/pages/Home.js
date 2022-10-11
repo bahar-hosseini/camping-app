@@ -90,8 +90,8 @@ export function Home() {
         <>
           <div className="top-area">
             <div className="top-image">
-              <img src={TentLogo} alt="lantern" width="175px"></img>
-              <h1 className="header-text">campr</h1>
+              <img src={TentLogo} alt="lantern" width="225px"></img>
+              {/* <h1 className="header-text">campr</h1> */}
             </div>
           </div>
           <div className="selector-container">
