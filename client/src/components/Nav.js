@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { useContext } from "react";
 import { NavDropdownMenu } from "./NavDropdownMenu";
-import TentLogo from "../assets/tent_icon.svg";
+import TentLogo from "../assets/new_tent.svg";
 import ProfileCircle from "../assets/profile_circle.svg";
 import ProfileCircleLoggedIn from "../assets/person_logged_in.svg";
 import MenuBars from "../assets/menu_hamburger.svg";
@@ -73,7 +73,7 @@ export function Nav() {
               onClick={() => refreshHomepage()}
             ></img>
             <p>
-              <span style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+              <span>
                 campr
               </span>
             </p>

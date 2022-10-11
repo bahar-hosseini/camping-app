@@ -10,7 +10,7 @@
   // margin-bottom: 5rem;
 }
 .search-box-booking {
-  // z-index: 1;
+  z-index: 1;
   width: 21rem;
   display: flex;
   justify-content: space-between;
@@ -62,6 +62,7 @@
 }
 
 .react-calendar {
+  overflow: hidden;
   width: 350px;
   max-width: 100%;
   background: white;
@@ -254,3 +255,7 @@
   background-color: white;
   border-radius: 70px;
 }
+
+// .react-calendar__navigation button:disabled {
+//   border-radius: 70px
+// }
