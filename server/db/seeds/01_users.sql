@@ -4,4 +4,5 @@ VALUES
 (false,'Kenny Yanb','kenny@yanb.com','password123',5),
 (true,'Sara Dar','sara@dar.com','password123',10),
 (false,'Elizabeth Bennett','Elizabeth@hotmail.com','password123',15),
-(true,'Jeffrey Lee','jeffLee@jl.com','password123',20);
+(true,'Jeffrey Lee','jeffLee@jl.com','password123',20),
+(true,'Bigfoot','big@foot.com','password123',20);
