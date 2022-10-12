@@ -23,9 +23,11 @@ export default function PackageListItem(props) {
   function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
+// console.log(props)
+
+   const rndInt = Math.floor((props.category+props.price+props.userID)/4)
   
-  const rndInt = randomIntFromInterval(10, 50)
-  // console.log(rndInt)
+  //  console.log(rndInt)
 
 
   return (

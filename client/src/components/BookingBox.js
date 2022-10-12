@@ -13,7 +13,7 @@ export function BookingBox(props) {
   //  Handle button function: when we click on that button we are adding a new booking for that user (for now user 1)
   const { startDate, endDate, isLogin } = useContext(searchContext)
   const [bookingCreated, setBookingCreated] = useState(false)
-  console.log('=====================', props)
+  // console.log('=====================', props)
   let package_id = props.packageID
   let booking_SD = startDate
   let booking_ED = endDate
