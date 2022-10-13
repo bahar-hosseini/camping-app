@@ -7,7 +7,7 @@ For our final group project for the Lighthouse Labs web development bootcamp we 
 
 ### Video Demo
 Click to view:  
-[<img src="https://github.com/jeffreyleec/camping-app/blob/main/docs/youtube-icon.png?raw=true" width="40%">](https://www.youtube.com/watch?v=-nP0hZd7eIk "Campr Video Demo")
+[<img src="https://github.com/jeffreyleec/camping-app/blob/main/docs/youtube-icon.png?raw=true" width="10%">](https://www.youtube.com/watch?v=-nP0hZd7eIk "Campr Video Demo")
 
 ### Screenshots
 ![HOME](https://github.com/jeffreyleec/camping-app/blob/main/docs/01-home.png?raw=true)
