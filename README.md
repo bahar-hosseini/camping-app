@@ -9,7 +9,15 @@ For this final group project for the Lighthouse Labs web development bootcamp we
 Click the thumbnail below to watch a video demo of our app:  
 [<img src="https://i9.ytimg.com/vi_webp/-nP0hZd7eIk/mqdefault.webp?v=634751a0&sqp=CIi4nZoG&rs=AOn4CLCWtobnvrNqYQHgBSytgQbn-a4Cww" width="50%">](https://www.youtube.com/watch?v=-nP0hZd7eIk "Campr Video Demo")
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-nP0hZd7eIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Screenshots
+![HOME](https://github.com/jeffreyleec/camping-app/blob/main/docs/01-home.png?raw=true)
+![FILTER](https://github.com/jeffreyleec/camping-app/blob/main/docs/02-filter.png?raw=true)
+![PACKAGE PAGE](https://github.com/jeffreyleec/camping-app/blob/main/docs/03-package.png?raw=true)
+![MAP](https://github.com/jeffreyleec/camping-app/blob/main/docs/04-map.png?raw=true)
+![MESSAGING](https://github.com/jeffreyleec/camping-app/blob/main/docs/06-messaging.png?raw=true)
+![BOOKINGS](https://github.com/jeffreyleec/camping-app/blob/main/docs/07-bookings.png?raw=true)
 
 
 ### Tech Stack
