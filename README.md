@@ -6,8 +6,8 @@
 For our final group project for the Lighthouse Labs web development bootcamp we made a camping gear rental app named Campr. Campr is an app inspired by AirBnB that allows people without access to camping gear to rent gear from locals with gear to spare.
 
 ### Video Demo
-Click to view YouTube video demo:  
-[<img src="https://i9.ytimg.com/vi_webp/-nP0hZd7eIk/mqdefault.webp?v=634751a0&sqp=CIi4nZoG&rs=AOn4CLCWtobnvrNqYQHgBSytgQbn-a4Cww" width="40%">](https://www.youtube.com/watch?v=-nP0hZd7eIk "Campr Video Demo")
+Click to view:  
+[<img src="https://github.com/jeffreyleec/camping-app/blob/main/docs/youtube-icon.png?raw=true" width="40%">](https://www.youtube.com/watch?v=-nP0hZd7eIk "Campr Video Demo")
 
 ### Screenshots
 ![HOME](https://github.com/jeffreyleec/camping-app/blob/main/docs/01-home.png?raw=true)
